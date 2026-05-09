@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interalbums — The Full Experience</title>
+  <meta name="description" content="Interalbums turns your album into an immersive interactive experience. Built for independent bands who refuse to let their music disappear into a playlist." />
+  <meta property="og:title" content="Interalbums — The Full Experience" />
+  <meta property="og:description" content="Your album deserves more than a stream. Interalbums gives every song its own world." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Roboto+Slab:wght@300;400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber:       #c8841a;
+      --amber-light: #e8a830;
+      --sienna:      #8b3a0f;
+      --cream:       #f5ead0;
+      --cream-dark:  #e8d8b0;
+      --walnut:      #1c1208;
+      --walnut-mid:  #2e1f0a;
+      --mustard:     #c9a227;
+      --red-label:   #8b1a1a;
+      --red-deep:    #5c0f0f;
+      --sage:        #7a8c6e;
+      --paper:       #f0e4c8;
+
+      --font-display: 'Playfair Display', serif;
+      --font-slab:    'Roboto Slab', serif;
+      --font-body:    'Crimson Pro', serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--walnut);
+      color: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Wood grain texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 2px,
+          rgba(255,255,255,0.012) 2px,
+          rgba(255,255,255,0.012) 4px
+        ),
+        repeating-linear-gradient(
+          180deg,
+          transparent,
+          transparent 8px,
+          rgba(0,0,0,0.04) 8px,
+          rgba(0,0,0,0.04) 9px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 3rem;
+      background: rgba(28, 18, 8, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--amber);
+    }
+
+    .nav-logo {
+      font-family: var(--font-slab);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-slab);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 234, 208, 0.6);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--amber); }
+
+    .nav-cta {
+      font-family: var(--font-slab);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--walnut);
+      background: var(--amber);
+      border: none;
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 700;
+    }
+
+    .nav-cta:hover {
+      background: var(--amber-light);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 2rem 4rem;
+      position: relative;
+      background: radial-gradient(ellipse at 60% 50%,
+        #2e1a06 0%,
+        #1c1208 50%,
+        #0e0904 100%);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Warm light spill */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse,
+        rgba(200, 132, 26, 0.12) 0%,
+        transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── Hero copy ── */
+    .hero-copy {}
+
+    .hero-eyebrow {
+      font-family: var(--font-slab);
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(245, 234, 208, 0.7);
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+      max-width: 420px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--font-slab);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--walnut);
+      background: var(--amber);
+      border: none;
+      padding: 1rem 2.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--amber-light);
+      box-shadow: 0 0 30px rgba(200, 132, 26, 0.4);
+    }
+
+    .btn-secondary {
+      font-family: var(--font-slab);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--amber);
+      background: transparent;
+      border: 1.5px solid rgba(200, 132, 26, 0.5);
+      padding: 1rem 2.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--amber);
+      background: rgba(200, 132, 26, 0.08);
+    }
+
+    /* ── Vinyl Record ── */
+    .vinyl-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .vinyl {
+      width: min(420px, 90vw);
+      height: min(420px, 90vw);
+      border-radius: 50%;
+      position: relative;
+      animation: spin 18s linear infinite;
+      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.8)) drop-shadow(0 0 40px rgba(200,132,26,0.15));
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* Vinyl grooves */
+    .vinyl-disc {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background:
+        /* Groove rings */
+        repeating-radial-gradient(
+          circle at center,
+          #0a0604 0px,
+          #0a0604 1px,
+          #1a1008 2px,
+          #0d0806 3px,
+          #141008 4px,
+          #080503 5px
+        );
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Vinyl sheen */
+    .vinyl-disc::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(200,132,26,0.06) 40deg,
+        transparent 80deg,
+        rgba(200,132,26,0.04) 160deg,
+        transparent 200deg,
+        rgba(255,255,255,0.03) 280deg,
+        transparent 320deg,
+        transparent 360deg
+      );
+    }
+
+    /* Center label */
+    .vinyl-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36%;
+      height: 36%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 40% 35%,
+        #a82020 0%,
+        #8b1a1a 40%,
+        #5c0f0f 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        inset 0 2px 8px rgba(0,0,0,0.5),
+        0 2px 12px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .vinyl-label-name {
+      font-family: var(--font-slab);
+      font-size: clamp(0.35rem, 1.5vw, 0.55rem);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .vinyl-label-divider {
+      width: 50%;
+      height: 0.5px;
+      background: rgba(245,234,208,0.3);
+      margin: 0.2rem 0;
+    }
+
+    .vinyl-label-sub {
+      font-family: var(--font-body);
+      font-size: clamp(0.25rem, 1vw, 0.4rem);
+      font-style: italic;
+      color: rgba(245,234,208,0.65);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* Spindle hole */
+    .vinyl-hole {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2.5%;
+      height: 2.5%;
+      border-radius: 50%;
+      background: var(--walnut);
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+      z-index: 10;
+    }
+
+    /* ── Section base ── */
+    .section-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Tagline strip ── */
+    .tagline-strip {
+      background: var(--amber);
+      padding: 1rem 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tagline-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .tagline-item {
+      font-family: var(--font-slab);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--walnut);
+      flex-shrink: 0;
+    }
+
+    .tagline-dot {
+      color: var(--sienna);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── Problem section ── */
+    .problem {
+      background: var(--walnut-mid);
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(200,132,26,0.2);
+      border-bottom: 1px solid rgba(200,132,26,0.2);
+    }
+
+    .problem-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-slab);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: '◆';
+      font-size: 0.4rem;
+      color: var(--sienna);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(245,234,208,0.7);
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin: 3.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-family: var(--font-slab);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,234,208,0.4);
+    }
+
+    /* ── Demo section ── */
+    .demo {
+      padding: 6rem 2rem;
+      background: var(--walnut);
+      position: relative;
+      z-index: 1;
+    }
+
+    .demo-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .demo-card {
+      background: var(--walnut-mid);
+      border: 1px solid rgba(200,132,26,0.25);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Concert poster corner detail */
+    .demo-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, var(--red-label), var(--amber), var(--mustard));
+    }
+
+    .demo-label-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-slab);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .demo-label-badge::before {
+      content: '▶';
+      font-size: 0.5rem;
+      color: var(--red-label);
+    }
+
+    .demo-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .demo-band {
+      font-family: var(--font-slab);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .demo-desc {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: rgba(245,234,208,0.6);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Mini vinyl for demo card */
+    .demo-vinyl-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .demo-vinyl {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      animation: spin 12s linear infinite;
+      filter: drop-shadow(0 8px 30px rgba(0,0,0,0.7));
+    }
+
+    .demo-vinyl-disc {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: repeating-radial-gradient(
+        circle at center,
+        #0a0604 0px, #0a0604 1px,
+        #1a1008 2px, #0d0806 3px,
+        #141008 4px, #080503 5px
+      );
+      position: relative;
+    }
+
+    .demo-vinyl-label {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 38%;
+      height: 38%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 40% 35%,
+        #a82020 0%, #8b1a1a 40%, #5c0f0f 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .demo-vinyl-text {
+      font-family: var(--font-slab);
+      font-size: 0.28rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .demo-vinyl-hole {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2.5%;
+      height: 2.5%;
+      border-radius: 50%;
+      background: var(--walnut);
+      z-index: 10;
+    }
+
+    /* ── Tiers section ── */
+    .tiers {
+      padding: 6rem 2rem;
+      background: var(--walnut-mid);
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(200,132,26,0.15);
+    }
+
+    .tiers-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .tiers-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Record sleeve card */
+    .tier-card {
+      background: var(--paper);
+      color: var(--walnut);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(28,18,8,0.2);
+    }
+
+    .tier-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+    }
+
+    /* Color band at top — like a record label color */
+    .tier-band {
+      height: 8px;
+    }
+
+    .tier-band--rough  { background: var(--sage); }
+    .tier-band--final  { background: var(--amber); }
+    .tier-band--master { background: var(--red-label); }
+
+    .tier-body {
+      padding: 2rem;
+    }
+
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--walnut);
+      margin-bottom: 0.2rem;
+    }
+
+    .tier-price {
+      font-family: var(--font-slab);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--sienna);
+      margin-bottom: 0.15rem;
+    }
+
+    .tier-founding {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+    }
+
+    .tier-rule {
+      width: 40px;
+      height: 2px;
+      background: var(--amber);
+      margin-bottom: 1.2rem;
+    }
+
+    .tier-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .tier-features li {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: rgba(28,18,8,0.8);
+      line-height: 1.4;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .tier-features li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      font-size: 0.4rem;
+      color: var(--amber);
+      top: 0.35rem;
+    }
+
+    .tier-cta {
+      display: block;
+      text-align: center;
+      font-family: var(--font-slab);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .tier-cta--rough {
+      background: var(--walnut);
+      color: var(--cream);
+    }
+    .tier-cta--rough:hover { background: var(--sienna); }
+
+    .tier-cta--final {
+      background: var(--amber);
+      color: var(--walnut);
+    }
+    .tier-cta--final:hover { background: var(--amber-light); }
+
+    .tier-cta--master {
+      background: var(--red-label);
+      color: var(--cream);
+    }
+    .tier-cta--master:hover { background: var(--red-deep); }
+
+    /* ── How it works ── */
+    .how {
+      padding: 6rem 2rem;
+      background: var(--walnut);
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(200,132,26,0.15);
+    }
+
+    .how-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .how-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+
+    /* Connecting line between steps */
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 2.2rem;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--amber), var(--mustard), var(--amber), transparent);
+      pointer-events: none;
+    }
+
+    .step {
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: var(--walnut);
+      font-family: var(--font-slab);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--walnut), 0 0 0 5px rgba(200,132,26,0.3);
+    }
+
+    .step-title {
+      font-family: var(--font-slab);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    .step-body {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: rgba(245,234,208,0.55);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ── Founding CTA ── */
+    .founding {
+      padding: 7rem 2rem;
+      background: var(--red-deep);
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Concert poster texture */
+    .founding::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(0,0,0,0.04) 10px,
+        rgba(0,0,0,0.04) 11px
+      );
+      pointer-events: none;
+    }
+
+    .founding-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .founding-record {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      display: block;
+      animation: spin 8s linear infinite;
+      display: inline-block;
+    }
+
+    .founding-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: var(--cream);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+    }
+
+    .founding-body {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(245,234,208,0.8);
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
+    }
+
+    .founding-note {
+      font-family: var(--font-slab);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,234,208,0.4);
+      margin-top: 1rem;
+    }
+
+    /* Price sticker */
+    .price-sticker {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--mustard);
+      color: var(--walnut);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      justify-content: center;
+      margin-bottom: 2rem;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+      transform: rotate(-8deg);
+    }
+
+    .price-sticker-label {
+      font-family: var(--font-slab);
+      font-size: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .price-sticker-amount {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .price-sticker-sub {
+      font-family: var(--font-slab);
+      font-size: 0.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #0a0703;
+      border-top: 2px solid var(--amber);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-logo {
+      font-family: var(--font-slab);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .footer-tagline {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(245,234,208,0.3);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--font-slab);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,234,208,0.3);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover { color: var(--amber); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-sub { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
+      .demo-card { grid-template-columns: 1fr; }
+      .demo-vinyl-wrap { order: -1; }
+      .steps::before { display: none; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="#">Interalbums</a>
+    <ul class="nav-links">
+      <li><a href="#demo">Live Demo</a></li>
+      <li><a href="#tiers">Tiers</a></li>
+      <li><a href="#how">How It Works</a></li>
+    </ul>
+    <a class="nav-cta" href="#founding">Get Early Access</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Introducing Interalbums</p>
+        <h1 class="hero-headline">
+          Your album deserves<br />
+          <em>the full side.</em>
+        </h1>
+        <p class="hero-sub">
+          Turn your music into an immersive fan experience —
+          visual scenes, direct monetization, and a world
+          that lives beyond the playlist.
+          Built by musicians, for musicians.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#founding">Get Early Access</a>
+          <a class="btn-secondary" href="https://the-human-quest-3rdborough.replit.app" target="_blank">Hear a Live Example</a>
+        </div>
+      </div>
+
+      <!-- Vinyl record -->
+      <div class="vinyl-wrap">
+        <div class="vinyl">
+          <div class="vinyl-disc">
+            <div class="vinyl-label">
+              <span class="vinyl-label-name">INTER<br/>ALBUMS</span>
+              <div class="vinyl-label-divider"></div>
+              <span class="vinyl-label-sub">The Full Experience</span>
+            </div>
+            <div class="vinyl-hole"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee strip -->
+  <div class="tagline-strip">
+    <div class="tagline-track" id="marquee">
+      <span class="tagline-item">The Full Experience <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Every Song Its Own World <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Direct to Fan <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Built by Musicians <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">No Middleman <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Own Your Revenue <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">The Full Experience <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Every Song Its Own World <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Direct to Fan <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Built by Musicians <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">No Middleman <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Own Your Revenue <span class="tagline-dot">◆</span></span>
+    </div>
+  </div>
+
+  <!-- Problem -->
+  <div class="problem section-wrap">
+    <div class="problem-inner">
+      <p class="section-eyebrow">The problem with streaming</p>
+      <h2 class="section-title">They got the relationship.<br/>You got the fraction.</h2>
+      <div class="stat-row">
+        <div class="stat-item">
+          <div class="stat-number">$0.003</div>
+          <div class="stat-label">Per stream on average</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30s</div>
+          <div class="stat-label">Before fans skip</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Fan data you own</div>
+        </div>
+      </div>
+      <p class="section-body">
+        Streaming gave artists distribution and took away everything else —
+        the artwork, the liner notes, the narrative, the direct relationship
+        with the fan, and most of the money. Interalbums gives it all back.
+      </p>
+    </div>
+  </div>
+
+  <!-- Demo -->
+  <div class="demo section-wrap" id="demo">
+    <div class="demo-inner">
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <p class="section-eyebrow">Live on the platform</p>
+        <h2 class="section-title">See what the full experience looks like.</h2>
+      </div>
+      <div class="demo-card">
+        <div>
+          <p class="demo-label-badge">Now Playing</p>
+          <h3 class="demo-title">The Human Quest</h3>
+          <p class="demo-band">3rd Borough · Flip Coin Records</p>
+          <p class="demo-desc">
+            16 years in the making. 9 immersive song scenes.
+            A journey from darkness to light — with visuals,
+            interactions, and a world that moves as the album plays.
+          </p>
+          <a class="btn-secondary" href="https://the-human-quest-3rdborough.replit.app" target="_blank" style="display:inline-block;">
+            Experience It →
+          </a>
+        </div>
+        <div class="demo-vinyl-wrap">
+          <div class="demo-vinyl">
+            <div class="demo-vinyl-disc">
+              <div class="demo-vinyl-label">
+                <span class="demo-vinyl-text">THE HUMAN<br/>QUEST<br/>3RD BOROUGH</span>
+              </div>
+              <div class="demo-vinyl-hole"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tiers -->
+  <div class="tiers section-wrap" id="tiers">
+    <div class="tiers-inner">
+      <div class="tiers-header">
+        <p class="section-eyebrow">Three tiers</p>
+        <h2 class="section-title" style="color:var(--cream);">Choose your pressing.</h2>
+        <p class="section-body" style="color:rgba(245,234,208,0.55); margin:0 auto;">
+          Every tier gives your album a home that streaming never could.
+          Start where you are. Upgrade when you're ready.
+        </p>
+      </div>
+
+      <div class="tiers-grid">
+
+        <!-- Rough Mix -->
+        <div class="tier-card">
+          <div class="tier-band tier-band--rough"></div>
+          <div class="tier-body">
+            <div class="tier-name">Rough Mix</div>
+            <div class="tier-price">$299</div>
+            <div class="tier-founding">Founding rate: $209</div>
+            <div class="tier-rule"></div>
+            <ul class="tier-features">
+              <li>Album cover + one image per song</li>
+              <li>Full-screen scene per song</li>
+              <li>Dark-to-light progression system</li>
+              <li>Play / pause + progress indicator</li>
+              <li>Landing and completion screens</li>
+              <li>Tip integration included</li>
+              <li>Hosted at interalbums.com/yourband</li>
+            </ul>
+            <a class="tier-cta tier-cta--rough" href="#founding">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Final Mix -->
+        <div class="tier-card">
+          <div class="tier-band tier-band--final"></div>
+          <div class="tier-body">
+            <div class="tier-name">Final Mix</div>
+            <div class="tier-price">$599</div>
+            <div class="tier-founding">Founding rate: $419</div>
+            <div class="tier-rule"></div>
+            <ul class="tier-features">
+              <li>Everything in Rough Mix</li>
+              <li>Interactive elements per scene</li>
+              <li>Living painting animations</li>
+              <li>Song copy and story layers</li>
+              <li>Paywall — fans unlock + download</li>
+              <li>Custom domain option</li>
+              <li>Two revision rounds</li>
+            </ul>
+            <a class="tier-cta tier-cta--final" href="#founding">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Mastered -->
+        <div class="tier-card">
+          <div class="tier-band tier-band--master"></div>
+          <div class="tier-body">
+            <div class="tier-name">Mastered</div>
+            <div class="tier-price">$999</div>
+            <div class="tier-founding">Founding rate: $699</div>
+            <div class="tier-rule"></div>
+            <ul class="tier-features">
+              <li>Everything in Final Mix</li>
+              <li>Vertical video scenes per song</li>
+              <li>Unlockable fan content</li>
+              <li>Fan progression system</li>
+              <li>Premium visual effects</li>
+              <li>Custom domain included</li>
+              <li>White glove + 30-day support</li>
+            </ul>
+            <a class="tier-cta tier-cta--master" href="#founding">Get Started</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="how section-wrap" id="how">
+    <div class="how-inner">
+      <div class="how-header">
+        <p class="section-eyebrow">The process</p>
+        <h2 class="section-title">Drop the needle. We handle the rest.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <p class="step-title">Choose Your Tier</p>
+          <p class="step-body">Rough Mix, Final Mix, or Mastered. Founding pricing available now for the first 10 bands.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <p class="step-title">Send Your Assets</p>
+          <p class="step-body">Artwork, audio, photos, copy direction. We give you a simple brief so you know exactly what to send.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <p class="step-title">We Build It</p>
+          <p class="step-body">Your experience is built, tested, and delivered. You review, we refine. No code on your end.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <p class="step-title">Release It</p>
+          <p class="step-body">Share the link. Fans enter the journey. You keep the revenue directly — no platform cut.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Founding CTA -->
+  <div class="founding section-wrap" id="founding">
+    <div class="founding-inner">
+      <div class="price-sticker">
+        <span class="price-sticker-label">Starting</span>
+        <span class="price-sticker-amount">$209</span>
+        <span class="price-sticker-sub">Founding Rate</span>
+      </div>
+      <h2 class="founding-title">10 Spots.<br/>First Come, First Pressed.</h2>
+      <p class="founding-body">
+        We're opening Interalbums to the first 10 bands at 30% off
+        across all tiers. If you have a release coming —
+        or an album that deserves a real home —
+        this is the moment to get in.
+      </p>
+      <a class="btn-primary" href="mailto:interalbums@gmail.com?subject=Founding Band Interest" style="font-size:0.8rem; padding:1.1rem 2.8rem;">
+        Apply for Founding Access
+      </a>
+      <p class="founding-note">interalbums@gmail.com · interalbums.com</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-logo">Interalbums</span>
+    <span class="footer-tagline">The Full Experience</span>
+    <ul class="footer-links">
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="mailto:interalbums@gmail.com">Contact</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
