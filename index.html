@@ -3,70 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interalbums — The Full Experience</title>
+  <title>Interalbums — Intentional Listening</title>
   <meta name="description" content="Interalbums turns your album into an immersive interactive experience. Built for independent bands who refuse to let their music disappear into a playlist." />
-  <meta property="og:title" content="Interalbums — The Full Experience" />
+  <meta property="og:title" content="Interalbums — Intentional Listening" />
   <meta property="og:description" content="Your album deserves more than a stream. Interalbums gives every song its own world." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Roboto+Slab:wght@300;400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --amber:       #c8841a;
-      --amber-light: #e8a830;
-      --sienna:      #8b3a0f;
-      --cream:       #f5ead0;
-      --cream-dark:  #e8d8b0;
-      --walnut:      #1c1208;
-      --walnut-mid:  #2e1f0a;
-      --mustard:     #c9a227;
-      --red-label:   #8b1a1a;
-      --red-deep:    #5c0f0f;
-      --sage:        #7a8c6e;
-      --paper:       #f0e4c8;
+      /* Twilight palette — last light before the candles */
+      --dusk:        #1a1628;   /* deep indigo-walnut sky */
+      --dusk-mid:    #221c18;   /* warm shadow */
+      --dusk-wall:   #1e1a14;   /* aged plaster in last light */
+      --horizon:     #5a3a18;   /* the warm strip at the window edge */
+      --amber:       #b87828;   /* candlelight amber — not yet lit, anticipated */
+      --amber-dim:   #7a5018;   /* amber in shadow */
+      --amber-glow:  #d4a040;   /* the warmest edge */
+      --sienna:      #6a2e10;
+      --cream:       #e8dcc8;   /* aged paper in last light */
+      --cream-dim:   #a89878;   /* cream in the shadow */
+      --ink:         #120e0a;
+      --sage-dark:   #3a4a30;
+      --red-label:   #6a1414;
+      --paper-aged:  #d8c8a0;   /* warm aged paper */
+      --paper-dark:  #b8a880;   /* paper in shadow */
+      --twilight-blue: #2a3050; /* the blue note in dusk */
 
       --font-display: 'Playfair Display', serif;
-      --font-slab:    'Roboto Slab', serif;
-      --font-body:    'Crimson Pro', serif;
+      --font-fell:    'IM Fell English', serif;
+      --font-type:    'Courier Prime', monospace;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
-      background: var(--walnut);
+      font-family: var(--font-fell);
+      background: var(--dusk);
       color: var(--cream);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* ── Wood grain texture overlay ── */
+    /* ── Paper grain overlay — felt not seen ── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image:
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 2px,
-          rgba(255,255,255,0.012) 2px,
-          rgba(255,255,255,0.012) 4px
-        ),
-        repeating-linear-gradient(
-          180deg,
-          transparent,
-          transparent 8px,
-          rgba(0,0,0,0.04) 8px,
-          rgba(0,0,0,0.04) 9px
-        );
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
       pointer-events: none;
-      z-index: 0;
+      z-index: 999;
+      opacity: 0.35;
+      mix-blend-mode: overlay;
     }
 
-    /* ── Nav ── */
+    /* ── Nav — dissolved into dusk ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -74,85 +69,107 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 3rem;
-      background: rgba(28, 18, 8, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid var(--amber);
+      padding: 1.2rem 3rem;
+      background: rgba(18, 14, 10, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(180, 120, 40, 0.18);
     }
 
     .nav-logo {
-      font-family: var(--font-slab);
-      font-size: 1.1rem;
+      font-family: var(--font-type);
+      font-size: 0.85rem;
       font-weight: 700;
-      color: var(--amber);
-      letter-spacing: 0.15em;
+      color: rgba(180, 140, 60, 0.75);
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       text-decoration: none;
+      transition: color 0.4s ease;
     }
+    .nav-logo:hover { color: var(--amber-glow); }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2.8rem;
       list-style: none;
     }
 
     .nav-links a {
-      font-family: var(--font-slab);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-type);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(245, 234, 208, 0.6);
+      color: rgba(168, 152, 120, 0.45);
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
-    .nav-links a:hover { color: var(--amber); }
+    .nav-links a:hover { color: rgba(180, 140, 60, 0.8); }
 
     .nav-cta {
-      font-family: var(--font-slab);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-type);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--walnut);
-      background: var(--amber);
+      color: var(--ink);
+      background: var(--amber-dim);
       border: none;
-      padding: 0.6rem 1.4rem;
+      padding: 0.6rem 1.5rem;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
       font-weight: 700;
     }
+    .nav-cta:hover { background: var(--amber); }
 
-    .nav-cta:hover {
-      background: var(--amber-light);
-    }
-
-    /* ── Hero ── */
+    /* ── Hero — the room at twilight ── */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 7rem 2rem 4rem;
+      padding: 8rem 2rem 5rem;
       position: relative;
-      background: radial-gradient(ellipse at 60% 50%,
-        #2e1a06 0%,
-        #1c1208 50%,
-        #0e0904 100%);
       overflow: hidden;
       z-index: 1;
     }
 
-    /* Warm light spill */
-    .hero::after {
+    /* Twilight gradient — indigo above, warm horizon below */
+    .hero::before {
       content: '';
       position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(ellipse,
-        rgba(200, 132, 26, 0.12) 0%,
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(42, 48, 80, 0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 72% 80%, rgba(90, 58, 24, 0.35) 0%, transparent 55%),
+        radial-gradient(ellipse at 28% 75%, rgba(26, 22, 40, 0.4) 0%, transparent 50%),
+        linear-gradient(to bottom,
+          #0e0c16 0%,
+          #1a1628 25%,
+          #1e1a14 65%,
+          #160e08 100%);
+      pointer-events: none;
+    }
+
+    /* Window light — the last of it */
+    .hero-window {
+      position: absolute;
+      top: 0; right: 0;
+      width: 38%;
+      height: 100%;
+      background:
+        radial-gradient(ellipse at 80% 35%,
+          rgba(80, 100, 160, 0.12) 0%,
+          rgba(60, 70, 120, 0.06) 40%,
+          transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Floor warmth — low amber suggestion */
+    .hero-floor {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: radial-gradient(ellipse at 65% 100%,
+        rgba(90, 58, 24, 0.2) 0%,
         transparent 65%);
       pointer-events: none;
     }
@@ -168,52 +185,68 @@
       z-index: 2;
     }
 
+    /* ── Room scene — inline SVG in hero ── */
+    .hero-room {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-room svg {
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+      filter: drop-shadow(0 30px 80px rgba(0,0,0,0.7));
+    }
+
     /* ── Hero copy ── */
     .hero-copy {}
 
     .hero-eyebrow {
-      font-family: var(--font-slab);
-      font-size: 0.65rem;
-      letter-spacing: 0.35em;
+      font-family: var(--font-type);
+      font-size: 0.58rem;
+      letter-spacing: 0.38em;
       text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1.2rem;
+      color: rgba(180, 140, 60, 0.5);
+      margin-bottom: 1.4rem;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1rem;
     }
-
     .hero-eyebrow::before {
       content: '';
       display: block;
-      width: 30px;
-      height: 1px;
-      background: var(--amber);
+      width: 28px;
+      height: 0.5px;
+      background: rgba(180, 140, 60, 0.4);
+      flex-shrink: 0;
     }
 
     .hero-headline {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 900;
-      line-height: 1.1;
+      font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.12;
       color: var(--cream);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.6rem;
+      letter-spacing: -0.01em;
     }
 
     .hero-headline em {
       font-style: italic;
-      color: var(--amber);
+      font-weight: 400;
+      color: rgba(210, 175, 100, 0.85);
     }
 
     .hero-sub {
-      font-family: var(--font-body);
-      font-size: 1.15rem;
-      font-weight: 300;
+      font-family: var(--font-fell);
+      font-size: 1.1rem;
       font-style: italic;
-      color: rgba(245, 234, 208, 0.7);
-      line-height: 1.8;
-      margin-bottom: 2.2rem;
-      max-width: 420px;
+      color: rgba(200, 180, 140, 0.55);
+      line-height: 1.85;
+      margin-bottom: 2.4rem;
+      max-width: 400px;
     }
 
     .hero-actions {
@@ -223,48 +256,46 @@
     }
 
     .btn-primary {
-      font-family: var(--font-slab);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-type);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       font-weight: 700;
-      color: var(--walnut);
+      color: var(--ink);
       background: var(--amber);
       border: none;
-      padding: 1rem 2.2rem;
+      padding: 0.95rem 2rem;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
       display: inline-block;
     }
-
     .btn-primary:hover {
-      background: var(--amber-light);
-      box-shadow: 0 0 30px rgba(200, 132, 26, 0.4);
+      background: var(--amber-glow);
     }
 
     .btn-secondary {
-      font-family: var(--font-slab);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-type);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      font-weight: 600;
-      color: var(--amber);
+      font-weight: 400;
+      color: rgba(180, 140, 60, 0.65);
       background: transparent;
-      border: 1.5px solid rgba(200, 132, 26, 0.5);
-      padding: 1rem 2.2rem;
+      border: 1px solid rgba(180, 120, 40, 0.3);
+      padding: 0.95rem 2rem;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
       display: inline-block;
     }
-
     .btn-secondary:hover {
-      border-color: var(--amber);
-      background: rgba(200, 132, 26, 0.08);
+      border-color: rgba(180, 140, 60, 0.6);
+      color: rgba(200, 165, 80, 0.9);
+      background: rgba(180, 120, 40, 0.06);
     }
 
-    /* ── Vinyl Record ── */
+    /* ── Vinyl record — spins slowly in the dusk ── */
     .vinyl-wrap {
       display: flex;
       align-items: center;
@@ -273,12 +304,15 @@
     }
 
     .vinyl {
-      width: min(420px, 90vw);
-      height: min(420px, 90vw);
+      width: min(400px, 88vw);
+      height: min(400px, 88vw);
       border-radius: 50%;
       position: relative;
-      animation: spin 18s linear infinite;
-      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.8)) drop-shadow(0 0 40px rgba(200,132,26,0.15));
+      animation: spin 22s linear infinite;
+      filter:
+        drop-shadow(0 0 60px rgba(26, 22, 40, 0.9))
+        drop-shadow(0 24px 80px rgba(0,0,0,0.85))
+        drop-shadow(0 0 30px rgba(80, 100, 160, 0.08));
     }
 
     @keyframes spin {
@@ -286,27 +320,25 @@
       to   { transform: rotate(360deg); }
     }
 
-    /* Vinyl grooves */
     .vinyl-disc {
       width: 100%;
       height: 100%;
       border-radius: 50%;
       background:
-        /* Groove rings */
         repeating-radial-gradient(
           circle at center,
-          #0a0604 0px,
-          #0a0604 1px,
-          #1a1008 2px,
-          #0d0806 3px,
-          #141008 4px,
-          #080503 5px
+          #080508 0px,
+          #080508 1px,
+          #120c10 2px,
+          #0a0808 3px,
+          #100a0e 4px,
+          #060404 5px
         );
       position: relative;
       overflow: hidden;
     }
 
-    /* Vinyl sheen */
+    /* Twilight sheen — blue-indigo not gold */
     .vinyl-disc::before {
       content: '';
       position: absolute;
@@ -315,299 +347,329 @@
       background: conic-gradient(
         from 0deg,
         transparent 0deg,
-        rgba(200,132,26,0.06) 40deg,
-        transparent 80deg,
-        rgba(200,132,26,0.04) 160deg,
-        transparent 200deg,
-        rgba(255,255,255,0.03) 280deg,
-        transparent 320deg,
+        rgba(80, 100, 180, 0.05) 50deg,
+        transparent 100deg,
+        rgba(80, 100, 160, 0.03) 190deg,
+        transparent 240deg,
+        rgba(255,255,255,0.02) 300deg,
         transparent 360deg
       );
     }
 
-    /* Center label */
     .vinyl-label {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 36%;
-      height: 36%;
+      width: 35%;
+      height: 35%;
       border-radius: 50%;
-      background: radial-gradient(ellipse at 40% 35%,
-        #a82020 0%,
-        #8b1a1a 40%,
-        #5c0f0f 100%);
+      background: radial-gradient(ellipse at 38% 32%,
+        #8a1818 0%,
+        #5c1010 45%,
+        #380808 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        inset 0 2px 8px rgba(0,0,0,0.5),
-        0 2px 12px rgba(0,0,0,0.6);
-      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.6), 0 2px 14px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
     .vinyl-label-name {
-      font-family: var(--font-slab);
-      font-size: clamp(0.35rem, 1.5vw, 0.55rem);
+      font-family: var(--font-type);
+      font-size: clamp(0.3rem, 1.3vw, 0.48rem);
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--cream);
+      color: rgba(220, 195, 140, 0.8);
       text-align: center;
-      line-height: 1.2;
+      line-height: 1.3;
     }
 
     .vinyl-label-divider {
-      width: 50%;
+      width: 45%;
       height: 0.5px;
-      background: rgba(245,234,208,0.3);
-      margin: 0.2rem 0;
+      background: rgba(220, 195, 140, 0.2);
+      margin: 0.18rem 0;
     }
 
     .vinyl-label-sub {
-      font-family: var(--font-body);
-      font-size: clamp(0.25rem, 1vw, 0.4rem);
+      font-family: var(--font-fell);
+      font-size: clamp(0.22rem, 0.9vw, 0.36rem);
       font-style: italic;
-      color: rgba(245,234,208,0.65);
+      color: rgba(200, 175, 120, 0.5);
       text-align: center;
-      letter-spacing: 0.05em;
     }
 
-    /* Spindle hole */
     .vinyl-hole {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 2.5%;
       height: 2.5%;
       border-radius: 50%;
-      background: var(--walnut);
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+      background: #080508;
       z-index: 10;
     }
 
-    /* ── Section base ── */
-    .section-wrap {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ── Tagline strip ── */
-    .tagline-strip {
-      background: var(--amber);
-      padding: 1rem 0;
-      overflow: hidden;
-      position: relative;
-      z-index: 1;
-    }
-
-    .tagline-track {
+    /* ── Thin ruled divider ── */
+    .ruled-divider {
       display: flex;
-      gap: 3rem;
-      animation: marquee 20s linear infinite;
-      white-space: nowrap;
-    }
-
-    .tagline-item {
-      font-family: var(--font-slab);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--walnut);
-      flex-shrink: 0;
-    }
-
-    .tagline-dot {
-      color: var(--sienna);
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ── Problem section ── */
-    .problem {
-      background: var(--walnut-mid);
-      padding: 6rem 2rem;
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid rgba(200,132,26,0.2);
-      border-bottom: 1px solid rgba(200,132,26,0.2);
-    }
-
-    .problem-inner {
-      max-width: 900px;
+      align-items: center;
+      gap: 1.2rem;
+      max-width: 600px;
       margin: 0 auto;
-      text-align: center;
     }
+    .ruled-divider::before,
+    .ruled-divider::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: linear-gradient(to right, transparent, rgba(180,130,50,0.25), transparent);
+    }
+    .ruled-divider-glyph {
+      font-family: var(--font-fell);
+      font-size: 0.55rem;
+      color: rgba(180, 130, 50, 0.3);
+      letter-spacing: 0.2em;
+    }
+
+    /* ── Section base ── */
+    .section-wrap { position: relative; z-index: 1; }
 
     .section-eyebrow {
-      font-family: var(--font-slab);
-      font-size: 0.6rem;
-      letter-spacing: 0.35em;
+      font-family: var(--font-type);
+      font-size: 0.56rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1rem;
+      color: rgba(180, 130, 50, 0.45);
+      margin-bottom: 1.1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.8rem;
+      gap: 0.9rem;
     }
-
     .section-eyebrow::before,
     .section-eyebrow::after {
-      content: '◆';
-      font-size: 0.4rem;
-      color: var(--sienna);
+      content: '';
+      display: block;
+      width: 20px;
+      height: 0.5px;
+      background: rgba(180, 130, 50, 0.3);
     }
 
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 900;
+      font-size: clamp(1.7rem, 3.8vw, 2.7rem);
+      font-weight: 700;
       color: var(--cream);
       margin-bottom: 1.2rem;
-      line-height: 1.2;
+      line-height: 1.18;
     }
 
     .section-body {
-      font-family: var(--font-body);
-      font-size: 1.1rem;
-      font-weight: 300;
+      font-family: var(--font-fell);
+      font-size: 1.05rem;
       font-style: italic;
-      color: rgba(245,234,208,0.7);
-      line-height: 1.8;
-      max-width: 600px;
+      color: rgba(200, 175, 130, 0.55);
+      line-height: 1.85;
+      max-width: 580px;
       margin: 0 auto;
     }
 
+    /* ── Problem — plaster wall behind the shelf ── */
+    .problem {
+      background: var(--dusk-wall);
+      padding: 6.5rem 2rem;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(180, 130, 50, 0.1);
+      border-bottom: 1px solid rgba(180, 130, 50, 0.08);
+    }
+    .problem::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(42, 48, 80, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(90, 58, 24, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .problem-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Stats — typewritten feel */
     .stat-row {
       display: flex;
       justify-content: center;
-      gap: 4rem;
+      gap: 5rem;
       margin: 3.5rem 0;
       flex-wrap: wrap;
     }
 
-    .stat-item {
-      text-align: center;
-    }
+    .stat-item { text-align: center; }
 
     .stat-number {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 900;
-      color: var(--amber);
+      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(180, 140, 70, 0.7);
       line-height: 1;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
     }
 
     .stat-label {
-      font-family: var(--font-slab);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      font-family: var(--font-type);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(245,234,208,0.4);
+      color: rgba(168, 148, 108, 0.32);
     }
 
-    /* ── Demo section ── */
+    /* ── Demo — now playing, like a record sitting on the shelf ── */
     .demo {
-      padding: 6rem 2rem;
-      background: var(--walnut);
+      padding: 6.5rem 2rem;
+      background: var(--dusk);
       position: relative;
       z-index: 1;
     }
+    .demo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(42, 48, 80, 0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
 
     .demo-inner {
-      max-width: 900px;
+      max-width: 860px;
       margin: 0 auto;
     }
 
+    /* Record sleeve card — aged paper */
     .demo-card {
-      background: var(--walnut-mid);
-      border: 1px solid rgba(200,132,26,0.25);
-      padding: 3rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
+      gap: 0;
+      align-items: stretch;
       position: relative;
+      border: 1px solid rgba(180, 130, 50, 0.14);
       overflow: hidden;
     }
 
-    /* Concert poster corner detail */
-    .demo-card::before {
+    .demo-card-copy {
+      background: var(--paper-dark);
+      padding: 3rem 2.8rem;
+      position: relative;
+    }
+    /* Aged paper texture on card */
+    .demo-card-copy::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(to right, var(--red-label), var(--amber), var(--mustard));
+      inset: 0;
+      background: linear-gradient(135deg,
+        rgba(255,255,255,0.04) 0%,
+        transparent 50%,
+        rgba(0,0,0,0.04) 100%);
+      pointer-events: none;
     }
 
-    .demo-label-badge {
-      display: inline-flex;
+    .demo-card-vinyl {
+      background: #0a0808;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-slab);
-      font-size: 0.6rem;
+      justify-content: center;
+      padding: 3rem;
+      position: relative;
+    }
+    /* Faint window light on vinyl side */
+    .demo-card-vinyl::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(80, 100, 160, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .demo-badge {
+      font-family: var(--font-type);
+      font-size: 0.54rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1rem;
+      color: rgba(100, 46, 16, 0.7);
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-
-    .demo-label-badge::before {
+    .demo-badge::before {
       content: '▶';
-      font-size: 0.5rem;
-      color: var(--red-label);
+      font-size: 0.42rem;
+      color: rgba(100, 46, 16, 0.5);
     }
 
     .demo-title {
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 900;
-      color: var(--cream);
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
       line-height: 1.2;
     }
 
     .demo-band {
-      font-family: var(--font-slab);
-      font-size: 0.7rem;
+      font-family: var(--font-type);
+      font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1rem;
+      color: rgba(60, 40, 16, 0.55);
+      margin-bottom: 1.1rem;
     }
 
     .demo-desc {
-      font-family: var(--font-body);
+      font-family: var(--font-fell);
       font-style: italic;
-      color: rgba(245,234,208,0.6);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      color: rgba(40, 28, 12, 0.62);
+      font-size: 0.98rem;
+      line-height: 1.75;
+      margin-bottom: 1.6rem;
     }
 
-    /* Mini vinyl for demo card */
-    .demo-vinyl-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .btn-secondary-dark {
+      font-family: var(--font-type);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(80, 50, 16, 0.7);
+      background: transparent;
+      border: 1px solid rgba(80, 50, 16, 0.3);
+      padding: 0.85rem 1.8rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .btn-secondary-dark:hover {
+      background: rgba(80, 50, 16, 0.08);
+      border-color: rgba(80, 50, 16, 0.55);
+      color: rgba(80, 50, 16, 0.9);
     }
 
+    /* Mini vinyl in demo card */
     .demo-vinyl {
-      width: 200px;
-      height: 200px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
-      animation: spin 12s linear infinite;
-      filter: drop-shadow(0 8px 30px rgba(0,0,0,0.7));
+      animation: spin 14s linear infinite;
+      filter: drop-shadow(0 8px 30px rgba(0,0,0,0.8)) drop-shadow(0 0 20px rgba(42,48,80,0.2));
+      position: relative;
+      z-index: 1;
     }
 
     .demo-vinyl-disc {
@@ -616,9 +678,9 @@
       border-radius: 50%;
       background: repeating-radial-gradient(
         circle at center,
-        #0a0604 0px, #0a0604 1px,
-        #1a1008 2px, #0d0806 3px,
-        #141008 4px, #080503 5px
+        #080508 0px, #080508 1px,
+        #120c10 2px, #0a0808 3px,
+        #100a0e 4px, #060404 5px
       );
       position: relative;
     }
@@ -627,27 +689,27 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 38%;
-      height: 38%;
+      width: 37%;
+      height: 37%;
       border-radius: 50%;
-      background: radial-gradient(ellipse at 40% 35%,
-        #a82020 0%, #8b1a1a 40%, #5c0f0f 100%);
+      background: radial-gradient(ellipse at 38% 32%,
+        #8a1818 0%, #5c1010 45%, #380808 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.04);
     }
 
     .demo-vinyl-text {
-      font-family: var(--font-slab);
-      font-size: 0.28rem;
+      font-family: var(--font-type);
+      font-size: 0.26rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--cream);
+      color: rgba(220, 195, 140, 0.75);
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .demo-vinyl-hole {
@@ -657,91 +719,106 @@
       width: 2.5%;
       height: 2.5%;
       border-radius: 50%;
-      background: var(--walnut);
+      background: #080508;
       z-index: 10;
     }
 
-    /* ── Tiers section ── */
+    /* ── Tiers — record sleeves leaning on the shelf ── */
     .tiers {
-      padding: 6rem 2rem;
-      background: var(--walnut-mid);
+      padding: 6.5rem 2rem;
+      background: var(--dusk-wall);
       position: relative;
       z-index: 1;
-      border-top: 1px solid rgba(200,132,26,0.15);
+      border-top: 1px solid rgba(180, 130, 50, 0.08);
+    }
+    .tiers::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(90, 58, 24, 0.08) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     .tiers-inner {
-      max-width: 1060px;
+      max-width: 1040px;
       margin: 0 auto;
     }
 
     .tiers-header {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3.8rem;
     }
 
     .tiers-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+      gap: 1.2rem;
     }
 
-    /* Record sleeve card */
+    /* The card is the record sleeve — aged paper front */
     .tier-card {
-      background: var(--paper);
-      color: var(--walnut);
+      background: var(--paper-aged);
+      color: var(--ink);
       position: relative;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(28,18,8,0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid rgba(20, 14, 8, 0.14);
     }
-
     .tier-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(26, 22, 40, 0.3);
     }
 
-    /* Color band at top — like a record label color */
-    .tier-band {
-      height: 8px;
-    }
-
-    .tier-band--rough  { background: var(--sage); }
-    .tier-band--final  { background: var(--amber); }
+    /* Top color band — the label color visible at the sleeve top */
+    .tier-band { height: 6px; }
+    .tier-band--rough  { background: var(--sage-dark); }
+    .tier-band--final  { background: var(--amber-dim); }
     .tier-band--master { background: var(--red-label); }
 
-    .tier-body {
-      padding: 2rem;
+    /* Aged paper texture on tier cards */
+    .tier-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg,
+        rgba(255,255,255,0.05) 0%,
+        transparent 45%,
+        rgba(0,0,0,0.03) 100%);
+      pointer-events: none;
     }
+
+    .tier-body { padding: 2rem 1.8rem 1.8rem; }
 
     .tier-name {
       font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--walnut);
-      margin-bottom: 0.2rem;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: rgba(20, 14, 8, 0.88);
+      margin-bottom: 0.18rem;
+      letter-spacing: -0.01em;
     }
 
     .tier-price {
-      font-family: var(--font-slab);
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: italic;
       color: var(--sienna);
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.12rem;
     }
 
     .tier-founding {
-      font-family: var(--font-body);
+      font-family: var(--font-fell);
       font-style: italic;
-      font-size: 0.85rem;
-      color: var(--sage);
+      font-size: 0.82rem;
+      color: var(--sage-dark);
       margin-bottom: 1.2rem;
     }
 
     .tier-rule {
-      width: 40px;
-      height: 2px;
-      background: var(--amber);
+      width: 30px;
+      height: 0.5px;
+      background: rgba(20, 14, 8, 0.2);
       margin-bottom: 1.2rem;
     }
 
@@ -749,255 +826,210 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
+      gap: 0.5rem;
       margin-bottom: 1.8rem;
     }
 
     .tier-features li {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      color: rgba(28,18,8,0.8);
-      line-height: 1.4;
-      padding-left: 1.2rem;
+      font-family: var(--font-fell);
+      font-size: 0.95rem;
+      color: rgba(20, 14, 8, 0.7);
+      line-height: 1.45;
+      padding-left: 1rem;
       position: relative;
     }
-
     .tier-features li::before {
-      content: '◆';
+      content: '–';
       position: absolute;
       left: 0;
-      font-size: 0.4rem;
-      color: var(--amber);
-      top: 0.35rem;
+      color: rgba(20, 14, 8, 0.28);
     }
 
     .tier-cta {
       display: block;
       text-align: center;
-      font-family: var(--font-slab);
-      font-size: 0.65rem;
+      font-family: var(--font-type);
+      font-size: 0.6rem;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      padding: 0.85rem;
+      padding: 0.82rem;
       text-decoration: none;
       transition: all 0.3s ease;
       cursor: pointer;
       border: none;
       width: 100%;
-    }
-
-    .tier-cta--rough {
-      background: var(--walnut);
-      color: var(--cream);
-    }
-    .tier-cta--rough:hover { background: var(--sienna); }
-
-    .tier-cta--final {
-      background: var(--amber);
-      color: var(--walnut);
-    }
-    .tier-cta--final:hover { background: var(--amber-light); }
-
-    .tier-cta--master {
-      background: var(--red-label);
-      color: var(--cream);
-    }
-    .tier-cta--master:hover { background: var(--red-deep); }
-
-    /* ── How it works ── */
-    .how {
-      padding: 6rem 2rem;
-      background: var(--walnut);
       position: relative;
       z-index: 1;
-      border-top: 1px solid rgba(200,132,26,0.15);
+    }
+
+    .tier-cta--rough  { background: rgba(20,14,8,0.85); color: rgba(220,195,140,0.7); }
+    .tier-cta--rough:hover  { background: rgba(40,28,12,1); }
+    .tier-cta--final  { background: var(--amber-dim); color: var(--ink); }
+    .tier-cta--final:hover  { background: var(--amber); }
+    .tier-cta--master { background: var(--red-label); color: rgba(220,195,140,0.75); }
+    .tier-cta--master:hover { background: #8a1818; }
+
+    /* ── How it works — like reading liner notes ── */
+    .how {
+      padding: 6.5rem 2rem;
+      background: var(--dusk);
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(180, 130, 50, 0.08);
+    }
+    .how::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(42, 48, 80, 0.1) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     .how-inner {
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
     .how-header {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
     }
 
+    /* Steps as liner-note entries — no numbered circles */
     .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0;
-      position: relative;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 2.5rem;
     }
 
-    /* Connecting line between steps */
-    .steps::before {
+    .step { position: relative; padding-top: 1rem; }
+
+    .step::before {
       content: '';
-      position: absolute;
-      top: 2.2rem;
-      left: 10%;
-      right: 10%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--amber), var(--mustard), var(--amber), transparent);
-      pointer-events: none;
-    }
-
-    .step {
-      text-align: center;
-      padding: 0 1.5rem;
-      position: relative;
+      display: block;
+      width: 100%;
+      height: 0.5px;
+      background: linear-gradient(to right, rgba(180,130,50,0.3), rgba(180,130,50,0.08));
+      margin-bottom: 1.2rem;
     }
 
     .step-number {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--amber);
-      color: var(--walnut);
-      font-family: var(--font-slab);
-      font-size: 0.85rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.2rem;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 0 0 4px var(--walnut), 0 0 0 5px rgba(200,132,26,0.3);
+      font-family: var(--font-type);
+      font-size: 0.52rem;
+      letter-spacing: 0.25em;
+      color: rgba(180, 130, 50, 0.3);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
     }
 
     .step-title {
-      font-family: var(--font-slab);
-      font-size: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--amber);
+      font-style: italic;
+      color: rgba(220, 195, 140, 0.75);
       margin-bottom: 0.6rem;
+      line-height: 1.3;
     }
 
     .step-body {
-      font-family: var(--font-body);
+      font-family: var(--font-fell);
       font-style: italic;
-      color: rgba(245,234,208,0.55);
-      font-size: 0.95rem;
-      line-height: 1.6;
+      color: rgba(200, 175, 130, 0.42);
+      font-size: 0.92rem;
+      line-height: 1.7;
     }
 
-    /* ── Founding CTA ── */
+    /* ── Founding CTA — the last light in the room ── */
     .founding {
-      padding: 7rem 2rem;
-      background: var(--red-deep);
+      padding: 8rem 2rem;
       position: relative;
       z-index: 1;
       text-align: center;
       overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(42, 48, 80, 0.4) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(90, 58, 24, 0.3) 0%, transparent 55%),
+        linear-gradient(to bottom, #0e0c16, #1a1628 30%, #1e1a14 70%, #160e08);
     }
 
-    /* Concert poster texture */
+    /* Faint window beam — last of twilight */
     .founding::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 10px,
-        rgba(0,0,0,0.04) 10px,
-        rgba(0,0,0,0.04) 11px
-      );
+      background:
+        radial-gradient(ellipse at 75% 40%, rgba(80, 100, 160, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Horizontal rule lines — like notebook paper */
+    .founding::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 39px,
+          rgba(180, 130, 50, 0.03) 39px,
+          rgba(180, 130, 50, 0.03) 40px
+        );
       pointer-events: none;
     }
 
     .founding-inner {
-      max-width: 600px;
+      max-width: 580px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
 
-    .founding-record {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      display: block;
-      animation: spin 8s linear infinite;
-      display: inline-block;
+    /* Founding rate — typewritten, not a sticker */
+    .founding-rate {
+      font-family: var(--font-type);
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(180, 130, 50, 0.38);
+      margin-bottom: 2rem;
     }
 
     .founding-title {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 900;
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 700;
       color: var(--cream);
-      margin-bottom: 1rem;
+      margin-bottom: 1.1rem;
       line-height: 1.15;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+      letter-spacing: -0.01em;
     }
 
     .founding-body {
-      font-family: var(--font-body);
+      font-family: var(--font-fell);
       font-style: italic;
-      font-size: 1.1rem;
-      color: rgba(245,234,208,0.8);
-      line-height: 1.7;
-      margin-bottom: 2.2rem;
+      font-size: 1.05rem;
+      color: rgba(200, 175, 130, 0.5);
+      line-height: 1.85;
+      margin-bottom: 2.6rem;
     }
 
     .founding-note {
-      font-family: var(--font-slab);
-      font-size: 0.6rem;
+      font-family: var(--font-type);
+      font-size: 0.56rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(245,234,208,0.4);
-      margin-top: 1rem;
-    }
-
-    /* Price sticker */
-    .price-sticker {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      background: var(--mustard);
-      color: var(--walnut);
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      justify-content: center;
-      margin-bottom: 2rem;
-      box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
-      transform: rotate(-8deg);
-    }
-
-    .price-sticker-label {
-      font-family: var(--font-slab);
-      font-size: 0.5rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      line-height: 1;
-    }
-
-    .price-sticker-amount {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .price-sticker-sub {
-      font-family: var(--font-slab);
-      font-size: 0.4rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      line-height: 1;
+      color: rgba(168, 148, 108, 0.28);
+      margin-top: 1.2rem;
     }
 
     /* ── Footer ── */
     footer {
-      background: #0a0703;
-      border-top: 2px solid var(--amber);
-      padding: 2.5rem 3rem;
+      background: #090710;
+      border-top: 1px solid rgba(180, 130, 50, 0.1);
+      padding: 2.2rem 3rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1008,138 +1040,50 @@
     }
 
     .footer-logo {
-      font-family: var(--font-slab);
-      font-size: 0.9rem;
+      font-family: var(--font-type);
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--amber);
+      color: rgba(180, 130, 50, 0.38);
     }
 
     .footer-tagline {
-      font-family: var(--font-body);
+      font-family: var(--font-fell);
       font-style: italic;
-      font-size: 0.85rem;
-      color: rgba(245,234,208,0.3);
+      font-size: 0.82rem;
+      color: rgba(168, 148, 108, 0.2);
     }
 
     .footer-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.8rem;
       list-style: none;
     }
 
     .footer-links a {
-      font-family: var(--font-slab);
-      font-size: 0.55rem;
+      font-family: var(--font-type);
+      font-size: 0.52rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(245,234,208,0.3);
+      color: rgba(168, 148, 108, 0.22);
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
-    .footer-links a:hover { color: var(--amber); }
+    .footer-links a:hover { color: rgba(180, 130, 50, 0.6); }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
-      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 3.5rem; }
       .hero-eyebrow { justify-content: center; }
       .hero-sub { margin: 0 auto 2rem; }
       .hero-actions { justify-content: center; }
       .demo-card { grid-template-columns: 1fr; }
-      .demo-vinyl-wrap { order: -1; }
-      .steps::before { display: none; }
+      .demo-card-vinyl { order: -1; min-height: 260px; }
       footer { flex-direction: column; text-align: center; }
     }
-
-  /* ── Pick Your Ritual Section ── */
-  .ritual-section {
-    padding: 6rem 2rem;
-    background: var(--walnut);
-    border-top: 1px solid rgba(200,132,26,0.15);
-    border-bottom: 1px solid rgba(200,132,26,0.15);
-  }
-
-  .ritual-section-inner {
-    max-width: 1060px;
-    margin: 0 auto;
-  }
-
-  .ritual-hero-line {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    color: var(--amber);
-    text-align: center;
-    margin-bottom: 2.5rem;
-    text-shadow: 0 0 30px rgba(200,132,26,0.3);
-  }
-
-  .ritual-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1rem;
-  }
-
-  .ritual-card-item {
-    position: relative;
-    background: var(--walnut-mid);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-top: 2px solid var(--rc);
-    padding: 1.5rem 1.2rem;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .ritual-card-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px color-mix(in srgb, var(--rc) 20%, transparent);
-  }
-
-  .ritual-card-bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .ritual-card-emoji {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.6rem;
-  }
-
-  .ritual-card-name {
-    font-family: var(--font-slab);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--rc);
-    margin-bottom: 0.3rem;
-  }
-
-  .ritual-card-desc {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    color: rgba(245,234,208,0.45);
-    font-style: italic;
-    margin-bottom: 0.8rem;
-    line-height: 1.4;
-  }
-
-  .ritual-card-prompt {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 0.8rem;
-    color: rgba(245,234,208,0.6);
-    line-height: 1.6;
-    border-left: 2px solid var(--rc);
-    padding-left: 0.6rem;
-    opacity: 0.8;
-  }
-
   </style>
 </head>
 <body>
@@ -1157,57 +1101,225 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-window"></div>
+    <div class="hero-floor"></div>
     <div class="hero-inner">
+
+      <!-- Left — the room at twilight, inline SVG -->
+      <div class="hero-room">
+        <svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="hWin" cx="50%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#5a6890" stop-opacity="0.22"/>
+              <stop offset="55%" stop-color="#3a4868" stop-opacity="0.07"/>
+              <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="hLamp" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#c89030" stop-opacity="0.28"/>
+              <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="hVL" cx="38%" cy="32%" r="74%">
+              <stop offset="0%" stop-color="#b02020"/>
+              <stop offset="55%" stop-color="#7a1515"/>
+              <stop offset="100%" stop-color="#400a0a"/>
+            </radialGradient>
+            <radialGradient id="hVD" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#181010"/>
+              <stop offset="100%" stop-color="#040302"/>
+            </radialGradient>
+            <radialGradient id="hVig" cx="50%" cy="50%" r="65%">
+              <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#000" stop-opacity="0.68"/>
+            </radialGradient>
+            <linearGradient id="hWall" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0e0c16"/>
+              <stop offset="40%" stop-color="#1a1628"/>
+              <stop offset="100%" stop-color="#1e1a14"/>
+            </linearGradient>
+            <linearGradient id="hFloor" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1c1408"/>
+              <stop offset="100%" stop-color="#0a0806"/>
+            </linearGradient>
+            <linearGradient id="hDesk" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#382210"/>
+              <stop offset="100%" stop-color="#1c1008"/>
+            </linearGradient>
+            <filter id="hBlur"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="hSoft"><feGaussianBlur stdDeviation="2.5"/></filter>
+          </defs>
+
+          <!-- Room background -->
+          <rect width="480" height="520" fill="url(#hWall)"/>
+
+          <!-- Ceiling beams — dark against dusk -->
+          <line x1="60" y1="0" x2="240" y2="90" stroke="#160e0a" stroke-width="16" stroke-linecap="round"/>
+          <line x1="200" y1="0" x2="240" y2="90" stroke="#130c08" stroke-width="11" stroke-linecap="round"/>
+          <line x1="320" y1="0" x2="240" y2="90" stroke="#130c08" stroke-width="11" stroke-linecap="round"/>
+          <line x1="440" y1="0" x2="240" y2="90" stroke="#160e0a" stroke-width="16" stroke-linecap="round"/>
+
+          <!-- Back wall — between the beams -->
+          <polygon points="110,0 370,0 240,90" fill="#1e1a14"/>
+
+          <!-- Window — twilight blue -->
+          <rect x="194" y="8" width="92" height="62" fill="#0e1420" rx="1"/>
+          <rect x="194" y="8" width="92" height="62" fill="url(#hWin)"/>
+          <!-- Stars barely visible -->
+          <circle cx="218" cy="20" r="0.7" fill="#dde4ff" fill-opacity="0.55"/>
+          <circle cx="252" cy="15" r="0.9" fill="#dde4ff" fill-opacity="0.48"/>
+          <circle cx="268" cy="28" r="0.6" fill="#dde4ff" fill-opacity="0.42"/>
+          <circle cx="235" cy="38" r="0.5" fill="#dde4ff" fill-opacity="0.35"/>
+          <!-- Moon — low and orange-ish at twilight -->
+          <circle cx="270" cy="26" r="9" fill="#e8c888" fill-opacity="0.18" filter="url(#hSoft)"/>
+          <circle cx="270" cy="26" r="6" fill="#ead8a0" fill-opacity="0.45"/>
+          <!-- Window frame -->
+          <rect x="191" y="5" width="98" height="68" fill="none" stroke="#2a1c0a" stroke-width="4"/>
+          <line x1="240" y1="8" x2="240" y2="71" stroke="#2a1c0a" stroke-width="2.5"/>
+          <line x1="194" y1="39" x2="286" y2="39" stroke="#2a1c0a" stroke-width="2.5"/>
+
+          <!-- Last light beam from window — twilight coolness on floor -->
+          <polygon points="194,73 286,73 320,260 160,260" fill="rgba(80,100,160,0.03)"/>
+
+          <!-- Floor -->
+          <polygon points="0,360 480,360 480,520 0,520" fill="url(#hFloor)"/>
+          <!-- Floorboards -->
+          <line x1="240" y1="90" x2="0" y2="520" stroke="#1a0e06" stroke-width="0.6" stroke-opacity="0.35"/>
+          <line x1="240" y1="90" x2="120" y2="520" stroke="#1a0e06" stroke-width="0.5" stroke-opacity="0.25"/>
+          <line x1="240" y1="90" x2="360" y2="520" stroke="#1a0e06" stroke-width="0.5" stroke-opacity="0.25"/>
+          <line x1="240" y1="90" x2="480" y2="520" stroke="#1a0e06" stroke-width="0.6" stroke-opacity="0.35"/>
+          <line x1="60" y1="400" x2="420" y2="400" stroke="#160c06" stroke-width="0.6" stroke-opacity="0.4"/>
+          <line x1="20" y1="450" x2="460" y2="450" stroke="#160c06" stroke-width="0.5" stroke-opacity="0.3"/>
+          <line x1="0" y1="498" x2="480" y2="498" stroke="#160c06" stroke-width="0.4" stroke-opacity="0.22"/>
+
+          <!-- Bookshelf — left wall, dim in shadow -->
+          <rect x="8" y="110" width="106" height="242" fill="#160e06" stroke="#201408" stroke-width="0.8"/>
+          <rect x="8" y="110" width="106" height="8" fill="#201408"/>
+          <rect x="8" y="188" width="106" height="7" fill="#201408"/>
+          <rect x="8" y="264" width="106" height="7" fill="#201408"/>
+          <rect x="8" y="336" width="106" height="7" fill="#201408"/>
+          <!-- Book spines — muted in dusk -->
+          <rect x="13" y="118" width="11" height="68" fill="#2a1208" fill-opacity="0.8"/>
+          <rect x="25" y="124" width="9" height="62" fill="#0c1a10" fill-opacity="0.8"/>
+          <rect x="35" y="118" width="13" height="68" fill="#100a28" fill-opacity="0.8"/>
+          <rect x="49" y="126" width="8" height="60" fill="#201408" fill-opacity="0.8"/>
+          <rect x="58" y="116" width="14" height="70" fill="#180808" fill-opacity="0.8"/>
+          <rect x="73" y="122" width="7" height="64" fill="#0e0e0e" fill-opacity="0.8"/>
+          <rect x="81" y="118" width="12" height="68" fill="#081420" fill-opacity="0.8"/>
+          <rect x="94" y="128" width="8" height="58" fill="#180e04" fill-opacity="0.8"/>
+          <rect x="13" y="196" width="13" height="66" fill="#180828" fill-opacity="0.8"/>
+          <rect x="27" y="202" width="14" height="60" fill="#0c1808" fill-opacity="0.8"/>
+          <rect x="42" y="196" width="8" height="66" fill="#201408" fill-opacity="0.8"/>
+          <rect x="51" y="200" width="12" height="62" fill="#081020" fill-opacity="0.8"/>
+          <rect x="64" y="194" width="16" height="68" fill="#140a04" fill-opacity="0.8"/>
+          <rect x="81" y="198" width="10" height="64" fill="#1a0812" fill-opacity="0.8"/>
+          <rect x="92" y="196" width="13" height="66" fill="#0a1410" fill-opacity="0.8"/>
+          <!-- Third row -->
+          <rect x="13" y="272" width="10" height="60" fill="#160808" fill-opacity="0.8"/>
+          <rect x="24" y="278" width="16" height="54" fill="#141008" fill-opacity="0.8"/>
+          <rect x="41" y="272" width="9" height="60" fill="#0a0a18" fill-opacity="0.8"/>
+          <rect x="51" y="275" width="12" height="57" fill="#0c1018" fill-opacity="0.8"/>
+          <rect x="64" y="272" width="14" height="60" fill="#100808" fill-opacity="0.8"/>
+          <rect x="79" y="276" width="9" height="56" fill="#0e0c04" fill-opacity="0.8"/>
+          <rect x="89" y="272" width="13" height="60" fill="#1a0808" fill-opacity="0.8"/>
+
+          <!-- Candles on shelf top — unlit, wicks waiting -->
+          <rect x="48" y="100" width="6" height="18" fill="#c8b878" fill-opacity="0.7"/>
+          <rect x="74" y="104" width="5" height="14" fill="#d0c088" fill-opacity="0.65"/>
+          <!-- Wicks — unlit -->
+          <line x1="51" y1="100" x2="51" y2="96" stroke="#3a2810" stroke-width="0.8"/>
+          <line x1="76" y1="104" x2="76" y2="100" stroke="#3a2810" stroke-width="0.7"/>
+
+          <!-- Desk — right side -->
+          <rect x="296" y="295" width="176" height="48" fill="url(#hDesk)" stroke="#2a1808" stroke-width="0.8"/>
+          <!-- Wood grain -->
+          <line x1="296" y1="305" x2="472" y2="309" stroke="#1e1006" stroke-width="0.5" stroke-opacity="0.35"/>
+          <line x1="296" y1="320" x2="472" y2="317" stroke="#2e1a08" stroke-width="0.4" stroke-opacity="0.25"/>
+          <line x1="296" y1="334" x2="472" y2="337" stroke="#1e1006" stroke-width="0.4" stroke-opacity="0.22"/>
+          <!-- Desk legs -->
+          <rect x="306" y="343" width="7" height="177" fill="#1e1008"/>
+          <rect x="460" y="343" width="7" height="177" fill="#1e1008"/>
+
+          <!-- Lamp — shade dark, bulb unlit in twilight -->
+          <line x1="426" y1="295" x2="426" y2="205" stroke="#6a4018" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="426" y1="205" x2="398" y2="178" stroke="#6a4018" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="376,152 420,152 414,178 382,178" fill="#1a1008" stroke="#3a2010" stroke-width="0.8"/>
+          <!-- Lamp glow — very faint, not lit yet -->
+          <ellipse cx="398" cy="218" rx="80" ry="60" fill="url(#hLamp)" fill-opacity="0.3" filter="url(#hBlur)"/>
+          <!-- Dim bulb suggestion -->
+          <circle cx="398" cy="162" r="4" fill="#c89040" fill-opacity="0.18"/>
+
+          <!-- Notebook on desk — open -->
+          <rect x="305" y="272" width="76" height="25" fill="#d8c898" rx="1"/>
+          <rect x="340" y="272" width="4" height="25" fill="#b8a870"/>
+          <!-- Lines -->
+          <line x1="312" y1="280" x2="337" y2="280" stroke="#a09060" stroke-width="0.4" stroke-opacity="0.4"/>
+          <line x1="312" y1="286" x2="337" y2="286" stroke="#a09060" stroke-width="0.4" stroke-opacity="0.35"/>
+          <line x1="312" y1="292" x2="337" y2="292" stroke="#a09060" stroke-width="0.4" stroke-opacity="0.3"/>
+          <!-- Handwriting suggestion -->
+          <line x1="314" y1="279" x2="328" y2="279" stroke="#3a2808" stroke-width="0.6" stroke-opacity="0.28"/>
+          <line x1="314" y1="285" x2="332" y2="285" stroke="#3a2808" stroke-width="0.6" stroke-opacity="0.22"/>
+          <line x1="314" y1="291" x2="325" y2="291" stroke="#3a2808" stroke-width="0.6" stroke-opacity="0.18"/>
+
+          <!-- Turntable on desk -->
+          <rect x="330" y="254" width="96" height="44" fill="#0e0c08" rx="2" stroke="#1e1408" stroke-width="0.8"/>
+          <!-- Platter -->
+          <ellipse cx="375" cy="274" rx="32" ry="32" fill="#0a0808"/>
+          <ellipse cx="375" cy="274" rx="30" ry="30" fill="url(#hVD)"/>
+          <!-- Grooves — subtle -->
+          <circle cx="375" cy="274" r="25" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.9"/>
+          <circle cx="375" cy="274" r="19" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.8"/>
+          <circle cx="375" cy="274" r="13" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="0.7"/>
+          <!-- Label -->
+          <circle cx="375" cy="274" r="8" fill="url(#hVL)"/>
+          <text x="375" y="272" font-family="'Courier Prime',monospace" font-size="3" fill="rgba(220,195,140,0.7)" text-anchor="middle" font-weight="bold">INTER</text>
+          <text x="375" y="277" font-family="'Courier Prime',monospace" font-size="3" fill="rgba(220,195,140,0.7)" text-anchor="middle" font-weight="bold">ALBUMS</text>
+          <circle cx="375" cy="274" r="1.2" fill="#060404"/>
+          <!-- Tonearm -->
+          <circle cx="415" cy="258" r="5" fill="#201408" stroke="rgba(120,90,30,0.25)" stroke-width="0.5"/>
+          <line x1="415" y1="258" x2="364" y2="268" stroke="rgba(160,125,55,0.65)" stroke-width="1.5" stroke-linecap="round"/>
+          <rect x="359" y="265" width="6" height="4" fill="#160e06"/>
+
+          <!-- Record crates floor left -->
+          <rect x="12" y="375" width="88" height="68" fill="#160e06" stroke="rgba(80,55,18,0.25)" stroke-width="0.8"/>
+          <rect x="18" y="380" width="12" height="60" fill="#120808" fill-opacity="0.9"/>
+          <rect x="32" y="382" width="12" height="58" fill="#080c10" fill-opacity="0.9"/>
+          <rect x="46" y="379" width="12" height="61" fill="#0a0818" fill-opacity="0.9"/>
+          <rect x="60" y="381" width="12" height="59" fill="#100808" fill-opacity="0.9"/>
+          <rect x="74" y="380" width="12" height="60" fill="#080c08" fill-opacity="0.9"/>
+
+          <!-- Chair -->
+          <rect x="340" y="368" width="62" height="8" fill="#201408"/>
+          <rect x="345" y="376" width="8" height="80" fill="#160e06"/>
+          <rect x="390" y="376" width="8" height="80" fill="#160e06"/>
+          <rect x="340" y="336" width="62" height="6" fill="#201408"/>
+          <rect x="343" y="342" width="56" height="28" fill="#2a1a0c"/>
+
+          <!-- Twilight ambient — cool window light on floor -->
+          <ellipse cx="240" cy="390" rx="120" ry="40" fill="rgba(80,100,160,0.04)"/>
+
+          <!-- Vignette -->
+          <rect width="480" height="520" fill="url(#hVig)"/>
+        </svg>
+      </div>
+
+      <!-- Right — copy -->
       <div class="hero-copy">
-        <p class="hero-eyebrow">Introducing Interalbums</p>
+        <p class="hero-eyebrow">Intentional Listening Infrastructure</p>
         <h1 class="hero-headline">
           Streaming made music <em>available.</em><br/>
-          Interalbums makes it <em>meaningful again.</em>
+          Interalbums makes it<br/><em>meaningful again.</em>
         </h1>
         <p class="hero-sub">
-          Intentional Listening Infrastructure — built by musicians, for musicians.
-          Every album becomes an immersive world. Every listener becomes a relationship
-          you own. Every interaction becomes intelligence.
+          Every album becomes an immersive world.
+          Every listener becomes a relationship you own.
+          Every interaction becomes intelligence.
         </p>
         <div class="hero-actions">
           <a class="btn-primary" href="#founding">Get Early Access</a>
           <a class="btn-secondary" href="https://the-human-quest-3rdborough.replit.app" target="_blank">Hear a Live Example</a>
         </div>
       </div>
-
-      <!-- Vinyl record -->
-      <div class="vinyl-wrap">
-        <div class="vinyl">
-          <div class="vinyl-disc">
-            <div class="vinyl-label">
-              <span class="vinyl-label-name">INTER<br/>ALBUMS</span>
-              <div class="vinyl-label-divider"></div>
-              <span class="vinyl-label-sub">The Full Experience</span>
-            </div>
-            <div class="vinyl-hole"></div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
-
-  <!-- Marquee strip -->
-  <div class="tagline-strip">
-    <div class="tagline-track" id="marquee">
-      <span class="tagline-item">Intentional Listening Infrastructure <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Streaming Taught How. We Teach Why. <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Own the Relationship <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Own the Intelligence <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Own the Music <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">The Full Experience <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Intentional Listening Infrastructure <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Streaming Taught How. We Teach Why. <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Own the Relationship <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Own the Intelligence <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Own the Music <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">The Full Experience <span class="tagline-dot">◆</span></span>
-    </div>
-  </div>
 
   <!-- Problem -->
   <div class="problem section-wrap">
@@ -1239,25 +1351,25 @@
   <!-- Demo -->
   <div class="demo section-wrap" id="demo">
     <div class="demo-inner">
-      <div style="text-align:center; margin-bottom:2.5rem;">
+      <div style="text-align:center; margin-bottom:2.8rem;">
         <p class="section-eyebrow">Live on the platform</p>
         <h2 class="section-title">See what the full experience looks like.</h2>
       </div>
       <div class="demo-card">
-        <div>
-          <p class="demo-label-badge">Now Playing</p>
+        <div class="demo-card-copy">
+          <p class="demo-badge">Now Playing</p>
           <h3 class="demo-title">The Human Quest</h3>
-          <p class="demo-band">3rd Borough · Flip Coin Records</p>
+          <p class="demo-band">3rd Borough &nbsp;·&nbsp; Flip Coin Records</p>
           <p class="demo-desc">
-            16 years in the making. 9 immersive song scenes.
+            17 years in the making. Nine immersive song scenes.
             A journey from darkness to light — with visuals,
             interactions, and a world that moves as the album plays.
           </p>
-          <a class="btn-secondary" href="https://the-human-quest-3rdborough.replit.app" target="_blank" style="display:inline-block;">
+          <a class="btn-secondary-dark" href="https://the-human-quest-3rdborough.replit.app" target="_blank">
             Experience It →
           </a>
         </div>
-        <div class="demo-vinyl-wrap">
+        <div class="demo-card-vinyl">
           <div class="demo-vinyl">
             <div class="demo-vinyl-disc">
               <div class="demo-vinyl-label">
@@ -1271,77 +1383,17 @@
     </div>
   </div>
 
-
-  <!-- ══ PICK YOUR RITUAL ══════════════════════════════════════ -->
-  <div class="ritual-section section-wrap" id="ritual">
-    <div class="ritual-section-inner">
-      <p class="section-eyebrow" style="text-align:center;">The feature no platform has built</p>
-      <h2 class="section-title" style="text-align:center;">Pick Your Ritual.</h2>
-      <p class="section-body" style="margin:0 auto 2.5rem; text-align:center;">
-        Before the album begins, Interalbums asks you to set your space —
-        on screen and in your physical world. The app responds visually
-        while telling you to actually do it.
-      </p>
-      <p class="ritual-hero-line">"The app that tells you to put your phone down."</p>
-
-      <div class="ritual-cards">
-
-        <div class="ritual-card-item" style="--rc:#c8841a;">
-          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #2a150022 0%, transparent 70%);"></div>
-          <span class="ritual-card-emoji">🕯️</span>
-          <h3 class="ritual-card-name">Candles & Tea</h3>
-          <p class="ritual-card-desc">Warm. Intimate. Present.</p>
-          <p class="ritual-card-prompt">"Put the kettle on. Light something. We'll be here when you get back."</p>
-        </div>
-
-        <div class="ritual-card-item" style="--rc:#9b59e8;">
-          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #12082022 0%, transparent 70%);"></div>
-          <span class="ritual-card-emoji">🔮</span>
-          <h3 class="ritual-card-name">Blacklight Magic</h3>
-          <p class="ritual-card-desc">UV. Psychedelic. Alive.</p>
-          <p class="ritual-card-prompt">"Kill the lights. Let the room disappear."</p>
-        </div>
-
-        <div class="ritual-card-item" style="--rc:#e84393;">
-          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #1a0a1a22 0%, transparent 70%);"></div>
-          <span class="ritual-card-emoji">🌈</span>
-          <h3 class="ritual-card-name">Color Spectrum</h3>
-          <p class="ritual-card-desc">Prismatic. Vivid. Moving.</p>
-          <p class="ritual-card-prompt">"Set your lights to whatever color calls you."</p>
-        </div>
-
-        <div class="ritual-card-item" style="--rc:#2ae8b0;">
-          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #020d1a22 0%, transparent 70%);"></div>
-          <span class="ritual-card-emoji">🌌</span>
-          <h3 class="ritual-card-name">Galaxy & Auroras</h3>
-          <p class="ritual-card-desc">Cosmic. Vast. Limitless.</p>
-          <p class="ritual-card-prompt">"Lie back. Let the ceiling become the sky."</p>
-        </div>
-
-        <div class="ritual-card-item" style="--rc:#e8f020;">
-          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #0a0d0022 0%, transparent 70%);"></div>
-          <span class="ritual-card-emoji">🏙️</span>
-          <h3 class="ritual-card-name">City Neon</h3>
-          <p class="ritual-card-desc">Electric. Urban. Alive.</p>
-          <p class="ritual-card-prompt">"Open a window. Let the city breathe with you."</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-    <!-- Tiers -->
+  <!-- Tiers -->
   <div class="tiers section-wrap" id="tiers">
     <div class="tiers-inner">
       <div class="tiers-header">
-        <p class="section-eyebrow">Three tiers</p>
+        <p class="section-eyebrow">Three pressings</p>
         <h2 class="section-title" style="color:var(--cream);">Choose your pressing.</h2>
-        <p class="section-body" style="color:rgba(245,234,208,0.55); margin:0 auto;">
+        <p class="section-body" style="margin:0 auto;">
           Every tier gives your album a home that streaming never could.
           Start where you are. Upgrade when you're ready.
         </p>
       </div>
-
       <div class="tiers-grid">
 
         <!-- Rough Mix -->
@@ -1420,22 +1472,22 @@
       </div>
       <div class="steps">
         <div class="step">
-          <div class="step-number">01</div>
+          <div class="step-number">I</div>
           <p class="step-title">Choose Your Tier</p>
           <p class="step-body">Rough Mix, Final Mix, or Mastered. Founding pricing available now for the first 10 bands.</p>
         </div>
         <div class="step">
-          <div class="step-number">02</div>
+          <div class="step-number">II</div>
           <p class="step-title">Send Your Assets</p>
           <p class="step-body">Artwork, audio, photos, copy direction. We give you a simple brief so you know exactly what to send.</p>
         </div>
         <div class="step">
-          <div class="step-number">03</div>
+          <div class="step-number">III</div>
           <p class="step-title">We Build It</p>
           <p class="step-body">Your experience is built, tested, and delivered. You review, we refine. No code on your end.</p>
         </div>
         <div class="step">
-          <div class="step-number">04</div>
+          <div class="step-number">IV</div>
           <p class="step-title">Release It</p>
           <p class="step-body">Share the link. Fans enter the journey. You keep the revenue directly — no platform cut.</p>
         </div>
@@ -1446,12 +1498,8 @@
   <!-- Founding CTA -->
   <div class="founding section-wrap" id="founding">
     <div class="founding-inner">
-      <div class="price-sticker">
-        <span class="price-sticker-label">Starting</span>
-        <span class="price-sticker-amount">$209</span>
-        <span class="price-sticker-sub">Founding Rate</span>
-      </div>
-      <h2 class="founding-title">10 Founding Bands.<br/>First Come, First Pressed.</h2>
+      <p class="founding-rate">Founding rate · Starting at $209 · First 10 bands</p>
+      <h2 class="founding-title">First Come,<br/>First Pressed.</h2>
       <p class="founding-body">
         Streaming taught the industry how people listen.
         Interalbums will teach artists why people care.
@@ -1459,17 +1507,17 @@
         If you have a release coming — or an album that deserves
         a real home and a real audience relationship — this is the moment.
       </p>
-      <a class="btn-primary" href="mailto:interalbums@gmail.com?subject=Founding Band Interest" style="font-size:0.8rem; padding:1.1rem 2.8rem;">
+      <a class="btn-primary" href="mailto:interalbums@gmail.com?subject=Founding Band Interest" style="font-size:0.68rem; padding:1.1rem 2.6rem;">
         Apply for Founding Access
       </a>
-      <p class="founding-note">interalbums@gmail.com · interalbums.com</p>
+      <p class="founding-note">interalbums@gmail.com &nbsp;·&nbsp; interalbums.com</p>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
     <span class="footer-logo">Interalbums</span>
-    <span class="footer-tagline">The Full Experience</span>
+    <span class="footer-tagline">Intentional Listening</span>
     <ul class="footer-links">
       <li><a href="#">Terms</a></li>
       <li><a href="#">Privacy</a></li>
