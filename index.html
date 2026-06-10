@@ -1054,6 +1054,92 @@
       .steps::before { display: none; }
       footer { flex-direction: column; text-align: center; }
     }
+
+  /* ── Pick Your Ritual Section ── */
+  .ritual-section {
+    padding: 6rem 2rem;
+    background: var(--walnut);
+    border-top: 1px solid rgba(200,132,26,0.15);
+    border-bottom: 1px solid rgba(200,132,26,0.15);
+  }
+
+  .ritual-section-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  .ritual-hero-line {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--amber);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 30px rgba(200,132,26,0.3);
+  }
+
+  .ritual-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .ritual-card-item {
+    position: relative;
+    background: var(--walnut-mid);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-top: 2px solid var(--rc);
+    padding: 1.5rem 1.2rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ritual-card-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px color-mix(in srgb, var(--rc) 20%, transparent);
+  }
+
+  .ritual-card-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .ritual-card-emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .ritual-card-name {
+    font-family: var(--font-slab);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--rc);
+    margin-bottom: 0.3rem;
+  }
+
+  .ritual-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(245,234,208,0.45);
+    font-style: italic;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .ritual-card-prompt {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.8rem;
+    color: rgba(245,234,208,0.6);
+    line-height: 1.6;
+    border-left: 2px solid var(--rc);
+    padding-left: 0.6rem;
+    opacity: 0.8;
+  }
+
   </style>
 </head>
 <body>
@@ -1075,18 +1161,17 @@
       <div class="hero-copy">
         <p class="hero-eyebrow">Introducing Interalbums</p>
         <h1 class="hero-headline">
-          Your album deserves<br />
-          <em>the full side.</em>
+          Streaming made music <em>available.</em><br/>
+          Interalbums makes it <em>meaningful again.</em>
         </h1>
         <p class="hero-sub">
-          Turn your music into an immersive fan experience —
-          visual scenes, direct monetization, and a world
-          that lives beyond the playlist.
-          Built by musicians, for musicians.
+          Intentional Listening Infrastructure — built by musicians, for musicians.
+          Every album becomes an immersive world. Every listener becomes a relationship
+          you own. Every interaction becomes intelligence.
         </p>
         <div class="hero-actions">
           <a class="btn-primary" href="#founding">Get Early Access</a>
-          <a class="btn-secondary" href="https://3bthq.interalbums.com" target="_blank">Hear a Live Example</a>
+          <a class="btn-secondary" href="https://the-human-quest-3rdborough.replit.app" target="_blank">Hear a Live Example</a>
         </div>
       </div>
 
@@ -1109,25 +1194,25 @@
   <!-- Marquee strip -->
   <div class="tagline-strip">
     <div class="tagline-track" id="marquee">
+      <span class="tagline-item">Intentional Listening Infrastructure <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Streaming Taught How. We Teach Why. <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Own the Relationship <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Own the Intelligence <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Own the Music <span class="tagline-dot">◆</span></span>
       <span class="tagline-item">The Full Experience <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Every Song Its Own World <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Direct to Fan <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Built by Musicians <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">No Middleman <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Own Your Revenue <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Intentional Listening Infrastructure <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Streaming Taught How. We Teach Why. <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Own the Relationship <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Own the Intelligence <span class="tagline-dot">◆</span></span>
+      <span class="tagline-item">Own the Music <span class="tagline-dot">◆</span></span>
       <span class="tagline-item">The Full Experience <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Every Song Its Own World <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Direct to Fan <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Built by Musicians <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">No Middleman <span class="tagline-dot">◆</span></span>
-      <span class="tagline-item">Own Your Revenue <span class="tagline-dot">◆</span></span>
     </div>
   </div>
 
   <!-- Problem -->
   <div class="problem section-wrap">
     <div class="problem-inner">
-      <p class="section-eyebrow">The problem with streaming</p>
+      <p class="section-eyebrow">Streaming platforms collect activity. Interalbums collects intent.</p>
       <h2 class="section-title">They got the relationship.<br/>You got the fraction.</h2>
       <div class="stat-row">
         <div class="stat-item">
@@ -1168,7 +1253,7 @@
             A journey from darkness to light — with visuals,
             interactions, and a world that moves as the album plays.
           </p>
-          <a class="btn-secondary" href="https://3bthq.interalbums.com" target="_blank" style="display:inline-block;">
+          <a class="btn-secondary" href="https://the-human-quest-3rdborough.replit.app" target="_blank" style="display:inline-block;">
             Experience It →
           </a>
         </div>
@@ -1186,7 +1271,66 @@
     </div>
   </div>
 
-  <!-- Tiers -->
+
+  <!-- ══ PICK YOUR RITUAL ══════════════════════════════════════ -->
+  <div class="ritual-section section-wrap" id="ritual">
+    <div class="ritual-section-inner">
+      <p class="section-eyebrow" style="text-align:center;">The feature no platform has built</p>
+      <h2 class="section-title" style="text-align:center;">Pick Your Ritual.</h2>
+      <p class="section-body" style="margin:0 auto 2.5rem; text-align:center;">
+        Before the album begins, Interalbums asks you to set your space —
+        on screen and in your physical world. The app responds visually
+        while telling you to actually do it.
+      </p>
+      <p class="ritual-hero-line">"The app that tells you to put your phone down."</p>
+
+      <div class="ritual-cards">
+
+        <div class="ritual-card-item" style="--rc:#c8841a;">
+          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #2a150022 0%, transparent 70%);"></div>
+          <span class="ritual-card-emoji">🕯️</span>
+          <h3 class="ritual-card-name">Candles & Tea</h3>
+          <p class="ritual-card-desc">Warm. Intimate. Present.</p>
+          <p class="ritual-card-prompt">"Put the kettle on. Light something. We'll be here when you get back."</p>
+        </div>
+
+        <div class="ritual-card-item" style="--rc:#9b59e8;">
+          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #12082022 0%, transparent 70%);"></div>
+          <span class="ritual-card-emoji">🔮</span>
+          <h3 class="ritual-card-name">Blacklight Magic</h3>
+          <p class="ritual-card-desc">UV. Psychedelic. Alive.</p>
+          <p class="ritual-card-prompt">"Kill the lights. Let the room disappear."</p>
+        </div>
+
+        <div class="ritual-card-item" style="--rc:#e84393;">
+          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #1a0a1a22 0%, transparent 70%);"></div>
+          <span class="ritual-card-emoji">🌈</span>
+          <h3 class="ritual-card-name">Color Spectrum</h3>
+          <p class="ritual-card-desc">Prismatic. Vivid. Moving.</p>
+          <p class="ritual-card-prompt">"Set your lights to whatever color calls you."</p>
+        </div>
+
+        <div class="ritual-card-item" style="--rc:#2ae8b0;">
+          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #020d1a22 0%, transparent 70%);"></div>
+          <span class="ritual-card-emoji">🌌</span>
+          <h3 class="ritual-card-name">Galaxy & Auroras</h3>
+          <p class="ritual-card-desc">Cosmic. Vast. Limitless.</p>
+          <p class="ritual-card-prompt">"Lie back. Let the ceiling become the sky."</p>
+        </div>
+
+        <div class="ritual-card-item" style="--rc:#e8f020;">
+          <div class="ritual-card-bg" style="background:radial-gradient(ellipse at 40% 30%, #0a0d0022 0%, transparent 70%);"></div>
+          <span class="ritual-card-emoji">🏙️</span>
+          <h3 class="ritual-card-name">City Neon</h3>
+          <p class="ritual-card-desc">Electric. Urban. Alive.</p>
+          <p class="ritual-card-prompt">"Open a window. Let the city breathe with you."</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Tiers -->
   <div class="tiers section-wrap" id="tiers">
     <div class="tiers-inner">
       <div class="tiers-header">
@@ -1272,7 +1416,7 @@
     <div class="how-inner">
       <div class="how-header">
         <p class="section-eyebrow">The process</p>
-        <h2 class="section-title">Drop the needle. We handle the rest.</h2>
+        <h2 class="section-title">Drop the needle.<br/>Own what follows.</h2>
       </div>
       <div class="steps">
         <div class="step">
@@ -1307,12 +1451,13 @@
         <span class="price-sticker-amount">$209</span>
         <span class="price-sticker-sub">Founding Rate</span>
       </div>
-      <h2 class="founding-title">10 Spots.<br/>First Come, First Pressed.</h2>
+      <h2 class="founding-title">10 Founding Bands.<br/>First Come, First Pressed.</h2>
       <p class="founding-body">
-        We're opening Interalbums to the first 10 bands at 30% off
-        across all tiers. If you have a release coming —
-        or an album that deserves a real home —
-        this is the moment to get in.
+        Streaming taught the industry how people listen.
+        Interalbums will teach artists why people care.
+        We are opening to the first 10 founding bands at 30% off.
+        If you have a release coming — or an album that deserves
+        a real home and a real audience relationship — this is the moment.
       </p>
       <a class="btn-primary" href="mailto:interalbums@gmail.com?subject=Founding Band Interest" style="font-size:0.8rem; padding:1.1rem 2.8rem;">
         Apply for Founding Access
