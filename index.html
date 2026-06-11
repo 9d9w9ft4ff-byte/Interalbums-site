@@ -853,6 +853,161 @@
       color: rgba(26,18,8,0.25); margin-top: 1rem;
     }
 
+    /* ═══════════════════
+       FOUNDING ARTIST PROGRAM
+       ═══════════════════ */
+    .founding-program {
+      background: var(--cream);
+      border-top: 4px solid var(--ink);
+      padding: 5rem 3rem;
+      position: relative; z-index: 1;
+    }
+    .fp-inner { max-width: 1100px; margin: 0 auto; }
+
+    .fp-header {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 3rem; align-items: end;
+      margin-bottom: 3.5rem; padding-bottom: 2.5rem;
+      border-bottom: 3px solid var(--ink);
+    }
+    .fp-eyebrow {
+      font-family: var(--mono); font-size: 0.52rem;
+      font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .fp-eyebrow::before {
+      content: ''; width: 16px; height: 3px;
+      background: var(--red); flex-shrink: 0;
+    }
+    .fp-headline {
+      font-family: var(--disp);
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      line-height: 0.9; letter-spacing: 0.01em;
+      color: var(--ink); margin-bottom: 1.2rem;
+    }
+    .fp-sub {
+      font-family: var(--body); font-size: 1.05rem;
+      font-weight: 400; color: rgba(26,18,8,0.6);
+      line-height: 1.7; max-width: 400px;
+    }
+    .fp-number-display {
+      text-align: right;
+      padding: 2rem 2.5rem;
+      border: 3px solid var(--ink);
+      background: var(--ink);
+    }
+    .fp-spots-num {
+      font-family: var(--disp);
+      font-size: clamp(4rem, 7vw, 6rem);
+      letter-spacing: 0.02em; color: var(--orange);
+      line-height: 0.9; display: block;
+    }
+    .fp-spots-label {
+      font-family: var(--mono); font-size: 0.5rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(245,234,208,0.45); display: block;
+      margin-top: 0.4rem; line-height: 1.6;
+    }
+
+    /* Benefits list */
+    .fp-benefits {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; margin-bottom: 3rem;
+      border: 2px solid var(--ink);
+    }
+    .fp-benefit {
+      padding: 1.8rem 1.5rem;
+      border-right: 2px solid var(--ink);
+      background: var(--white);
+      transition: background 0.2s;
+    }
+    .fp-benefit:last-child { border-right: none; }
+    .fp-benefit:hover { background: var(--cream2); }
+    .fp-benefit-num {
+      font-family: var(--disp); font-size: 2rem;
+      letter-spacing: 0.02em;
+      color: rgba(26,18,8,0.1);
+      line-height: 1; margin-bottom: 0.7rem;
+    }
+    .fp-benefit-text {
+      font-family: var(--body); font-size: 0.88rem;
+      font-weight: 300; color: rgba(26,18,8,0.65);
+      line-height: 1.6;
+    }
+    .fp-benefit-text strong {
+      display: block; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    /* Badge row */
+    .fp-badges {
+      display: flex; gap: 0.6rem;
+      margin-bottom: 3rem; flex-wrap: wrap;
+    }
+    .fp-badge {
+      padding: 0.8rem 1.2rem;
+      border: 2px solid var(--ink);
+      display: flex; flex-direction: column;
+      gap: 0.2rem; min-width: 90px;
+      transition: all 0.2s;
+    }
+    .fp-badge--taken {
+      background: var(--ink);
+    }
+    .fp-badge--taken .fp-badge-num {
+      color: var(--orange);
+    }
+    .fp-badge--taken .fp-badge-name {
+      color: rgba(245,234,208,0.7);
+    }
+    .fp-badge--open {
+      background: var(--cream2);
+    }
+    .fp-badge--open:hover {
+      background: var(--ink);
+      border-color: var(--red);
+    }
+    .fp-badge--open:hover .fp-badge-num { color: var(--red); }
+    .fp-badge--open:hover .fp-badge-name { color: rgba(245,234,208,0.6); }
+    .fp-badge--fade {
+      opacity: 0.45;
+      min-width: 110px;
+    }
+    .fp-badge-num {
+      font-family: var(--disp); font-size: 0.85rem;
+      letter-spacing: 0.06em; color: var(--ink);
+      line-height: 1;
+    }
+    .fp-badge-name {
+      font-family: var(--mono); font-size: 0.42rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(26,18,8,0.45); line-height: 1;
+    }
+    .fp-badge-status {
+      font-family: var(--mono); font-size: 0.36rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--red);
+      display: flex; align-items: center; gap: 0.25rem;
+    }
+    .fp-badge-status::before {
+      content: ''; width: 4px; height: 4px;
+      border-radius: 50%; background: var(--red);
+      animation: blink 1.4s ease-in-out infinite;
+    }
+
+    .fp-cta {
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 1rem;
+    }
+    .fp-note {
+      font-family: var(--mono); font-size: 0.46rem;
+      letter-spacing: 0.12em; color: rgba(26,18,8,0.32);
+      max-width: 520px; line-height: 1.7;
+    }
+
     /* ─── Footer ─── */
     footer {
       background: var(--ink);
@@ -889,10 +1044,11 @@
       .decl-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
       .demo-card { grid-template-columns: 1fr; }
       .demo-vinyl-panel { min-height: 260px; order: -1; }
-      .tiers-header { grid-template-columns: 1fr; gap: 1rem; }
-      .tiers-grid { grid-template-columns: 1fr; }
-      .tier-card { border-right:none; border-bottom:3px solid var(--ink); }
-      .tier-card:last-child { border-bottom:none; }
+      .fp-header { grid-template-columns: 1fr; }
+      .fp-number-display { text-align: left; }
+      .fp-benefits { grid-template-columns: 1fr 1fr; }
+      .fp-benefit:nth-child(2n) { border-right: none; }
+      .fp-benefit { border-bottom: 2px solid var(--ink); }
       .steps { grid-template-columns: repeat(2,1fr); gap: 2.5rem; }
       .step, .step + .step { padding:0; border:none; }
       .founding-inner { grid-template-columns:1fr; }
@@ -918,7 +1074,7 @@
     </div>
     <ul class="nav-links">
       <li><a href="#demo">Live Demo</a></li>
-      <li><a href="#tiers">Tiers</a></li>
+      <li><a href="#founding-artists">Founding Artists</a></li>
       <li><a href="#how">How It Works</a></li>
     </ul>
     <div class="nav-right">
@@ -1129,72 +1285,99 @@
     </div>
   </div>
 
-  <!-- Tiers -->
-  <div class="tiers" id="tiers">
-    <div class="tiers-inner">
-      <div class="tiers-header">
-        <h2 class="tiers-hl">CHOOSE<br/>YOUR<br/>PRESSING.</h2>
-        <p class="tiers-sub">Every tier is a real release — not a demo, not a preview. Start where you are. Every band keeps 85% of every dollar.</p>
-      </div>
-      <div class="tiers-grid">
-        <div class="tier-card">
-          <div class="tier-band tier-band--rough"></div>
-          <div class="tier-body">
-            <div class="tier-name">ROUGH MIX</div>
-            <div class="tier-price">$299</div>
-            <div class="tier-founding">Founding rate: $209</div>
-            <div class="tier-rule"></div>
-            <ul class="tier-features">
-              <li>Album cover + one image per song</li>
-              <li>Full-screen scene per song</li>
-              <li>Dark-to-light progression</li>
-              <li>Play / pause + progress</li>
-              <li>Landing and completion screens</li>
-              <li>Tip integration included</li>
-              <li>Hosted at interalbums.com/yourband</li>
-            </ul>
-            <a class="tier-cta tier-cta--rough" href="#founding">Get Started</a>
-          </div>
+  <!-- Founding Artist Program -->
+  <div class="founding-program" id="founding-artists">
+    <div class="fp-inner">
+
+      <div class="fp-header">
+        <div class="fp-header-left">
+          <p class="fp-eyebrow">Limited to 25 artists</p>
+          <h2 class="fp-headline">FOUNDING<br/>ARTIST<br/>PROGRAM.</h2>
+          <p class="fp-sub">
+            The first artists on Interalbums won't be customers.<br/>
+            They'll be builders.
+          </p>
         </div>
-        <div class="tier-card">
-          <div class="tier-band tier-band--final"></div>
-          <div class="tier-body">
-            <div class="tier-name">FINAL MIX</div>
-            <div class="tier-price">$599</div>
-            <div class="tier-founding">Founding rate: $419</div>
-            <div class="tier-rule"></div>
-            <ul class="tier-features">
-              <li>Everything in Rough Mix</li>
-              <li>Interactive elements per scene</li>
-              <li>Living painting animations</li>
-              <li>Song copy and story layers</li>
-              <li>Paywall — fans unlock + download</li>
-              <li>Custom domain option</li>
-              <li>Two revision rounds</li>
-            </ul>
-            <a class="tier-cta tier-cta--final" href="#founding">Get Started</a>
-          </div>
-        </div>
-        <div class="tier-card">
-          <div class="tier-band tier-band--master"></div>
-          <div class="tier-body">
-            <div class="tier-name">MASTERED</div>
-            <div class="tier-price">$999</div>
-            <div class="tier-founding">Founding rate: $699</div>
-            <div class="tier-rule"></div>
-            <ul class="tier-features">
-              <li>Everything in Final Mix</li>
-              <li>Vertical video scenes per song</li>
-              <li>Unlockable fan content</li>
-              <li>Fan progression system</li>
-              <li>Premium visual effects</li>
-              <li>Custom domain included</li>
-              <li>White glove + 30-day support</li>
-            </ul>
-            <a class="tier-cta tier-cta--master" href="#founding">Get Started</a>
+        <div class="fp-header-right">
+          <div class="fp-number-display">
+            <span class="fp-spots-num">25</span>
+            <span class="fp-spots-label">Founding spots.<br/>No waiting list.</span>
           </div>
         </div>
       </div>
+
+      <div class="fp-benefits">
+        <div class="fp-benefit">
+          <div class="fp-benefit-num">01</div>
+          <div class="fp-benefit-text">
+            <strong>Launch your first Interalbum free.</strong>
+            No upfront cost. No risk. Just the release.
+          </div>
+        </div>
+        <div class="fp-benefit">
+          <div class="fp-benefit-num">02</div>
+          <div class="fp-benefit-text">
+            <strong>Keep 85% of every dollar.</strong>
+            Direct to you. Always. No exceptions.
+          </div>
+        </div>
+        <div class="fp-benefit">
+          <div class="fp-benefit-num">03</div>
+          <div class="fp-benefit-text">
+            <strong>Direct onboarding support.</strong>
+            We build it with you. Not for you.
+          </div>
+        </div>
+        <div class="fp-benefit">
+          <div class="fp-benefit-num">04</div>
+          <div class="fp-benefit-text">
+            <strong>Permanent Founding Artist status.</strong>
+            Artist #001 through #025. That designation never goes away.
+          </div>
+        </div>
+        <div class="fp-benefit">
+          <div class="fp-benefit-num">05</div>
+          <div class="fp-benefit-text">
+            <strong>Help shape what comes next.</strong>
+            Direct input on the platform roadmap. Your release informs the future.
+          </div>
+        </div>
+      </div>
+
+      <!-- Founding artist number badges -->
+      <div class="fp-badges">
+        <div class="fp-badge fp-badge--taken">
+          <span class="fp-badge-num">#001</span>
+          <span class="fp-badge-name">3rd Borough</span>
+          <span class="fp-badge-status">Active</span>
+        </div>
+        <div class="fp-badge fp-badge--open">
+          <span class="fp-badge-num">#002</span>
+          <span class="fp-badge-name">Open</span>
+        </div>
+        <div class="fp-badge fp-badge--open">
+          <span class="fp-badge-num">#003</span>
+          <span class="fp-badge-name">Open</span>
+        </div>
+        <div class="fp-badge fp-badge--open">
+          <span class="fp-badge-num">#004</span>
+          <span class="fp-badge-name">Open</span>
+        </div>
+        <div class="fp-badge fp-badge--open">
+          <span class="fp-badge-num">#005</span>
+          <span class="fp-badge-name">Open</span>
+        </div>
+        <div class="fp-badge fp-badge--open fp-badge--fade">
+          <span class="fp-badge-num">#006–025</span>
+          <span class="fp-badge-name">Open</span>
+        </div>
+      </div>
+
+      <div class="fp-cta">
+        <a class="btn-red" href="mailto:interalbums@gmail.com?subject=Founding Artist Application">Apply for Founding Access</a>
+        <p class="fp-note">Commercial pricing launches after the founding cohort. Founding artists receive permanent free onboarding and lifetime founding status.</p>
+      </div>
+
     </div>
   </div>
 
@@ -1208,13 +1391,13 @@
       <div class="steps">
         <div class="step">
           <div class="step-n">01</div>
-          <p class="step-title">Choose Your Tier</p>
-          <p class="step-body">Three tiers. Founding pricing for the first 10 bands.</p>
+          <p class="step-title">Apply for Access</p>
+          <p class="step-body">Tell us about your release. Founding artists receive direct onboarding — no queue, no form letter.</p>
         </div>
         <div class="step">
           <div class="step-n">02</div>
           <p class="step-title">Send Your Assets</p>
-          <p class="step-body">We send a brief. You send your assets. Nothing complicated.</p>
+          <p class="step-body">We send a brief. You send your assets. Simple process, direct communication.</p>
         </div>
         <div class="step">
           <div class="step-n">03</div>
@@ -1224,7 +1407,7 @@
         <div class="step">
           <div class="step-n">04</div>
           <p class="step-title">Release It</p>
-          <p class="step-body">Share the link. Fans experience the album. You keep 85%.</p>
+          <p class="step-body">Share the link. Fans experience the album. You keep the relationship, the data, and 85% of every dollar.</p>
         </div>
       </div>
     </div>
@@ -1234,17 +1417,17 @@
   <div class="founding" id="founding">
     <div class="founding-inner">
       <div class="founding-left">
-        <p class="founding-tag">Founding access — 10 bands only</p>
+        <p class="founding-tag">Position in history — not a price</p>
         <h2 class="founding-hl">FIRST<br/>COME,<br/>FIRST<br/>PRESSED.</h2>
-        <p class="founding-sub">If you have a release coming — this is the moment.</p>
+        <p class="founding-sub">25 artists. Permanent designation. The founding cohort shapes everything that comes after.</p>
       </div>
       <div class="founding-right">
-        <p class="founding-rate-tag">Starting at</p>
-        <div class="founding-rate">$209</div>
-        <div class="founding-rate-note">Founding rate · Standard $299</div>
+        <p class="founding-rate-tag">Founding Artist</p>
+        <div class="founding-rate">#001–025</div>
+        <div class="founding-rate-note">Those numbers never get reassigned</div>
         <div class="founding-divider"></div>
-        <p class="founding-details">10 bands. 30% off. No platform takes more than 15%. Apply now — slots go fast.</p>
-        <a class="btn-amber" href="mailto:interalbums@gmail.com?subject=Founding Band Interest">Apply for Founding Access</a>
+        <p class="founding-details">Commercial pricing launches after the founding cohort is complete. Founding artists receive free onboarding, 85% revenue, and permanent founding status.</p>
+        <a class="btn-amber" href="mailto:interalbums@gmail.com?subject=Founding Artist Application">Apply for Founding Access</a>
         <p class="founding-contact">interalbums@gmail.com &nbsp;·&nbsp; interalbums.com</p>
       </div>
     </div>
