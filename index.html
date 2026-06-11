@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +95,23 @@
       animation: blink 1.4s ease-in-out infinite;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
-    .nav-cta {
+    .nav-signin {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: none;
+      border: 2px solid rgba(245,234,208,0.3);
+      padding: 0.4rem 1rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-signin:hover {
+      border-color: var(--cream);
+      color: var(--cream);
+    }
       font-family: var(--mono); font-size: 0.5rem;
       font-weight: 700; letter-spacing: 0.18em;
       text-transform: uppercase; color: var(--ink);
@@ -1178,6 +1195,7 @@
     </ul>
     <div class="nav-right">
       <div class="on-air"><div class="on-air-dot"></div>On Air</div>
+      <a class="nav-signin" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Sign In</a>
       <a class="nav-cta" href="#founding">Get Early Access</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -1194,7 +1212,7 @@
     <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a>
     <a href="#how">How It Works</a>
     <div class="mobile-divider"></div>
-    <a class="mobile-signin" href="#founding">Sign In / Sign Up</a>
+    <a class="mobile-signin" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Sign In / Sign Up</a>
   </div>
 
   <!-- Hero -->
