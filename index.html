@@ -1058,9 +1058,105 @@
     @media (max-width: 600px) {
       nav { padding: 0 1.2rem; }
       .nav-links, .nav-id { display: none; }
+      .nav-right .on-air { display: none; }
+      .nav-right .nav-cta { display: none; }
       .hero-headline { font-size: clamp(3rem, 12vw, 4.5rem); }
       .bands-grid .band-card:nth-child(n+4) { display: none; }
       .steps { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Mobile hamburger ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--cream);
+      transition: all 0.25s ease;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile dropdown */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background: var(--ink);
+      border-bottom: 3px solid var(--red);
+      z-index: 99;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .mobile-nav.open {
+      max-height: 600px;
+      padding: 0.5rem 0 1rem;
+    }
+    .mobile-nav a {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,234,208,0.55);
+      text-decoration: none;
+      padding: 0.85rem 1.5rem;
+      display: block;
+      border-bottom: 1px solid rgba(245,234,208,0.06);
+      transition: color 0.15s, background 0.15s;
+    }
+    .mobile-nav a:hover,
+    .mobile-nav a:active {
+      color: var(--cream);
+      background: rgba(255,255,255,0.04);
+    }
+    .mobile-nav a.mobile-signin {
+      margin: 0.75rem 1.2rem 0;
+      border: 2px solid rgba(245,234,208,0.3);
+      border-bottom: 2px solid rgba(245,234,208,0.3);
+      color: var(--cream);
+      text-align: center;
+      padding: 0.75rem 1rem;
+      border-radius: 0;
+    }
+    .mobile-nav a.mobile-signin:hover {
+      background: rgba(245,234,208,0.08);
+    }
+    .mobile-nav .mobile-divider {
+      height: 1px;
+      background: rgba(245,234,208,0.1);
+      margin: 0.5rem 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .hamburger { display: flex; }
+      .mobile-nav { display: flex; }
     }
   </style>
 </head>
@@ -1083,8 +1179,23 @@
     <div class="nav-right">
       <div class="on-air"><div class="on-air-dot"></div>On Air</div>
       <a class="nav-cta" href="#founding">Get Early Access</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile dropdown nav -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#demo">Live Demo</a>
+    <a href="#founding-artists">Founding Artists</a>
+    <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a>
+    <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a>
+    <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a>
+    <a href="#how">How It Works</a>
+    <div class="mobile-divider"></div>
+    <a class="mobile-signin" href="#founding">Sign In / Sign Up</a>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
@@ -1444,10 +1555,35 @@
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Terms</a></li>
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/privacy" target="_blank">Privacy</a></li>
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a></li>
+      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a></li>
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a></li>
       <li><a href="mailto:info@roamkin.com">Contact</a></li>
     </ul>
   </footer>
 
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobile-nav');
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+
+      // Close on any link tap inside the menu
+      menu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', false);
+          menu.setAttribute('aria-hidden', true);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
