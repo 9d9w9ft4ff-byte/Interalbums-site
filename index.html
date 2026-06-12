@@ -1175,6 +1175,117 @@
       .hamburger { display: flex; }
       .mobile-nav { display: flex; }
     }
+    /* ═══════════════════
+       FEATURES
+       ═══════════════════ */
+    .features {
+      background: var(--ink);
+      padding: 5rem 2.5rem;
+    }
+    .features-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .features-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .features-eyebrow::before {
+      content: '';
+      width: 16px;
+      height: 3px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+    .features-headline {
+      font-family: var(--disp);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .features-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(245,234,208,0.5);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 3.5rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .feat-card {
+      background: rgba(245,234,208,0.04);
+      border: 1px solid rgba(245,234,208,0.08);
+      border-top: 3px solid var(--red);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+    .feat-card:nth-child(2) { border-top-color: var(--orange); }
+    .feat-card:nth-child(3) { border-top-color: var(--amber); }
+    .feat-card:nth-child(4) { border-top-color: var(--olive); }
+    .feat-card:hover { background: rgba(245,234,208,0.06); }
+    .feat-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .feat-title {
+      font-family: var(--disp);
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+      line-height: 1;
+    }
+    .feat-body {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(245,234,208,0.5);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+    .feat-link {
+      font-family: var(--mono);
+      font-size: 0.46rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .feat-card:nth-child(2) .feat-link { color: var(--orange); }
+    .feat-card:nth-child(3) .feat-link { color: var(--amber); }
+    .feat-card:nth-child(4) .feat-link { color: var(--olive); }
+    .feat-link:hover { color: var(--cream); }
+
+    /* Feature detail rows */
+    .feat-details {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .feat-detail {
+      font-family: var(--mono);
+      font-size: 0.4rem;
+      letter-spacing: 0.12em;
+      color: rgba(245,234,208,0.25);
+      padding-left: 0.8rem;
+      border-left: 2px solid rgba(245,234,208,0.08);
+    }
+
   </style>
 </head>
 <body>
@@ -1182,11 +1293,13 @@
   <!-- Nav -->
   <nav>
     <div class="nav-left">
-      <a class="nav-logo" href="#">INTERALBUMS</a>
+      <a class="nav-logo" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">INTERALBUMS</a>
       <span class="nav-id">Intentional Listening Infrastructure</span>
     </div>
     <ul class="nav-links">
+      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Main Lobby</a></li>
       <li><a href="#demo">Live Demo</a></li>
+      <li><a href="#features">Features</a></li>
       <li><a href="#founding-artists">Founding Artists</a></li>
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a></li>
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a></li>
@@ -1205,7 +1318,9 @@
 
   <!-- Mobile dropdown nav -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Main Lobby</a>
     <a href="#demo">Live Demo</a>
+    <a href="#features">Features</a>
     <a href="#founding-artists">Founding Artists</a>
     <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a>
     <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a>
@@ -1377,6 +1492,88 @@
           <div class="stat-n"><em>0</em></div>
           <div class="stat-l">Fan data you own</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="features" id="features">
+    <div class="features-inner">
+      <p class="features-eyebrow">What's Inside</p>
+      <h2 class="features-headline">BUILT FOR<br/>REAL LISTENING.</h2>
+      <p class="features-sub">
+        Every feature in Interalbums was designed around one question: does this create a moment people will remember?
+      </p>
+      <div class="features-grid">
+
+        <!-- Listening Room + Stage -->
+        <div class="feat-card">
+          <span class="feat-icon">🎙</span>
+          <h3 class="feat-title">Listening Room & The Stage</h3>
+          <p class="feat-body">
+            Synchronized listening rooms where fans experience an album together in real time. No skipping. No scrolling. The artist appears on The Stage — audio-first, intentional, sacred.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">Real-time synchronized playback</span>
+            <span class="feat-detail">Artist opening, intermission & closing</span>
+            <span class="feat-detail">Anonymous pulse reactions</span>
+            <span class="feat-detail">Front row recognition</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">See Occasions →</a>
+        </div>
+
+        <!-- The Booth -->
+        <div class="feat-card">
+          <span class="feat-icon">🏛</span>
+          <h3 class="feat-title">The Booth</h3>
+          <p class="feat-body">
+            Every listener gets a Booth — not a profile. A place to collect Genuine Articles, record reflections after experiences, and build connections earned through shared occasions.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">Genuine Article medallion collection</span>
+            <span class="feat-detail">Post-experience reflections journal</span>
+            <span class="feat-detail">Connections through shared presence</span>
+            <span class="feat-detail">Fan & artist layouts</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Get Your Booth →</a>
+        </div>
+
+        <!-- Occasions -->
+        <div class="feat-card">
+          <span class="feat-icon">🎟</span>
+          <h3 class="feat-title">Occasions</h3>
+          <p class="feat-body">
+            Artists create occasions — album debuts, secret sessions, anniversary rooms, commentary nights. Fans reserve seats. Everyone shows up together. The music becomes an event.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">General Admission, Front Row & VIP passes</span>
+            <span class="feat-detail">Custom atmosphere & medallion design</span>
+            <span class="feat-detail">Reflection Circle after the experience</span>
+            <span class="feat-detail">Genuine Article issued to every attendee</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Browse Occasions →</a>
+        </div>
+
+        <!-- The Signal -->
+        <div class="feat-card">
+          <span class="feat-icon">📡</span>
+          <h3 class="feat-title">The Signal</h3>
+          <p class="feat-body">
+            The artist intelligence dashboard. Real behavioral data from every listening session — not streams, but intent. Who completed the album. Where they dropped off. What rituals they chose.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">Listener → Buyer conversion tracking</span>
+            <span class="feat-detail">Song completion & drop-off rates</span>
+            <span class="feat-detail">Geography & ritual intelligence</span>
+            <span class="feat-detail">Fan evolution model (7 stages)</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">See Live Demo →</a>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1570,11 +1767,14 @@
     <span class="footer-logo">INTERALBUMS</span>
     <span class="footer-tag">Intentional Listening Infrastructure</span>
     <ul class="footer-links">
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Terms</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/privacy" target="_blank">Privacy</a></li>
+      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Main Lobby</a></li>
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a></li>
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a></li>
+      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/albums" target="_blank">Albums</a></li>
       <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a></li>
+      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Sign In</a></li>
+      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Terms</a></li>
+      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/privacy" target="_blank">Privacy</a></li>
       <li><a href="mailto:info@roamkin.com">Contact</a></li>
     </ul>
   </footer>
