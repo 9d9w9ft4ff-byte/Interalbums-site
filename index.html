@@ -67,21 +67,43 @@
       letter-spacing: 0.06em; color: var(--cream);
       text-decoration: none; line-height: 1;
     }
-    .nav-id {
-      font-family: var(--mono); font-size: 0.46rem;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(245,234,208,0.22);
-      border-left: 1px solid rgba(245,234,208,0.1);
-      padding-left: 2rem;
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
+    .nav-links { display: flex; gap: 0; list-style: none; align-items: center; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a, .nav-links > li > button {
       font-family: var(--mono); font-size: 0.48rem;
       letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(245,234,208,0.32); text-decoration: none;
-      transition: color 0.2s;
+      color: rgba(245,234,208,0.45); text-decoration: none;
+      transition: color 0.2s; padding: 0 1.2rem; line-height: 52px;
+      display: block; background: none; border: none; cursor: pointer;
     }
-    .nav-links a:hover { color: var(--cream); }
+    .nav-links > li > a:hover, .nav-links > li > button:hover { color: var(--cream); }
+
+    /* Explore dropdown */
+    .nav-dropdown {
+      position: absolute; top: 52px; left: 0;
+      background: var(--ink);
+      border: 1px solid rgba(245,234,208,0.1);
+      border-top: 3px solid var(--red);
+      min-width: 200px;
+      opacity: 0; pointer-events: none;
+      transform: translateY(-4px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 200;
+    }
+    .nav-dropdown a {
+      display: block; padding: 0.75rem 1.4rem;
+      font-family: var(--mono); font-size: 0.44rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(245,234,208,0.45); text-decoration: none;
+      border-bottom: 1px solid rgba(245,234,208,0.05);
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-dropdown a:last-child { border-bottom: none; }
+    .nav-dropdown a:hover { color: var(--cream); background: rgba(255,255,255,0.04); }
+    .nav-links > li:hover .nav-dropdown,
+    .nav-links > li:focus-within .nav-dropdown {
+      opacity: 1; pointer-events: all; transform: translateY(0);
+    }
     .nav-right { display: flex; align-items: center; gap: 1.2rem; }
     .on-air {
       font-family: var(--mono); font-size: 0.52rem;
@@ -297,13 +319,19 @@
       font-family: var(--mono); font-size: 0.55rem;
       font-weight: 700; letter-spacing: 0.3em;
       text-transform: uppercase; color: var(--red);
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.6rem;
       display: flex; align-items: center; gap: 0.8rem;
       position: relative;
     }
     .hero-overline::before {
       content: ''; width: 20px; height: 3px;
       background: var(--red); flex-shrink: 0;
+    }
+    .hero-where {
+      font-family: var(--mono); font-size: 0.52rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(26,18,8,0.38); margin-bottom: 1.4rem;
+      display: block;
     }
 
     .hero-headline {
@@ -424,6 +452,15 @@
     .band-card--open:hover .open-plus,
     .band-card--open:hover .open-txt { color: var(--red); }
 
+    .bands-more {
+      font-family: var(--mono); font-size: 0.46rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(26,18,8,0.4); text-decoration: none;
+      display: inline-block; margin-top: 0.7rem;
+      transition: color 0.2s;
+    }
+    .bands-more:hover { color: var(--red); }
+
     /* ─── Buttons ─── */
     .btn-red {
       font-family: var(--mono); font-size: 0.58rem;
@@ -476,13 +513,13 @@
     .decl-eyebrow {
       font-family: var(--mono); font-size: 0.52rem;
       font-weight: 700; letter-spacing: 0.28em;
-      text-transform: uppercase; color: var(--orange);
+      text-transform: uppercase; color: var(--amber);
       margin-bottom: 1.2rem;
       display: flex; align-items: center; gap: 0.7rem;
     }
     .decl-eyebrow::before {
       content: ''; width: 16px; height: 3px;
-      background: var(--orange); flex-shrink: 0;
+      background: var(--amber); flex-shrink: 0;
     }
     .decl-headline {
       font-family: var(--disp);
@@ -490,10 +527,10 @@
       line-height: 0.92; letter-spacing: 0.01em;
       color: var(--cream);
     }
-    .decl-headline em { font-style: normal; color: var(--orange); }
+    .decl-headline em { font-style: normal; color: var(--amber); }
     .decl-body {
       font-family: var(--body); font-size: 1rem;
-      font-weight: 300; color: rgba(245,234,208,0.55);
+      font-weight: 300; color: rgba(245,234,208,0.65);
       line-height: 1.75; max-width: 380px;
       margin-top: 1.4rem;
     }
@@ -513,11 +550,11 @@
       letter-spacing: 0.02em; line-height: 0.9;
       color: var(--cream); margin-bottom: 0.3rem;
     }
-    .stat-n em { font-style: normal; color: var(--orange); }
+    .stat-n em { font-style: normal; color: var(--amber); }
     .stat-l {
       font-family: var(--mono); font-size: 0.5rem;
       letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(245,234,208,0.3);
+      color: rgba(245,234,208,0.45);
     }
 
     /* ═══════════════════
@@ -1222,7 +1259,7 @@
     }
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
     .feat-card {
@@ -1294,22 +1331,26 @@
   <nav>
     <div class="nav-left">
       <a class="nav-logo" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">INTERALBUMS</a>
-      <span class="nav-id">Intentional Listening Infrastructure</span>
     </div>
     <ul class="nav-links">
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Main Lobby</a></li>
       <li><a href="#demo">Live Demo</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#founding-artists">Founding Artists</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a></li>
       <li><a href="#how">How It Works</a></li>
+      <li>
+        <button aria-haspopup="true">Explore ▾</button>
+        <div class="nav-dropdown">
+          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Main Lobby</a>
+          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a>
+          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a>
+          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/albums" target="_blank">Albums</a>
+          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a>
+          <a href="#founding-artists">Founding Artists</a>
+        </div>
+      </li>
+      <li><a href="#founding">Get Early Access</a></li>
     </ul>
     <div class="nav-right">
       <div class="on-air"><div class="on-air-dot"></div>On Air</div>
       <a class="nav-signin" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Sign In</a>
-      <a class="nav-cta" href="#founding">Get Early Access</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -1418,6 +1459,7 @@
 
     <!-- Right — copy -->
     <div class="hero-copy">
+      <span class="hero-where">Where Albums Come Alive</span>
       <p class="hero-overline">The operating system for album releases</p>
       <h1 class="hero-headline">
         ALBUMS<br/>
@@ -1427,8 +1469,8 @@
       </h1>
       <div class="hero-rule"></div>
       <p class="hero-sub">
-        Streaming solved access. It didn't solve connection.<br/><br/>
-        Interalbums turns your album into an experience fans move through — and gives you 85% of every dollar, plus the fan relationship.
+        Build an immersive listening experience around your album. Sell tickets to live occasions. Own your fan data.<br/><br/>
+        Interalbums gives artists 85% of every dollar and the fan relationship streaming never could.
       </p>
       <div class="hero-actions">
         <a class="btn-red" href="#founding">Get Early Access</a>
@@ -1446,23 +1488,8 @@
               <div class="band-live">Live Now</div>
             </div>
           </div>
-          <div class="band-card band-card--open">
-            <div class="open-plus">+</div>
-            <div class="open-txt">Your<br/>Band</div>
-          </div>
-          <div class="band-card band-card--open">
-            <div class="open-plus">+</div>
-            <div class="open-txt">Your<br/>Band</div>
-          </div>
-          <div class="band-card band-card--open">
-            <div class="open-plus">+</div>
-            <div class="open-txt">Your<br/>Band</div>
-          </div>
-          <div class="band-card band-card--open">
-            <div class="open-plus">+</div>
-            <div class="open-txt">Your<br/>Band</div>
-          </div>
         </div>
+        <a class="bands-more" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/albums" target="_blank">See more →</a>
       </div>
     </div>
 
