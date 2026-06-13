@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1109,6 +1108,7 @@
       .founding-inner { grid-template-columns:1fr; }
       .founding-right { border-left:none; border-top:4px solid var(--ink); }
       footer { flex-direction:column; text-align:center; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
       nav { padding: 0 1.2rem; }
@@ -1118,6 +1118,7 @@
       .hero-headline { font-size: clamp(3rem, 12vw, 4.5rem); }
       .bands-grid .band-card:nth-child(n+4) { display: none; }
       .steps { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
     }
 
     /* ─── Mobile hamburger ─── */
@@ -1260,7 +1261,7 @@
     }
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
     .feat-card {
@@ -1331,7 +1332,7 @@
   <!-- Nav -->
   <nav>
     <div class="nav-left">
-      <a class="nav-logo" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">INTERALBUMS</a>
+      <a class="nav-logo" href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">INTERALBUMS</a>
     </div>
     <ul class="nav-links">
       <li><a href="#demo">Live Demo</a></li>
@@ -1339,11 +1340,12 @@
       <li>
         <button aria-haspopup="true">Explore ▾</button>
         <div class="nav-dropdown">
-          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Main Lobby</a>
-          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a>
-          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a>
-          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/albums" target="_blank">Albums</a>
-          <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">Main Lobby</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">W-LPX Radio</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/albums" target="_blank">Albums</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">The Signal</a>
           <a href="#founding-artists">Founding Artists</a>
         </div>
       </li>
@@ -1351,7 +1353,7 @@
     </ul>
     <div class="nav-right">
       <div class="on-air"><div class="on-air-dot"></div>On Air</div>
-      <a class="nav-signin" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Sign In</a>
+      <a class="nav-signin" href="https://the-human-quest-3rdborough.replit.app/interalbums/login" target="_blank">Sign In</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -1360,16 +1362,17 @@
 
   <!-- Mobile dropdown nav -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Main Lobby</a>
+    <a href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">Main Lobby</a>
+    <a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a>
     <a href="#demo">Live Demo</a>
     <a href="#features">Features</a>
     <a href="#founding-artists">Founding Artists</a>
-    <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a>
-    <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a>
-    <a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a>
+    <a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a>
+    <a href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">W-LPX Radio</a>
+    <a href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">The Signal</a>
     <a href="#how">How It Works</a>
     <div class="mobile-divider"></div>
-    <a class="mobile-signin" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Sign In / Sign Up</a>
+    <a class="mobile-signin" href="https://the-human-quest-3rdborough.replit.app/interalbums/login" target="_blank">Sign In / Sign Up</a>
   </div>
 
   <!-- Hero -->
@@ -1490,7 +1493,7 @@
             </div>
           </div>
         </div>
-        <a class="bands-more" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/albums" target="_blank">See more →</a>
+        <a class="bands-more" href="https://the-human-quest-3rdborough.replit.app/interalbums/albums" target="_blank">See more →</a>
       </div>
     </div>
 
@@ -1537,18 +1540,18 @@
         <!-- Listening Room + Stage -->
         <div class="feat-card">
           <span class="feat-icon">🎙</span>
-          <h3 class="feat-title">Listening Room & The Stage</h3>
+          <h3 class="feat-title">Occasions & The Stage</h3>
           <p class="feat-body">
-            Synchronized listening rooms where fans experience an album together in real time. No skipping. No scrolling. The artist appears on The Stage — audio-first, intentional, sacred.
+            Synchronized listening rooms where fans experience an album together in real time. Three tiers — General Admission, Front Row, VIP — each with a fundamentally different experience. The artist appears on The Stage. The room transforms track by track.
           </p>
           <div class="feat-details">
-            <span class="feat-detail">Real-time synchronized playback</span>
-            <span class="feat-detail">Artist opening, intermission & closing</span>
-            <span class="feat-detail">Anonymous pulse reactions</span>
-            <span class="feat-detail">Front row recognition</span>
+            <span class="feat-detail">Front Row curated reactions + between-song notes</span>
+            <span class="feat-detail">VIP After Show with two-way conversation</span>
+            <span class="feat-detail">The Listening Council + The Seed</span>
+            <span class="feat-detail">Genuine Article Medallion issued to every attendee</span>
           </div>
           <br/>
-          <a class="feat-link" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">See Occasions →</a>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Enter an Occasion →</a>
         </div>
 
         <!-- The Booth -->
@@ -1556,50 +1559,84 @@
           <span class="feat-icon">🏛</span>
           <h3 class="feat-title">The Booth</h3>
           <p class="feat-body">
-            Every listener gets a Booth — not a profile. A place to collect Genuine Articles, record reflections after experiences, and build connections earned through shared occasions.
+            Every listener gets a Booth — not a profile. A collection of things they actually lived through. Ticket stubs. Vinyl sleeves. Journal pages. Cassette connections. Genuine Articles. The Seed. A record of presence, not performance.
           </p>
           <div class="feat-details">
             <span class="feat-detail">Genuine Article medallion collection</span>
-            <span class="feat-detail">Post-experience reflections journal</span>
-            <span class="feat-detail">Connections through shared presence</span>
-            <span class="feat-detail">Fan & artist layouts</span>
+            <span class="feat-detail">Echo submissions with artist response thread</span>
+            <span class="feat-detail">Fan progression: Explorer → Dweller → Steward</span>
+            <span class="feat-detail">Artist Booth: studio texture, creative workspace feel</span>
           </div>
           <br/>
-          <a class="feat-link" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Get Your Booth →</a>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/login" target="_blank">Get Your Booth →</a>
         </div>
 
-        <!-- Occasions -->
+        <!-- The Nexus -->
         <div class="feat-card">
-          <span class="feat-icon">🎟</span>
-          <h3 class="feat-title">Occasions</h3>
+          <span class="feat-icon">⬡</span>
+          <h3 class="feat-title">The Nexus</h3>
           <p class="feat-body">
-            Artists create occasions — album debuts, secret sessions, anniversary rooms, commentary nights. Fans reserve seats. Everyone shows up together. The music becomes an event.
+            The convergence point. A living map of what's happening across the platform right now — active rooms, Echoes gaining momentum, Genuine Articles being issued, artist signals, community standing. Not a feed. A town square.
           </p>
           <div class="feat-details">
-            <span class="feat-detail">General Admission, Front Row & VIP passes</span>
-            <span class="feat-detail">Custom atmosphere & medallion design</span>
-            <span class="feat-detail">Reflection Circle after the experience</span>
-            <span class="feat-detail">Genuine Article issued to every attendee</span>
+            <span class="feat-detail">Live platform pulse — occasions, echoes, stewards</span>
+            <span class="feat-detail">Echoes ranked by time-decayed momentum</span>
+            <span class="feat-detail">W-LPX live broadcasts surface here</span>
+            <span class="feat-detail">Community standing: Explorers / Dwellers / Stewards</span>
           </div>
           <br/>
-          <a class="feat-link" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Browse Occasions →</a>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">Enter The Nexus →</a>
         </div>
 
-        <!-- The Signal -->
+        <!-- The Signal + Archer -->
         <div class="feat-card">
           <span class="feat-icon">📡</span>
-          <h3 class="feat-title">The Signal</h3>
+          <h3 class="feat-title">The Signal & Archer</h3>
           <p class="feat-body">
-            The artist intelligence dashboard. Real behavioral data from every listening session — not streams, but intent. Who completed the album. Where they dropped off. What rituals they chose.
+            The artist intelligence dashboard. Not consumption analytics — relationship intelligence. What resonated. Where your people are gathering. Why it's happening. Archer, your Culture Archivist, reads the ecosystem and delivers a morning briefing in the language of art, not metrics.
           </p>
           <div class="feat-details">
-            <span class="feat-detail">Listener → Buyer conversion tracking</span>
-            <span class="feat-detail">Song completion & drop-off rates</span>
-            <span class="feat-detail">Geography & ritual intelligence</span>
-            <span class="feat-detail">Fan evolution model (7 stages)</span>
+            <span class="feat-detail">The Pulse: most felt track, epicenter city, strongest Echo</span>
+            <span class="feat-detail">Human Context Engine: anonymized fan voices</span>
+            <span class="feat-detail">Relationship Heatmap: community depth composition</span>
+            <span class="feat-detail">Legacy View: permanent cultural impact record</span>
           </div>
           <br/>
-          <a class="feat-link" href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">See Live Demo →</a>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">See Live Demo →</a>
+        </div>
+
+        <!-- W-LPX -->
+        <div class="feat-card">
+          <span class="feat-icon">📻</span>
+          <h3 class="feat-title">W-LPX Radio</h3>
+          <p class="feat-body">
+            Earned radio. Every broadcast is hosted by a Conduit — a fan who has demonstrated taste, depth, and contribution to the culture. You don't apply for a Conduit Engine. You earn one. W-LPX plays music that lives on Interalbums, by artists who belong here.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">Steward tier required to apply for a Conduit Engine</span>
+            <span class="feat-detail">Live broadcasts with commentary between tracks</span>
+            <span class="feat-detail">Curated reactions for listeners</span>
+            <span class="feat-detail">PRO play reporting built in for every broadcast</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">Tune In →</a>
+        </div>
+
+        <!-- Echo System -->
+        <div class="feat-card">
+          <span class="feat-icon">〜</span>
+          <h3 class="feat-title">The Echo System</h3>
+          <p class="feat-body">
+            After every Reflection Circle, fans submit Echoes — ideas, requests, interpretations that the music inspired. Echoes incubate. They gather support. They gain momentum. Artists respond: Fulfilled, Expanded, Deferred, Rejected. Participation becomes consequential.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">Echo types: Remix, Collab, Vinyl, Event, Expansion</span>
+            <span class="feat-detail">Time-decayed momentum ranking</span>
+            <span class="feat-detail">Artist response thread visible in fan Booth</span>
+            <span class="feat-detail">Echo Observatory in The Signal</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Attend an Occasion →</a>
         </div>
 
       </div>
@@ -1795,14 +1832,15 @@
     <span class="footer-logo">INTERALBUMS</span>
     <span class="footer-tag">Intentional Listening Infrastructure</span>
     <ul class="footer-links">
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Main Lobby</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions" target="_blank">Occasions</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/occasions/builder" target="_blank">Occasion Builder</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/albums" target="_blank">Albums</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/signal/demo" target="_blank">The Signal</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/login" target="_blank">Sign In</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/" target="_blank">Terms</a></li>
-      <li><a href="https://feb577bf-ecd0-4f10-83de-8e06456e366b-00-3fv2jn5kszpqn.riker.replit.dev/interalbums/privacy" target="_blank">Privacy</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">Main Lobby</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">W-LPX</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/albums" target="_blank">Albums</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">The Signal</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/login" target="_blank">Sign In</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">Terms</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/privacy" target="_blank">Privacy</a></li>
       <li><a href="mailto:info@roamkin.com">Contact</a></li>
     </ul>
   </footer>
