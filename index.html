@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1108,8 +1109,7 @@
       .founding-inner { grid-template-columns:1fr; }
       .founding-right { border-left:none; border-top:4px solid var(--ink); }
       footer { flex-direction:column; text-align:center; }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }    }
     @media (max-width: 600px) {
       nav { padding: 0 1.2rem; }
       .nav-links, .nav-id { display: none; }
@@ -1261,7 +1261,7 @@
     }
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
     .feat-card {
@@ -1341,6 +1341,7 @@
         <button aria-haspopup="true">Explore ▾</button>
         <div class="nav-dropdown">
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">Main Lobby</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary" target="_blank">The Albrary</a>
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a>
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a>
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">W-LPX Radio</a>
@@ -1363,6 +1364,7 @@
   <!-- Mobile dropdown nav -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">Main Lobby</a>
+    <a href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary" target="_blank">The Albrary</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a>
     <a href="#demo">Live Demo</a>
     <a href="#features">Features</a>
@@ -1473,8 +1475,7 @@
       </h1>
       <div class="hero-rule"></div>
       <p class="hero-sub">
-        Build an immersive listening experience around your album. Sell tickets to live occasions. Own your fan data.<br/><br/>
-        Interalbums gives artists 85% of every dollar and the fan relationship streaming never could.
+        Build an immersive listening experience around your album. Sell tickets to live occasions. Own your fan data. Watch a community form around your music — Explorers becoming Stewards, Stewards becoming Conduits, Concasts carrying your signal further than streaming ever could.
       </p>
       <div class="hero-actions">
         <a class="btn-red" href="#founding">Get Early Access</a>
@@ -1523,6 +1524,10 @@
           <div class="stat-n"><em>0</em></div>
           <div class="stat-l">Fan data you own</div>
         </div>
+        <div class="stat-row-item">
+          <div class="stat-n"><em>85</em>%</div>
+          <div class="stat-l">Artist revenue on Interalbums</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1531,18 +1536,35 @@
   <div class="features" id="features">
     <div class="features-inner">
       <p class="features-eyebrow">What's Inside</p>
-      <h2 class="features-headline">BUILT FOR<br/>REAL LISTENING.</h2>
+      <h2 class="features-headline">A PLATFORM<br/>BUILT FOR CULTURE.</h2>
       <p class="features-sub">
         Every feature in Interalbums was designed around one question: does this create a moment people will remember?
       </p>
       <div class="features-grid">
 
-        <!-- Listening Room + Stage -->
+        <!-- The Albrary -->
+        <div class="feat-card">
+          <span class="feat-icon">📀</span>
+          <h3 class="feat-title">The Albrary</h3>
+          <p class="feat-body">
+            Every album on Interalbums lives in The Albrary as an Interalbum — an immersive experience built around the music. Not a streaming page. A room you enter. The Human Quest is the first. More follow.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">Nine songs. Nine scenes. Each one built to be felt.</span>
+            <span class="feat-detail">Occasion history, Echo archive, people present</span>
+            <span class="feat-detail">Browse The Shelf — albums as records in a crate</span>
+            <span class="feat-detail">Each album a world, not a playlist</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary" target="_blank">Enter The Albrary →</a>
+        </div>
+
+        <!-- Occasions & The Stage -->
         <div class="feat-card">
           <span class="feat-icon">🎙</span>
           <h3 class="feat-title">Occasions & The Stage</h3>
           <p class="feat-body">
-            Synchronized listening rooms where fans experience an album together in real time. Three tiers — General Admission, Front Row, VIP — each with a fundamentally different experience. The artist appears on The Stage. The room transforms track by track.
+            Synchronized listening rooms where fans experience an album together in real time. Three tiers — General Admission, Front Row, VIP — each a fundamentally different experience. The artist appears on The Stage. The room transforms track by track.
           </p>
           <div class="feat-details">
             <span class="feat-detail">Front Row curated reactions + between-song notes</span>
@@ -1559,13 +1581,13 @@
           <span class="feat-icon">🏛</span>
           <h3 class="feat-title">The Booth</h3>
           <p class="feat-body">
-            Every listener gets a Booth — not a profile. A collection of things they actually lived through. Ticket stubs. Vinyl sleeves. Journal pages. Cassette connections. Genuine Articles. The Seed. A record of presence, not performance.
+            Every listener gets a Booth — not a profile. A collection of things they actually lived through. Ticket stubs. Vinyl sleeves. Journal pages. Cassette connections. Conduits get a radio booth. Artists get a studio. Each one earned, each one different.
           </p>
           <div class="feat-details">
-            <span class="feat-detail">Genuine Article medallion collection</span>
-            <span class="feat-detail">Echo submissions with artist response thread</span>
-            <span class="feat-detail">Fan progression: Explorer → Dweller → Steward</span>
-            <span class="feat-detail">Artist Booth: studio texture, creative workspace feel</span>
+            <span class="feat-detail">Fan: ticket stubs, vinyl, cassettes, Genuine Articles</span>
+            <span class="feat-detail">Artist: studio texture, notebook pages, microphone</span>
+            <span class="feat-detail">Conduit: mixing board, frequency card, broadcast archive</span>
+            <span class="feat-detail">Fan progression: Explorer → Dweller → Steward → Conduit</span>
           </div>
           <br/>
           <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/login" target="_blank">Get Your Booth →</a>
@@ -1576,16 +1598,33 @@
           <span class="feat-icon">⬡</span>
           <h3 class="feat-title">The Nexus</h3>
           <p class="feat-body">
-            The convergence point. A living map of what's happening across the platform right now — active rooms, Echoes gaining momentum, Genuine Articles being issued, artist signals, community standing. Not a feed. A town square.
+            The convergence point. A living map of what's happening across the platform right now — active occasions, live Concasts, Echoes gaining momentum, Genuine Articles being issued, community standing. Not a feed. A town square.
           </p>
           <div class="feat-details">
-            <span class="feat-detail">Live platform pulse — occasions, echoes, stewards</span>
+            <span class="feat-detail">Live pulse — occasions, Concasts, Echoes, Stewards</span>
             <span class="feat-detail">Echoes ranked by time-decayed momentum</span>
-            <span class="feat-detail">W-LPX live broadcasts surface here</span>
+            <span class="feat-detail">W-LPX live Concasts surface here</span>
             <span class="feat-detail">Community standing: Explorers / Dwellers / Stewards</span>
           </div>
           <br/>
           <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">Enter The Nexus →</a>
+        </div>
+
+        <!-- W-LPX + Concasts -->
+        <div class="feat-card">
+          <span class="feat-icon">📻</span>
+          <h3 class="feat-title">W-LPX & Concasts</h3>
+          <p class="feat-body">
+            Earned radio. Conduits — fans who've demonstrated taste and contribution — host Concasts on W-LPX. Recurring Frequencies, Deep Cuts, Discovery Nights. Listeners earn Concast Stubs. Conduits earn ad revenue. Every broadcast builds a scene.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">5 Concast types: Frequency, Deep Cut, Discovery Night, Anniversary, Collab Cast</span>
+            <span class="feat-detail">Recurring schedules auto-generate weekly</span>
+            <span class="feat-detail">Concast Stubs issued to every listener</span>
+            <span class="feat-detail">Conduits earn 50% of ad revenue per read</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">Tune In →</a>
         </div>
 
         <!-- The Signal + Archer -->
@@ -1593,33 +1632,16 @@
           <span class="feat-icon">📡</span>
           <h3 class="feat-title">The Signal & Archer</h3>
           <p class="feat-body">
-            The artist intelligence dashboard. Not consumption analytics — relationship intelligence. What resonated. Where your people are gathering. Why it's happening. Archer, your Culture Archivist, reads the ecosystem and delivers a morning briefing in the language of art, not metrics.
+            The artist intelligence dashboard. Not consumption analytics — relationship intelligence. Archer, your Culture Archivist, reads the ecosystem and delivers a morning briefing in the language of art, not metrics. Ask Archer anything about your world.
           </p>
           <div class="feat-details">
             <span class="feat-detail">The Pulse: most felt track, epicenter city, strongest Echo</span>
             <span class="feat-detail">Human Context Engine: anonymized fan voices</span>
-            <span class="feat-detail">Relationship Heatmap: community depth composition</span>
             <span class="feat-detail">Legacy View: permanent cultural impact record</span>
+            <span class="feat-detail">Archer: Claude-powered Culture Archivist</span>
           </div>
           <br/>
           <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">See Live Demo →</a>
-        </div>
-
-        <!-- W-LPX -->
-        <div class="feat-card">
-          <span class="feat-icon">📻</span>
-          <h3 class="feat-title">W-LPX Radio</h3>
-          <p class="feat-body">
-            Earned radio. Every broadcast is hosted by a Conduit — a fan who has demonstrated taste, depth, and contribution to the culture. You don't apply for a Conduit Engine. You earn one. W-LPX plays music that lives on Interalbums, by artists who belong here.
-          </p>
-          <div class="feat-details">
-            <span class="feat-detail">Steward tier required to apply for a Conduit Engine</span>
-            <span class="feat-detail">Live broadcasts with commentary between tracks</span>
-            <span class="feat-detail">Curated reactions for listeners</span>
-            <span class="feat-detail">PRO play reporting built in for every broadcast</span>
-          </div>
-          <br/>
-          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">Tune In →</a>
         </div>
 
         <!-- Echo System -->
@@ -1627,16 +1649,33 @@
           <span class="feat-icon">〜</span>
           <h3 class="feat-title">The Echo System</h3>
           <p class="feat-body">
-            After every Reflection Circle, fans submit Echoes — ideas, requests, interpretations that the music inspired. Echoes incubate. They gather support. They gain momentum. Artists respond: Fulfilled, Expanded, Deferred, Rejected. Participation becomes consequential.
+            After every Reflection Circle, fans submit Echoes — ideas, requests, interpretations the music inspired. Echoes incubate. They gather support. They gain momentum. Artists respond. Conduits receive their own Echoes. Participation becomes consequential.
           </p>
           <div class="feat-details">
             <span class="feat-detail">Echo types: Remix, Collab, Vinyl, Event, Expansion</span>
-            <span class="feat-detail">Time-decayed momentum ranking</span>
-            <span class="feat-detail">Artist response thread visible in fan Booth</span>
+            <span class="feat-detail">Time-decayed momentum ranking in The Nexus</span>
+            <span class="feat-detail">Artist + Conduit response threads</span>
             <span class="feat-detail">Echo Observatory in The Signal</span>
           </div>
           <br/>
           <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Attend an Occasion →</a>
+        </div>
+
+        <!-- Subscription + Revenue -->
+        <div class="feat-card">
+          <span class="feat-icon">◈</span>
+          <h3 class="feat-title">Artist Revenue Model</h3>
+          <p class="feat-body">
+            Artists keep 85% of every ticket sold. No upfront cost. No monthly subscription required. The platform takes 15% when you earn. Signal Pro unlocks the full intelligence layer for $19/month. Founding Artists get everything free, forever.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">85% artist revenue — always, on every ticket</span>
+            <span class="feat-detail">Signal Standard: free, basic intelligence</span>
+            <span class="feat-detail">Signal Pro: $19/mo, full Signal + unlimited Archer</span>
+            <span class="feat-detail">Founding Artists #001–025: Pro free forever</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="#founding-artists">Apply for Founding Access →</a>
         </div>
 
       </div>
@@ -1833,6 +1872,7 @@
     <span class="footer-tag">Intentional Listening Infrastructure</span>
     <ul class="footer-links">
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">Main Lobby</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary" target="_blank">The Albrary</a></li>
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a></li>
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a></li>
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">W-LPX</a></li>
