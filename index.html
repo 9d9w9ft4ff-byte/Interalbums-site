@@ -1663,6 +1663,14 @@
     .occasions-stat-l { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,234,208,0.5); }
     @media (max-width: 960px) { .occasions-inner { grid-template-columns: 1fr; min-height: auto; } .occasions-fan { padding: 4rem 2.5rem; } .occasions-artist { border-left: none; border-top: 4px solid var(--ink); padding: 4rem 2.5rem; } }
     @media (max-width: 768px) { .occasions-fan { padding: 3rem 1.4rem; } .occasions-artist { padding: 3rem 1.4rem; } .occasions-headline { font-size: clamp(2.2rem, 8vw, 3rem); } }
+    /* Occasions header bar */
+    .occasions-header { background: var(--cream); border-bottom: 4px solid var(--ink); padding: 3rem 4rem 2.5rem; position: relative; }
+    .occasions-header-eyebrow { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.6rem; }
+    .occasions-header-eyebrow::before { content: ""; width: 16px; height: 3px; background: var(--red); flex-shrink: 0; display: inline-block; }
+    .occasions-header-title { font-family: var(--disp); font-size: clamp(3.5rem, 7vw, 6rem); letter-spacing: 0.02em; line-height: 0.9; color: var(--ink); margin-bottom: 0.8rem; }
+    .occasions-header-sub { font-family: var(--body); font-size: 1.05rem; font-weight: 300; color: rgba(26,18,8,0.55); line-height: 1.7; max-width: 600px; }
+    @media (max-width: 960px) { .occasions-header { padding: 2.5rem 2.5rem 2rem; } }
+    @media (max-width: 768px) { .occasions-header { padding: 2rem 1.4rem 1.6rem; } .occasions-header-title { font-size: clamp(2.8rem, 11vw, 4rem); } .occasions-artist { border-top: 8px solid var(--ink) !important; } }
   </style>
 </head>
 <body>
@@ -2128,6 +2136,14 @@
 
   <!-- Occasions -->
   <div class="occasions-section" id="occasions">
+
+    <!-- Section header -->
+    <div class="occasions-header">
+      <span class="occasions-header-eyebrow">The Live Experience</span>
+      <h2 class="occasions-header-title">OCCASIONS</h2>
+      <p class="occasions-header-sub">Synchronized listening rooms where albums become performances — and fans become witnesses.</p>
+    </div>
+
     <div class="occasions-inner">
 
       <!-- Fan side: dark, cinematic -->
