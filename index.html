@@ -1628,6 +1628,41 @@
     }
     .build-cta-link:hover { color: var(--red2); }
 
+
+    /* ═══ OCCASIONS SECTION ═══ */
+    .occasions-section { border-top: 4px solid var(--ink); position: relative; z-index: 1; overflow: hidden; }
+    .occasions-inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
+    .occasions-fan { background: var(--ink); padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+    .occasions-fan::before { content: ""; position: absolute; inset: 0; background-image: repeating-linear-gradient(-55deg, transparent, transparent 12px, rgba(255,255,255,0.025) 12px, rgba(255,255,255,0.025) 13px); pointer-events: none; }
+    .occasions-fan::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--red); pointer-events: none; }
+    .occasions-artist { background: var(--cream); padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--ink); }
+    .occasions-tag { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; position: relative; }
+    .occasions-tag::before { content: ""; width: 16px; height: 3px; flex-shrink: 0; }
+    .occasions-fan .occasions-tag { color: var(--red); }
+    .occasions-fan .occasions-tag::before { background: var(--red); }
+    .occasions-artist .occasions-tag { color: var(--amber); }
+    .occasions-artist .occasions-tag::before { background: var(--amber); }
+    .occasions-headline { font-family: var(--disp); font-size: clamp(2.8rem, 4.5vw, 4rem); line-height: 0.92; letter-spacing: 0.01em; margin-bottom: 1.4rem; }
+    .occasions-fan .occasions-headline { color: var(--cream); }
+    .occasions-artist .occasions-headline { color: var(--ink); }
+    .occasions-body { font-family: var(--body); font-size: 1rem; font-weight: 300; line-height: 1.78; margin-bottom: 2rem; }
+    .occasions-fan .occasions-body { color: rgba(245,234,208,0.65); }
+    .occasions-fan .occasions-body strong { color: var(--cream); font-weight: 600; }
+    .occasions-artist .occasions-body { color: rgba(26,18,8,0.6); }
+    .occasions-artist .occasions-body strong { color: var(--ink); font-weight: 600; }
+    .occasions-pills { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2.5rem; }
+    .occasions-pill { display: flex; align-items: flex-start; gap: 0.8rem; }
+    .occasions-pill-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 0.45em; }
+    .occasions-fan .occasions-pill-dot { background: var(--red); }
+    .occasions-artist .occasions-pill-dot { background: var(--amber); }
+    .occasions-pill-text { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; line-height: 1.6; }
+    .occasions-fan .occasions-pill-text { color: rgba(245,234,208,0.45); }
+    .occasions-artist .occasions-pill-text { color: rgba(26,18,8,0.4); }
+    .occasions-stat { display: inline-flex; align-items: baseline; gap: 0.5rem; background: var(--ink); padding: 0.7rem 1.2rem; margin-bottom: 1.6rem; }
+    .occasions-stat-n { font-family: var(--disp); font-size: 2.4rem; color: var(--amber); line-height: 1; }
+    .occasions-stat-l { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,234,208,0.5); }
+    @media (max-width: 960px) { .occasions-inner { grid-template-columns: 1fr; min-height: auto; } .occasions-fan { padding: 4rem 2.5rem; } .occasions-artist { border-left: none; border-top: 4px solid var(--ink); padding: 4rem 2.5rem; } }
+    @media (max-width: 768px) { .occasions-fan { padding: 3rem 1.4rem; } .occasions-artist { padding: 3rem 1.4rem; } .occasions-headline { font-size: clamp(2.2rem, 8vw, 3rem); } }
   </style>
 </head>
 <body>
@@ -1640,7 +1675,8 @@
     <ul class="nav-links">
       <li><a href="#builder">The Builder</a></li>
       <li><a href="#demo">Live Demo</a></li>
-      <li><a href="#how">How It Works</a></li>
+      <li><a href="#occasions">Occasions</a>
+    <a href="#how">How It Works</a></li>
       <li>
         <button aria-haspopup="true">Explore ▾</button>
         <div class="nav-dropdown">
@@ -1657,6 +1693,7 @@
           <a href="#founding-artists">Founding Artists</a>
         </div>
       </li>
+      <li><a href="#occasions">Occasions</a></li>
       <li><a href="#founding">Get Early Access</a></li>
     </ul>
     <div class="nav-right">
@@ -1682,6 +1719,7 @@
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/store" target="_blank">The Store</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary/builder" target="_blank">Interalbum Builder</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">The Signal</a>
+    <a href="#occasions">Occasions</a>
     <a href="#how">How It Works</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/about" target="_blank">About</a>
     <div class="mobile-divider"></div>
@@ -2042,8 +2080,11 @@
           <div class="builder-highlight builder-highlight--scenes"><p class="builder-highlight-label">Expressive Scenes</p><h3 class="builder-highlight-title">75 Living Paintings</h3><p class="builder-highlight-body">Not music videos. Not slideshows. Progress-synced animations — each mapped to an emotion, each evolving from the first note to the last. The Drain. The Horizon. The Repair. The Threshold. Pick from 75 scenes across 25 emotions.</p><div class="builder-highlight-stat">75 Scenes · 25 Emotions</div></div>
           <div class="builder-highlight builder-highlight--theater"><p class="builder-highlight-label">Theater Mode</p><h3 class="builder-highlight-title">A Cinema in Every Room</h3><p class="builder-highlight-body">Full cinema frame — curtains, projector beam, rows of seats below the screen. Embed your music video or lyric video. Or upload a slideshow with a slow Ken Burns drift. Atmosphere-aware: every theater looks different at Midnight vs. Candlelight.</p><div class="builder-highlight-stat">Video · Slideshow · 6 Atmospheres</div></div>
           <div class="builder-highlight builder-highlight--finale"><p class="builder-highlight-label">Grand Finale</p><h3 class="builder-highlight-title">The Show Does Not Just End</h3><p class="builder-highlight-body">After the last note, the platform assembles a montage of every scene from the night in track order — each one crossfading wordlessly into the next. The whole emotional arc of the show, compressed into one closing sequence. Then your message. Then the Reflection Circle opens.</p><div class="builder-highlight-stat">Auto-Generated · No Setup Required</div></div>
-          <div class="builder-cta"><a class="btn-red" href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary/builder" target="_blank">Open The Builder &rarr;</a><span class="builder-note">Founding Artists build free &middot; Onboarding support included</span></div>
-          <a class="btn-outline" href="#revenue-model" style="margin-top:0.5rem; display:inline-block;">View Artist Revenue Model →</a>
+          <div class="builder-cta">
+            <a class="btn-red" href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary/builder" target="_blank">Open The Builder →</a>
+            <a class="btn-outline" href="#revenue-model">View Artist Revenue Model →</a>
+            <span class="builder-note">Founding Artists build free · Onboarding support included</span>
+          </div>
         </div>
       </div>
     </div>
@@ -2084,6 +2125,55 @@
     </div>
   </div>
 
+
+  <!-- Occasions -->
+  <div class="occasions-section" id="occasions">
+    <div class="occasions-inner">
+
+      <!-- Fan side: dark, cinematic -->
+      <div class="occasions-fan">
+        <div>
+          <p class="occasions-tag">For the Listener</p>
+          <h2 class="occasions-headline">THIS IS NOT<br/>A STREAM.<br/>THIS IS A SHOW.</h2>
+          <p class="occasions-body">
+            An Occasion is a <strong>synchronized listening room</strong> — a moment in time where you and other fans experience an album together, in real time, with the artist present. Not a playlist. Not a podcast. A performance that only happens once, and that you were actually there for.
+          </p>
+          <div class="occasions-pills">
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">The room transforms track by track — visuals, atmosphere, ritual</span></div>
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">General Admission, Front Row, and VIP — each a fundamentally different experience</span></div>
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">A Genuine Article is issued to every attendee — proof you were present</span></div>
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">The Grand Finale plays after the last song — a montage of the night, wordless</span></div>
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">The Reflection Circle opens. You leave something. It stays.</span></div>
+          </div>
+        </div>
+        <a class="btn-red" href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Attend an Occasion →</a>
+      </div>
+
+      <!-- Artist side: cream -->
+      <div class="occasions-artist">
+        <div>
+          <p class="occasions-tag">For the Artist</p>
+          <h2 class="occasions-headline">YOUR MUSIC.<br/>YOUR ROOM.<br/>YOUR TERMS.</h2>
+          <div class="occasions-stat">
+            <span class="occasions-stat-n">85%</span>
+            <span class="occasions-stat-l">of every ticket<br/>directly to you</span>
+          </div>
+          <p class="occasions-body">
+            You set the ritual. You assign the visual to every track — a living painting tuned to the emotion of the song, a cinema screen, or your own footage. You write the closing line. <strong>The audience arrives into a world you built.</strong> When it ends, you keep the relationship, the data, and the revenue.
+          </p>
+          <div class="occasions-pills">
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">Sell tickets at three tiers — GA, Front Row, VIP After Show</span></div>
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">75 Expressive Scenes across 25 emotions — assign one per track</span></div>
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">Theater mode: full cinema frame with curtains, seats, projector beam</span></div>
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">Fan data is yours — every attendee, every reaction, every Echo</span></div>
+            <div class="occasions-pill"><div class="occasions-pill-dot"></div><span class="occasions-pill-text">No upfront cost. No monthly fee. 15% only when you earn.</span></div>
+          </div>
+        </div>
+        <a class="btn-outline" href="#founding-artists">Apply for Founding Access →</a>
+      </div>
+
+    </div>
+  </div>
   <!-- Founding Artist Program -->
   <div class="founding-program" id="founding-artists">
     <div class="fp-inner">
