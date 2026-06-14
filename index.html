@@ -1264,6 +1264,18 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
+    .feat-card:nth-child(5) { border-top-color: var(--red); }
+    .feat-card:nth-child(6) { border-top-color: var(--orange); }
+    .feat-card:nth-child(7) { border-top-color: var(--amber); }
+    .feat-card:nth-child(8) { border-top-color: var(--olive); }
+    .feat-card:nth-child(9) { border-top-color: var(--red); }
+    .feat-card:nth-child(10) { border-top-color: var(--orange); }
+    .feat-card:nth-child(5) .feat-link { color: var(--red); }
+    .feat-card:nth-child(6) .feat-link { color: var(--orange); }
+    .feat-card:nth-child(7) .feat-link { color: var(--amber); }
+    .feat-card:nth-child(8) .feat-link { color: var(--olive); }
+    .feat-card:nth-child(9) .feat-link { color: var(--red); }
+    .feat-card:nth-child(10) .feat-link { color: var(--orange); }
     .feat-card {
       background: rgba(245,234,208,0.04);
       border: 1px solid rgba(245,234,208,0.08);
@@ -1345,6 +1357,8 @@
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a>
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a>
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">W-LPX Radio</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/store" target="_blank">The Store</a>
+          <a href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary/builder" target="_blank">Interalbum Builder</a>
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/albums" target="_blank">Albums</a>
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">The Signal</a>
           <a href="https://the-human-quest-3rdborough.replit.app/interalbums/about" target="_blank">About</a>
@@ -1372,6 +1386,8 @@
     <a href="#founding-artists">Founding Artists</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">W-LPX Radio</a>
+    <a href="https://the-human-quest-3rdborough.replit.app/interalbums/store" target="_blank">The Store</a>
+    <a href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary/builder" target="_blank">Interalbum Builder</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">The Signal</a>
     <a href="#how">How It Works</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/about" target="_blank">About</a>
@@ -1680,6 +1696,40 @@
           <a class="feat-link" href="#founding-artists">Apply for Founding Access →</a>
         </div>
 
+        <!-- The Store -->
+        <div class="feat-card">
+          <span class="feat-icon">🛒</span>
+          <h3 class="feat-title">The Store</h3>
+          <p class="feat-body">
+            Vinyl. Cassettes. Shirts. Posters. Physical Genuine Articles — hand-signed, made to order, each one provably tied to the digital stub from the Occasion you attended. The Vault holds rare and one-of-a-kind items. Attendance-gated drops for fans who were actually there.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">9 product types: vinyl, cassette, shirt, poster, thumb drive, CD, vault</span>
+            <span class="feat-detail">Physical Genuine Articles: signed, provenance-linked to your stub</span>
+            <span class="feat-detail">The Vault: rare items, auction or fixed price</span>
+            <span class="feat-detail">Artist receives 85% of every sale — always</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/store" target="_blank">Enter The Store →</a>
+        </div>
+
+        <!-- Interalbum Builder -->
+        <div class="feat-card">
+          <span class="feat-icon">🎛</span>
+          <h3 class="feat-title">Interalbum Builder</h3>
+          <p class="feat-body">
+            A 7-step wizard for building your immersive album experience. Upload audio. Assign a visual to each track — a music video, a lyric video, a slideshow, or an Expressive Scene: a progress-synced living painting tuned to the emotional arc of your music. Set the ritual. Write the closing line.
+          </p>
+          <div class="feat-details">
+            <span class="feat-detail">75 Expressive Scenes mapped across 25 emotions</span>
+            <span class="feat-detail">Theater mode: cinema frame with seats, curtains, projector</span>
+            <span class="feat-detail">Grand Finale: auto-generated montage of the night's emotional arc</span>
+            <span class="feat-detail">Paywall, Gumroad/Ko-fi, liner notes, ISRC fields</span>
+          </div>
+          <br/>
+          <a class="feat-link" href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary/builder" target="_blank">Open The Builder →</a>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1836,8 +1886,8 @@
         </div>
         <div class="step">
           <div class="step-n">03</div>
-          <p class="step-title">We Build It</p>
-          <p class="step-body">We build it. You review it. No code required.</p>
+          <p class="step-title">Build It — Together or Solo</p>
+          <p class="step-body">Use the Interalbum Builder to create your own immersive experience. Or we build it with you. Founding artists get direct onboarding support.</p>
         </div>
         <div class="step">
           <div class="step-n">04</div>
@@ -1878,6 +1928,8 @@
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a></li>
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a></li>
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/wlpx" target="_blank">W-LPX</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/store" target="_blank">The Store</a></li>
+      <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary/builder" target="_blank">Builder</a></li>
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/albums" target="_blank">Albums</a></li>
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/signal/demo" target="_blank">The Signal</a></li>
       <li><a href="https://the-human-quest-3rdborough.replit.app/interalbums/login" target="_blank">Sign In</a></li>
