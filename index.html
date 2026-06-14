@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,6 +134,7 @@
       border-color: var(--cream);
       color: var(--cream);
     }
+    .nav-cta {
       font-family: var(--mono); font-size: 0.78rem;
       font-weight: 700; letter-spacing: 0.18em;
       text-transform: uppercase; color: var(--ink);
@@ -1337,6 +1337,182 @@
       border-left: 2px solid rgba(245,234,208,0.08);
     }
 
+    /* Feat cards are clickable */
+    .feat-card-link {
+      display: contents;
+      text-decoration: none;
+      color: inherit;
+    }
+    .feat-card { cursor: pointer; }
+    .feat-card:hover .feat-link { color: var(--cream); }
+
+    /* ═══════════════════
+       BUILDER SHOWCASE SECTION
+       ═══════════════════ */
+    .builder-section {
+      background: var(--cream);
+      border-top: 4px solid var(--ink);
+      padding: 5rem 3rem;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .builder-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg, transparent, transparent 18px,
+        rgba(26,18,8,0.025) 18px, rgba(26,18,8,0.025) 19px
+      );
+      pointer-events: none;
+    }
+    .builder-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .builder-eyebrow {
+      font-family: var(--mono); font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .builder-eyebrow::before {
+      content: ''; width: 16px; height: 3px;
+      background: var(--red); flex-shrink: 0;
+    }
+    .builder-headline {
+      font-family: var(--disp);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.9; letter-spacing: 0.01em;
+      color: var(--ink); margin-bottom: 1.2rem;
+    }
+    .builder-headline span { color: var(--red); }
+    .builder-sub {
+      font-family: var(--body); font-size: 1.05rem;
+      font-weight: 300; color: rgba(26,18,8,0.55);
+      line-height: 1.75; max-width: 560px;
+      margin-bottom: 3.5rem;
+    }
+    .builder-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .builder-steps { display: flex; flex-direction: column; gap: 0; }
+    .builder-step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(26,18,8,0.1);
+      align-items: start;
+    }
+    .builder-step:last-child { border-bottom: none; }
+    .builder-step-num {
+      font-family: var(--disp); font-size: 1.8rem;
+      color: rgba(26,18,8,0.12); line-height: 1; text-align: right;
+    }
+    .builder-step-title {
+      font-family: var(--disp); font-size: 1.1rem;
+      letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .builder-step-body {
+      font-family: var(--body); font-size: 0.88rem;
+      font-weight: 300; color: rgba(26,18,8,0.5); line-height: 1.6;
+    }
+    .builder-highlights { display: flex; flex-direction: column; gap: 1.2rem; }
+    .builder-highlight {
+      background: var(--ink);
+      padding: 1.8rem 2rem;
+      position: relative; overflow: hidden;
+    }
+    .builder-highlight::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; bottom: 0; width: 4px;
+    }
+    .builder-highlight--scenes::before { background: var(--red); }
+    .builder-highlight--theater::before { background: var(--amber); }
+    .builder-highlight--finale::before { background: var(--orange); }
+    .builder-highlight-label {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(245,234,208,0.35); margin-bottom: 0.5rem;
+    }
+    .builder-highlight-title {
+      font-family: var(--disp); font-size: 1.5rem;
+      letter-spacing: 0.04em; color: var(--cream); margin-bottom: 0.5rem;
+    }
+    .builder-highlight-body {
+      font-family: var(--body); font-size: 0.88rem;
+      font-weight: 300; color: rgba(245,234,208,0.5); line-height: 1.65;
+    }
+    .builder-highlight-stat {
+      font-family: var(--disp); font-size: 2.2rem;
+      letter-spacing: 0.02em; line-height: 1; margin-top: 0.8rem;
+    }
+    .builder-highlight--scenes .builder-highlight-stat { color: var(--red); }
+    .builder-highlight--theater .builder-highlight-stat { color: var(--amber); }
+    .builder-highlight--finale .builder-highlight-stat { color: var(--orange); }
+    .builder-cta {
+      margin-top: 3.5rem;
+      display: flex; gap: 1rem;
+      align-items: center; flex-wrap: wrap;
+    }
+    .builder-note {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.14em; color: rgba(26,18,8,0.3);
+    }
+
+    /* ─── Comprehensive Mobile Fixes ─── */
+    @media (max-width: 960px) {
+      .builder-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .builder-section { padding: 4rem 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      body { overflow-x: hidden; }
+
+      .builder-section { padding: 3rem 1.2rem; }
+      .builder-step { grid-template-columns: 2.2rem 1fr; gap: 0.8rem; }
+      .builder-highlight { padding: 1.4rem 1.4rem; }
+      .builder-cta { flex-direction: column; align-items: flex-start; }
+
+      .hero-visual { order: 1; min-height: 52vw; max-height: 60vw; }
+      .hero-copy { order: 2; padding: 2.5rem 1.4rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn-red,
+      .hero-actions .btn-outline { width: 100%; text-align: center; box-sizing: border-box; }
+
+      .features { padding: 3rem 1.2rem; }
+      .demo { padding: 3rem 1.2rem; }
+      .tiers { padding: 3rem 1.2rem; }
+      .how { padding: 3rem 1.2rem; }
+      .founding-left { padding: 3rem 1.4rem; }
+      .founding-right { padding: 3rem 1.4rem; }
+      .founding-program { padding: 3rem 1.2rem; }
+      .decl-strip { padding: 3rem 1.2rem; }
+
+      .tiers-grid { grid-template-columns: 1fr; }
+      .tiers-header { grid-template-columns: 1fr; gap: 1rem; }
+      .tier-card { border-right: none; border-bottom: 3px solid var(--ink); }
+      .tier-card:last-child { border-bottom: none; }
+
+      .demo-card { grid-template-columns: 1fr; }
+      .demo-vinyl-panel { min-height: 200px; order: -1; }
+      .demo-copy { padding: 2rem 1.4rem; }
+
+      .fp-benefits { grid-template-columns: 1fr; }
+      .fp-benefit { border-right: none; }
+      .fp-badges { gap: 0.4rem; }
+
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.4rem 1.2rem; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem 1.4rem; }
+      .footer-links a { font-size: 0.62rem; }
+
+      .decl-stats { flex-direction: column; gap: 1.2rem; }
+      .decl-strip-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+      .feat-card { padding: 1.6rem 1.4rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -1347,6 +1523,7 @@
       <a class="nav-logo" href="https://the-human-quest-3rdborough.replit.app/interalbums/" target="_blank">INTERALBUMS</a>
     </div>
     <ul class="nav-links">
+      <li><a href="#builder">The Builder</a></li>
       <li><a href="#demo">Live Demo</a></li>
       <li><a href="#how">How It Works</a></li>
       <li>
@@ -1382,6 +1559,7 @@
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary" target="_blank">The Albrary</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/nexus" target="_blank">The Nexus</a>
     <a href="#demo">Live Demo</a>
+    <a href="#builder">The Builder</a>
     <a href="#features">Features</a>
     <a href="#founding-artists">Founding Artists</a>
     <a href="https://the-human-quest-3rdborough.replit.app/interalbums/occasions" target="_blank">Occasions</a>
@@ -1734,6 +1912,32 @@
     </div>
   </div>
 
+
+  <!-- Interalbum Builder Section -->
+  <div class="builder-section" id="builder">
+    <div class="builder-inner">
+      <p class="builder-eyebrow">Artist Tool</p>
+      <h2 class="builder-headline">BUILD YOUR<br/>INTERALBUM.<br/><span>YOUR WAY.</span></h2>
+      <p class="builder-sub">A 7-step wizard for creating an immersive album experience. Upload your audio. Assign a visual to each track. Set the ritual. Write the closing line. Go live.</p>
+      <div class="builder-layout">
+        <div class="builder-steps">
+          <div class="builder-step"><div class="builder-step-num">01</div><div class="builder-step-content"><p class="builder-step-title">Album Details</p><p class="builder-step-body">Title, slug, release date, genre tags, ISRC fields, and liner notes. Everything the record needs to exist properly.</p></div></div>
+          <div class="builder-step"><div class="builder-step-num">02</div><div class="builder-step-content"><p class="builder-step-title">Upload Audio</p><p class="builder-step-body">Upload your tracks. The platform handles the rest — waveform, duration, playback. Lossless supported.</p></div></div>
+          <div class="builder-step"><div class="builder-step-num">03</div><div class="builder-step-content"><p class="builder-step-title">Artwork &amp; Visual Identity</p><p class="builder-step-body">Album cover, back panel, color palette. The visual identity that carries through every surface of the experience.</p></div></div>
+          <div class="builder-step"><div class="builder-step-num">04</div><div class="builder-step-content"><p class="builder-step-title">Paywall &amp; Access</p><p class="builder-step-body">Set your price. Link Gumroad, Ko-fi, or direct Stripe. Choose what is free and what is gated. Your call entirely.</p></div></div>
+          <div class="builder-step"><div class="builder-step-num">05</div><div class="builder-step-content"><p class="builder-step-title">Track Configuration</p><p class="builder-step-body">Set tier access per track. Write between-song notes for Front Row. Build the listening order you intended.</p></div></div>
+          <div class="builder-step"><div class="builder-step-num">06</div><div class="builder-step-content"><p class="builder-step-title">Ritual &amp; Mood</p><p class="builder-step-body">Pick the ritual your audience arrives with — Candlelight, Headphones Only, Journal, Full Dark, Tea Ceremony. Write the closing line. Your show.</p></div></div>
+          <div class="builder-step"><div class="builder-step-num">07</div><div class="builder-step-content"><p class="builder-step-title">Visual Experience</p><p class="builder-step-body">Assign a visual to every track: music video, lyric video, slideshow, or an Expressive Scene — a living painting that evolves with the song. Then go live.</p></div></div>
+        </div>
+        <div class="builder-highlights">
+          <div class="builder-highlight builder-highlight--scenes"><p class="builder-highlight-label">Expressive Scenes</p><h3 class="builder-highlight-title">75 Living Paintings</h3><p class="builder-highlight-body">Not music videos. Not slideshows. Progress-synced animations — each mapped to an emotion, each evolving from the first note to the last. The Drain. The Horizon. The Repair. The Threshold. Pick from 75 scenes across 25 emotions.</p><div class="builder-highlight-stat">75 Scenes · 25 Emotions</div></div>
+          <div class="builder-highlight builder-highlight--theater"><p class="builder-highlight-label">Theater Mode</p><h3 class="builder-highlight-title">A Cinema in Every Room</h3><p class="builder-highlight-body">Full cinema frame — curtains, projector beam, rows of seats below the screen. Embed your music video or lyric video. Or upload a slideshow with a slow Ken Burns drift. Atmosphere-aware: every theater looks different at Midnight vs. Candlelight.</p><div class="builder-highlight-stat">Video · Slideshow · 6 Atmospheres</div></div>
+          <div class="builder-highlight builder-highlight--finale"><p class="builder-highlight-label">Grand Finale</p><h3 class="builder-highlight-title">The Show Does Not Just End</h3><p class="builder-highlight-body">After the last note, the platform assembles a montage of every scene from the night in track order — each one crossfading wordlessly into the next. The whole emotional arc of the show, compressed into one closing sequence. Then your message. Then the Reflection Circle opens.</p><div class="builder-highlight-stat">Auto-Generated · No Setup Required</div></div>
+          <div class="builder-cta"><a class="btn-red" href="https://the-human-quest-3rdborough.replit.app/interalbums/albrary/builder" target="_blank">Open The Builder &rarr;</a><span class="builder-note">Founding Artists build free &middot; Onboarding support included</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Demo -->
   <div class="demo" id="demo">
     <div class="demo-inner">
