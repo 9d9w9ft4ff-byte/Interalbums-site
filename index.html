@@ -1116,6 +1116,23 @@
       .builder-section { padding: 4rem 2rem; }
     }
 
+    /* ─── Tablet intermediate: features 1-col at 768px ─── */
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr !important; gap: 1rem; }
+      .tiers-grid { grid-template-columns: 1fr !important; }
+      .tiers-header { grid-template-columns: 1fr; gap: 1rem; }
+      .tier-card { border-right: none; border-bottom: 3px solid var(--ink); }
+      .tier-card:last-child { border-bottom: none; }
+      .steps { grid-template-columns: 1fr !important; gap: 1.8rem; }
+      .step, .step + .step { padding: 0; border: none; }
+      .builder-layout { grid-template-columns: 1fr !important; gap: 2rem; }
+      .fp-benefits { grid-template-columns: 1fr !important; }
+      .fp-benefit { border-right: none; }
+      .demo-card { grid-template-columns: 1fr !important; }
+      .decl-strip-inner { grid-template-columns: 1fr !important; gap: 2rem; }
+      .decl-stats { flex-direction: column; gap: 1rem; }
+    }
+
     /* ─── Mobile hamburger ─── */
     .hamburger {
       display: none;
