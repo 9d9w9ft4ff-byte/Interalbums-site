@@ -80,22 +80,28 @@
     color: var(--red-bright);
     text-decoration: none;
   }
-  .nav-links {
+  .nav-actions {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    list-style: none;
+    gap: 0.75rem;
   }
-  .nav-links a {
+  .nav-signin {
     font-family: 'Space Mono', monospace;
     font-size: 0.66rem;
     letter-spacing: 0.13em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--cream);
+    background: transparent;
+    border: 1px solid rgba(245,234,208,0.3);
+    padding: 0.45rem 1.1rem;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: border-color 0.2s, background 0.2s;
+    white-space: nowrap;
   }
-  .nav-links a:hover { color: var(--cream); }
+  .nav-signin:hover {
+    border-color: rgba(245,234,208,0.6);
+    background: rgba(245,234,208,0.05);
+  }
   .nav-cta {
     font-family: 'Space Mono', monospace;
     font-size: 0.66rem;
@@ -110,13 +116,13 @@
     white-space: nowrap;
   }
   .nav-cta:hover { background: var(--red-bright); }
-  .nav-mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--cream);
-    font-size: 1.2rem;
-    cursor: pointer;
+
+  @media (max-width: 600px) {
+    .nav-signin, .nav-cta {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.6rem;
+    }
+    .nav-actions { gap: 0.5rem; }
   }
 
   /* ── HERO ── */
@@ -842,8 +848,6 @@
     .community-right { padding: 4rem 2rem; }
     .conduit-inner { grid-template-columns: 1fr; gap: 3.5rem; }
     .invite-inner { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .nav-mobile-toggle { display: block; }
     .credit-sheet-wrap { padding: 1.25rem 0.5rem 0.5rem 1rem; }
   }
 
@@ -871,14 +875,10 @@
 <!-- NAV -->
 <nav class="nav">
   <a href="https://app.interalbums.com" class="nav-logo">Interalbums</a>
-  <ul class="nav-links">
-    <li><a href="https://app.interalbums.com/occasions">Occasions</a></li>
-    <li><a href="https://app.interalbums.com/bands">Band Pages</a></li>
-    <li><a href="https://app.interalbums.com/albrary">The Albrary</a></li>
-    <li><a href="https://app.interalbums.com/wlpx">W-LPX</a></li>
-  </ul>
-  <a href="https://app.interalbums.com/login" class="nav-cta">Enter the Platform</a>
-  <button class="nav-mobile-toggle" aria-label="Menu">☰</button>
+  <div class="nav-actions">
+    <a href="https://app.interalbums.com/login" class="nav-signin">Sign In</a>
+    <a href="https://app.interalbums.com/signup" class="nav-cta">Sign Up</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1239,27 +1239,6 @@
     });
   }, { threshold: 0.5 });
   counters.forEach(el => countObserver.observe(el));
-
-  // Mobile nav toggle
-  const toggle = document.querySelector('.nav-mobile-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (toggle && navLinks) {
-    let open = false;
-    toggle.addEventListener('click', () => {
-      open = !open;
-      navLinks.style.display = open ? 'flex' : 'none';
-      navLinks.style.flexDirection = 'column';
-      navLinks.style.position = 'absolute';
-      navLinks.style.top = '56px';
-      navLinks.style.left = '0';
-      navLinks.style.right = '0';
-      navLinks.style.background = '#0e0a04';
-      navLinks.style.padding = '1.5rem 2rem';
-      navLinks.style.borderBottom = '1px solid rgba(245,234,208,0.09)';
-      navLinks.style.gap = '1.25rem';
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-  }
 </script>
 </body>
 </html>
