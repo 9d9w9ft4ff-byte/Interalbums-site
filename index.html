@@ -119,10 +119,11 @@
 
   @media (max-width: 600px) {
     .nav-signin, .nav-cta {
-      padding: 0.4rem 0.8rem;
-      font-size: 0.6rem;
+      padding: 0.4rem 0.65rem;
+      font-size: 0.52rem;
     }
-    .nav-actions { gap: 0.5rem; }
+    .nav-actions { gap: 0.4rem; }
+    .nav-logo { font-size: 1.15rem; }
   }
 
   /* ── HERO ── */
@@ -229,10 +230,7 @@
   }
   .btn-ghost:hover { border-color: var(--cream); transform: translateY(-1px); }
   .hero-scroll {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 3rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.58rem;
     letter-spacing: 0.18em;
@@ -245,6 +243,7 @@
     align-items: center;
     gap: 0.5rem;
     z-index: 2;
+    position: relative;
   }
   .hero-scroll-line {
     width: 1px;
@@ -877,25 +876,26 @@
   <a href="https://app.interalbums.com" class="nav-logo">Interalbums</a>
   <div class="nav-actions">
     <a href="https://app.interalbums.com/login" class="nav-signin">Sign In</a>
-    <a href="https://app.interalbums.com/login" class="nav-cta">Sign Up</a>
+    <a href="https://app.interalbums.com/login" class="nav-signin">Join as a Fan</a>
+    <a href="https://app.interalbums.com/login" class="nav-cta">Join as an Artist</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">A cultural operating system for music</p>
+  <p class="hero-eyebrow">A new kind of music platform</p>
   <h1 class="hero-headline">Music That<br/><span>Builds</span><br/>Community.</h1>
-  <p class="hero-sub">Interalbums brings the musician back to the forefront — and gives fans a place where relationships form the way they always have. Through shared moments.</p>
+  <p class="hero-sub">Discover artists, experience albums together, and build real connections — through music, the way it always worked.</p>
   <div class="hero-actions">
-    <a href="https://app.interalbums.com/login" class="btn-primary">Enter the Platform</a>
-    <a href="https://app.interalbums.com/albrary" class="btn-ghost">Explore the Albrary</a>
+    <a href="https://app.interalbums.com/login" class="btn-primary">Join as a Fan</a>
+    <a href="https://app.interalbums.com/login" class="btn-ghost">Join as an Artist</a>
   </div>
   <svg class="hero-waveform" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0,60 L20,60 L30,30 L40,90 L50,15 L60,100 L70,45 L80,75 L90,20 L100,95 L110,55 L120,65 L130,35 L140,85 L150,50 L160,60 L170,25 L180,95 L190,40 L200,80 L210,55 L220,65 L230,30 L240,90 L250,45 L260,75 L270,20 L280,95 L290,55 L300,65 L310,35 L320,85 L330,50 L340,60 L350,25 L360,95 L370,40 L380,80 L390,55 L400,65 L410,30 L420,90 L430,45 L440,75 L450,20 L460,95 L470,55 L480,65 L490,35 L500,85 L510,50 L520,60 L530,25 L540,95 L550,40 L560,80 L570,55 L580,65 L590,30 L600,90 L610,45 L620,75 L630,20 L640,95 L650,55 L660,65 L670,35 L680,85 L690,50 L700,60 L710,25 L720,95 L730,40 L740,80 L750,55 L760,65 L770,30 L780,90 L790,45 L800,75 L810,20 L820,95 L830,55 L840,65 L850,35 L860,85 L870,50 L880,60 L890,25 L900,95 L910,40 L920,80 L930,55 L940,65 L950,30 L960,90 L970,45 L980,75 L990,20 L1000,95 L1010,55 L1020,65 L1030,35 L1040,85 L1050,50 L1060,60 L1070,25 L1080,95 L1090,40 L1100,80 L1110,55 L1120,65 L1130,30 L1140,90 L1150,45 L1160,75 L1170,20 L1180,95 L1190,55 L1200,60"
       fill="none" stroke="#c8200a" stroke-width="1.5" opacity="0.6"/>
   </svg>
   <div class="hero-scroll">
-    <span>Scroll</span>
+    <span>Scroll to explore</span>
     <div class="hero-scroll-line"></div>
   </div>
 </section>
@@ -903,7 +903,7 @@
 <!-- TICKER -->
 <div class="ticker grain">
   <div class="ticker-inner">
-    Occasions &nbsp;<span class="ticker-dot">·</span>&nbsp; Band Pages &nbsp;<span class="ticker-dot">·</span>&nbsp; The Albrary &nbsp;<span class="ticker-dot">·</span>&nbsp; W-LPX Radio &nbsp;<span class="ticker-dot">·</span>&nbsp; Campfires &nbsp;<span class="ticker-dot">·</span>&nbsp; The Conduit Path &nbsp;<span class="ticker-dot">·</span>&nbsp; Echo Threads &nbsp;<span class="ticker-dot">·</span>&nbsp; Signal Messenger &nbsp;<span class="ticker-dot">·</span>&nbsp; The Nexus &nbsp;<span class="ticker-dot">·</span>&nbsp; Familiar Faces &nbsp;<span class="ticker-dot">·</span>&nbsp; Discovery Dash &nbsp;<span class="ticker-dot">·</span>&nbsp; Occasions &nbsp;<span class="ticker-dot">·</span>&nbsp; Band Pages &nbsp;<span class="ticker-dot">·</span>&nbsp; The Albrary &nbsp;<span class="ticker-dot">·</span>&nbsp; W-LPX Radio &nbsp;<span class="ticker-dot">·</span>&nbsp; Campfires &nbsp;<span class="ticker-dot">·</span>&nbsp; The Conduit Path &nbsp;<span class="ticker-dot">·</span>&nbsp; Echo Threads &nbsp;<span class="ticker-dot">·</span>&nbsp; Signal Messenger &nbsp;<span class="ticker-dot">·</span>&nbsp; The Nexus &nbsp;<span class="ticker-dot">·</span>&nbsp; Familiar Faces &nbsp;<span class="ticker-dot">·</span>&nbsp; Discovery Dash &nbsp;<span class="ticker-dot">·</span>&nbsp;
+    Occasions &nbsp;<span class="ticker-dot">·</span>&nbsp; Band Pages &nbsp;<span class="ticker-dot">·</span>&nbsp; The Albrary &nbsp;<span class="ticker-dot">·</span>&nbsp; W-LPX Radio &nbsp;<span class="ticker-dot">·</span>&nbsp; Campfires &nbsp;<span class="ticker-dot">·</span>&nbsp; The Conduit Path &nbsp;<span class="ticker-dot">·</span>&nbsp; Echo Threads &nbsp;<span class="ticker-dot">·</span>&nbsp; The Green Room &nbsp;<span class="ticker-dot">·</span>&nbsp; Familiar Faces &nbsp;<span class="ticker-dot">·</span>&nbsp; Occasions &nbsp;<span class="ticker-dot">·</span>&nbsp; Band Pages &nbsp;<span class="ticker-dot">·</span>&nbsp; The Albrary &nbsp;<span class="ticker-dot">·</span>&nbsp; W-LPX Radio &nbsp;<span class="ticker-dot">·</span>&nbsp; Campfires &nbsp;<span class="ticker-dot">·</span>&nbsp; The Conduit Path &nbsp;<span class="ticker-dot">·</span>&nbsp; Echo Threads &nbsp;<span class="ticker-dot">·</span>&nbsp; The Green Room &nbsp;<span class="ticker-dot">·</span>&nbsp; Familiar Faces &nbsp;<span class="ticker-dot">·</span>&nbsp;
   </div>
 </div>
 
@@ -978,19 +978,19 @@
       <div class="experience-card">
         <span class="experience-card-icon">🎟️</span>
         <h3 class="experience-card-title">Occasions</h3>
-        <p class="experience-card-body">Synchronized listening rooms where fans experience an album together. Three ticket tiers. Reflection Circles. The Grand Finale. Artists keep 85% of every ticket sold.</p>
-        <a href="https://app.interalbums.com/occasions" class="experience-card-link" target="_blank">Enter Occasions →</a>
+        <p class="experience-card-body">Live, synchronized listening events where fans experience an album together, in real time, with the artist. Artists keep 85% of every ticket sold.</p>
+        <a href="https://app.interalbums.com/occasions" class="experience-card-link" target="_blank">See Upcoming Occasions →</a>
       </div>
       <div class="experience-card">
         <span class="experience-card-icon">💿</span>
         <h3 class="experience-card-title">The Albrary</h3>
-        <p class="experience-card-body">A living archive of Interalbums — records built for the platform, with immersive visual scenes, Echo threads, and a listening experience designed to be felt, not played in the background.</p>
+        <p class="experience-card-body">Our catalog of albums — built to be experienced, not just played in the background. Visuals, depth, and a real listen.</p>
         <a href="https://app.interalbums.com/albrary" class="experience-card-link" target="_blank">Browse The Albrary →</a>
       </div>
       <div class="experience-card">
         <span class="experience-card-icon">📻</span>
         <h3 class="experience-card-title">W-LPX Radio</h3>
-        <p class="experience-card-body">The platform's broadcast layer. Conduit-hosted Concasts — curated, live, community-driven. From free listening nights to premium broadcasts with featured artist exclusives.</p>
+        <p class="experience-card-body">Live, curated radio hosted by real fans and artists — from casual listening nights to special broadcasts.</p>
         <a href="https://app.interalbums.com/wlpx" class="experience-card-link" target="_blank">Tune Into W-LPX →</a>
       </div>
     </div>
@@ -1010,13 +1010,11 @@
         <span class="eyebrow reveal">The Community</span>
         <div class="rule reveal reveal-delay-1"></div>
         <h2 class="display-lg reveal reveal-delay-1">People Orbit<br/>Moments.<br/>Not Each Other.</h2>
-        <p class="body-text reveal reveal-delay-2">Every other platform built a social graph. We built a social topography. You don't collect connections here. You accumulate shared history — through the Occasions you attend, the Echoes you leave, the Campfires you gather around after the music ends.</p>
+        <p class="body-text reveal reveal-delay-2">Most platforms turn relationships into something you collect — followers, friends, connections. We do it differently. You build real history with people by showing up to the same moments — not by searching for them.</p>
         <div class="community-features reveal reveal-delay-3">
-          <p class="community-feature"><b>Familiar Faces</b> — recognized only through shared moments</p>
-          <p class="community-feature"><b>Campfires</b> — ephemeral rooms that form after events, then dissolve</p>
-          <p class="community-feature"><b>Echo Threads</b> — closed rooms of witnesses building meaning together</p>
-          <p class="community-feature"><b>Serendipity</b> — one reveal at a time. Never a directory</p>
-          <p class="community-feature">No follower counts. No vanity metrics. No social graph</p>
+          <p class="community-feature"><b>Familiar Faces</b> — people you recognize because you've shared real moments, not because you searched for them</p>
+          <p class="community-feature"><b>Campfires</b> — small group conversations that happen after a show, then quietly close</p>
+          <p class="community-feature">No follower counts. No like counts. No popularity contest</p>
         </div>
       </div>
       <div class="community-right">
@@ -1031,8 +1029,8 @@
             <p class="community-principle-body">When your path crosses someone else's enough times, they become a Familiar Face. Not a friend. Not a follower. Someone you recognize in the room.</p>
           </div>
           <div>
-            <h3 class="community-principle">Serendipity opens a door.</h3>
-            <p class="community-principle-body">The system offers one introduction at a time — someone who experienced the same moment similarly to you. You reveal. They reveal. A conversation opens. If you pass, it's gone.</p>
+            <h3 class="community-principle">Sometimes, you'll meet someone new.</h3>
+            <p class="community-principle-body">Every so often, the platform might introduce you to one other person who experienced something the same way you did. You decide if you want to say hello.</p>
           </div>
         </div>
       </div>
@@ -1047,91 +1045,76 @@
       <span class="eyebrow reveal">The Conduit Path</span>
       <div class="rule rule-amber reveal reveal-delay-1"></div>
       <h2 class="display-xl reveal reveal-delay-1">The Most<br/>Dedicated<br/>Fans Earn<br/>The Right<br/>To Broadcast.</h2>
-      <p class="body-text reveal reveal-delay-2">Conduits are not influencers. They're cultural operators — a mix of DJ, journalist, curator, marketer, and facilitator. The path is earned through 90 days of demonstrated participation. It cannot be purchased.</p>
+      <p class="body-text reveal reveal-delay-2">Conduits are trusted voices in the community — not influencers, but real fans who've shown up consistently and earned the right to help others discover great music. This status can't be bought. It's earned through real participation over time.</p>
       <div class="conduit-path reveal reveal-delay-3" id="conduitPath">
         <div class="conduit-path-line"><div class="conduit-path-line-fill" id="conduitFill"></div></div>
         <div class="conduit-step">
           <div class="conduit-step-num">1</div>
           <div>
             <p class="conduit-step-label">Explorer</p>
-            <p class="conduit-step-body">First contact. Free. Begin attending Occasions and exploring the Albrary.</p>
+            <p class="conduit-step-body">Everyone starts here. Free. Attend Occasions, browse the Albrary, get a feel for the platform.</p>
           </div>
         </div>
         <div class="conduit-step">
           <div class="conduit-step-num">2</div>
           <div>
             <p class="conduit-step-label">Dweller</p>
-            <p class="conduit-step-body">Returns intentionally. Submits Echoes. Builds a presence in the platform.</p>
+            <p class="conduit-step-body">You keep coming back, and start sharing your own thoughts and reactions.</p>
           </div>
         </div>
         <div class="conduit-step">
           <div class="conduit-step-num">3</div>
           <div>
             <p class="conduit-step-label">Steward</p>
-            <p class="conduit-step-body">Active contributor. Supports others' Echoes. Attends Concasts. Builds genuine history.</p>
+            <p class="conduit-step-body">A real, recognized presence — supporting others, showing up consistently.</p>
           </div>
         </div>
         <div class="conduit-step conduit-step-active">
           <div class="conduit-step-num">→</div>
           <div>
             <p class="conduit-step-label">Conduit</p>
-            <p class="conduit-step-body">90 days as Steward + 7 activity thresholds. The system detects it. You earn it.</p>
+            <p class="conduit-step-body">Sustained, genuine participation over time. The platform recognizes it — you don't apply for it.</p>
           </div>
         </div>
       </div>
     </div>
     <div>
-      <p class="eyebrow reveal" style="color: var(--amber);">The Conduit Toolbox</p>
+      <p class="eyebrow reveal" style="color: var(--amber);">What Conduits Get</p>
       <div class="conduit-tools reveal reveal-delay-1">
         <div class="conduit-tool">
           <span class="conduit-tool-icon">📡</span>
           <div>
             <p class="conduit-tool-name">Concast Studio</p>
-            <p class="conduit-tool-desc">Host live broadcasts on W-LPX. Free or premium up to $25.</p>
+            <p class="conduit-tool-desc">Host your own live listening sessions and broadcasts.</p>
           </div>
         </div>
         <div class="conduit-tool">
           <span class="conduit-tool-icon">📰</span>
           <div>
             <p class="conduit-tool-name">The Press Room</p>
-            <p class="conduit-tool-desc">Publish reviews, scene reports, and artist spotlights under your byline.</p>
+            <p class="conduit-tool-desc">Write reviews and spotlights under your own byline.</p>
           </div>
         </div>
         <div class="conduit-tool">
-          <span class="conduit-tool-icon">📬</span>
+          <span class="conduit-tool-icon">🚪</span>
           <div>
-            <p class="conduit-tool-name">Broadcast Wire</p>
-            <p class="conduit-tool-desc">Reach your listeners directly. Receive and review artist pitches.</p>
+            <p class="conduit-tool-name">The Green Room</p>
+            <p class="conduit-tool-desc">Direct line to artists for collaboration and coordination.</p>
           </div>
         </div>
         <div class="conduit-tool">
           <span class="conduit-tool-icon">🔥</span>
           <div>
-            <p class="conduit-tool-name">Campfire Launcher</p>
-            <p class="conduit-tool-desc">Convene ephemeral gathering spaces after broadcasts and events.</p>
-          </div>
-        </div>
-        <div class="conduit-tool">
-          <span class="conduit-tool-icon">💬</span>
-          <div>
-            <p class="conduit-tool-name">Signal Messenger</p>
-            <p class="conduit-tool-desc">Direct access to artists and other Conduits for coordination.</p>
+            <p class="conduit-tool-name">Campfires</p>
+            <p class="conduit-tool-desc">Host small group conversations after a show or broadcast ends.</p>
           </div>
         </div>
       </div>
       <div class="conduit-revenue reveal reveal-delay-2">
-        <p class="conduit-revenue-label">Revenue Splits</p>
+        <p class="conduit-revenue-label">Revenue Share</p>
         <div class="conduit-revenue-row">
-          <span>Concast ticket sales</span>
-          <span class="conduit-revenue-pct"><span class="num" data-count="70">0</span>% Conduit</span>
-        </div>
-        <div class="conduit-revenue-row">
-          <span>Ad reads</span>
-          <span class="conduit-revenue-pct"><span class="num" data-count="80">0</span>% Conduit</span>
-        </div>
-        <div class="conduit-revenue-row">
-          <span>Artist spotlights</span>
-          <span class="conduit-revenue-pct"><span class="num" data-count="85">0</span>% Conduit</span>
+          <span>Concasts you host</span>
+          <span class="conduit-revenue-pct"><span class="num" data-count="85">0</span>% Yours</span>
         </div>
       </div>
     </div>
@@ -1144,25 +1127,21 @@
     <div class="invite-card">
       <span class="invite-card-tag">For Fans</span>
       <h2 class="invite-card-title">Join As A Fan</h2>
-      <p class="invite-card-body">Start as an Explorer. Attend Occasions. Build your shared history. If you received a founding fan code, use it at signup to receive immediate Steward access.</p>
-      <div class="founding-code-box">
-        <span class="founding-code-label">Founding Fan Code</span>
-        <p class="founding-code-value">FOUNDING2026</p>
-        <span class="founding-code-note">Enter at signup · Limited to first 1,000 fans · Full Steward access from day one</span>
-      </div>
+      <p class="invite-card-body">Discover artists, attend live listening Occasions, and build real connections with people who love the same music you do. If someone invited you with a code, you'll be asked for it at signup.</p>
+      <br/>
       <a href="https://app.interalbums.com/login" class="btn-primary">Create Fan Account</a>
     </div>
     <div class="invite-card">
       <span class="invite-card-tag">For Artists</span>
       <h2 class="invite-card-title">Join As An Artist</h2>
-      <p class="invite-card-body">Build your booth. Create your band page. Upload your Interalbum. Connect with your audience through Occasions and Echo threads — without a middleman taking the majority.</p>
+      <p class="invite-card-body">Build your page, share your music, and connect directly with the fans who show up for you — no middleman taking the majority of what you earn.</p>
       <br/>
       <a href="https://app.interalbums.com/login" class="btn-primary">Create Artist Account</a>
     </div>
     <div class="invite-card">
       <span class="invite-card-tag">Already Here</span>
       <h2 class="invite-card-title">Enter The Platform</h2>
-      <p class="invite-card-body">The Albrary is live. The Human Quest by 3rd Borough is Founding Interalbum #001. Occasions, Band Pages, W-LPX, and the Conduit path are all open.</p>
+      <p class="invite-card-body">3rd Borough's debut album, The Human Quest, is live now — along with Occasions, band pages, and live radio.</p>
       <br/>
       <a href="https://app.interalbums.com" class="btn-ghost" style="border-color: rgba(245,234,208,0.4);">Enter Interalbums →</a>
     </div>
