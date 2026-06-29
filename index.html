@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Interalbums — Music That Builds Community</title>
-<meta name="description" content="A cultural operating system for music. Where musicians lead, fans gather, and relationships form the way they always have — through shared moments."/>
+<title>Interalbums — A New Kind of Social Music Venue Platform</title>
+<meta name="description" content="A new kind of social music venue platform. Where musicians lead, fans gather, and relationships form the way they always have — through shared moments."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
@@ -591,123 +590,6 @@
   }
   .community-feature b { color: var(--cream); font-weight: 500; }
 
-  /* ── SECTION 4: THE CONDUIT ── */
-  .conduit-wrap { background: var(--ink2); }
-  .conduit-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 8rem 2rem;
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-  .conduit-path { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; position: relative; }
-  .conduit-path-line {
-    position: absolute;
-    left: 14px;
-    top: 28px;
-    bottom: 28px;
-    width: 1px;
-    background: var(--border);
-  }
-  .conduit-path-line-fill {
-    position: absolute;
-    left: 0; top: 0;
-    width: 100%;
-    height: 0%;
-    background: linear-gradient(to bottom, var(--red-bright), var(--amber));
-    transition: height 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .conduit-path-line-fill.visible { height: 100%; }
-  .conduit-step {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    padding-bottom: 2.25rem;
-    position: relative;
-  }
-  .conduit-step-num {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--ink2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem;
-    color: var(--muted);
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
-  }
-  .conduit-step-active .conduit-step-num {
-    background: var(--red-bright);
-    border-color: var(--red-bright);
-    color: var(--cream);
-  }
-  .conduit-step-label {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1.15rem;
-    letter-spacing: -0.005em;
-    color: var(--cream);
-    margin-bottom: 0.25rem;
-  }
-  .conduit-step-body {
-    font-size: 0.88rem;
-    font-weight: 400;
-    line-height: 1.65;
-    color: var(--muted);
-  }
-  .conduit-tools { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-  .conduit-tool {
-    display: flex;
-    gap: 0.85rem;
-    align-items: flex-start;
-    padding: 0.9rem 1.1rem;
-    border: 1px solid var(--border);
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .conduit-tool:hover { border-color: rgba(245,234,208,0.22); background: rgba(245,234,208,0.02); }
-  .conduit-tool-icon { font-size: 1rem; flex-shrink: 0; }
-  .conduit-tool-name {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    font-size: 0.88rem;
-    color: var(--cream);
-    margin-bottom: 0.2rem;
-  }
-  .conduit-tool-desc { font-size: 0.82rem; font-weight: 400; color: var(--muted); line-height: 1.5; }
-  .conduit-revenue {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(200,32,10,0.07);
-    border: 1px solid rgba(200,32,10,0.22);
-  }
-  .conduit-revenue-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--red-bright);
-    margin-bottom: 1rem;
-  }
-  .conduit-revenue-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.55rem 0;
-    border-bottom: 1px solid rgba(200,32,10,0.12);
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-  }
-  .conduit-revenue-row:last-child { border-bottom: none; }
-  .conduit-revenue-pct { color: var(--amber); font-weight: 700; }
-  .conduit-revenue-pct .num { display: inline-block; min-width: 2.2ch; text-align: right; }
 
   /* ── SECTION 5: INVITATION ── */
   .invite-wrap { background: var(--ink); border-top: 1px solid var(--border); }
@@ -845,7 +727,6 @@
     .community-split { grid-template-columns: 1fr; }
     .community-left { padding: 4rem 2rem; }
     .community-right { padding: 4rem 2rem; }
-    .conduit-inner { grid-template-columns: 1fr; gap: 3.5rem; }
     .invite-inner { grid-template-columns: 1fr; }
     .credit-sheet-wrap { padding: 1.25rem 0.5rem 0.5rem 1rem; }
   }
@@ -855,7 +736,6 @@
     .section { padding: 5rem 1.25rem; }
     .section-full { padding: 5rem 1.25rem; }
     .experience-inner { padding: 5rem 1.25rem; }
-    .conduit-inner { padding: 5rem 1.25rem; }
     .invite-card { padding: 2.5rem 1.5rem; }
     .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
     .btn-primary, .btn-ghost { text-align: center; }
@@ -865,7 +745,6 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .reveal { opacity: 1; transform: none; }
-    .conduit-path-line-fill { height: 100% !important; }
   }
 </style>
 </head>
@@ -875,7 +754,7 @@
 <nav class="nav">
   <a href="https://app.interalbums.com" class="nav-logo">Interalbums</a>
   <div class="nav-actions">
-    <a href="https://app.interalbums.com/login" class="nav-signin">Sign In</a>
+    <a href="https://app.interalbums.com/signin" class="nav-signin">Sign In</a>
     <a href="https://app.interalbums.com/login" class="nav-signin">Join as a Fan</a>
     <a href="https://app.interalbums.com/login" class="nav-cta">Join as an Artist</a>
   </div>
@@ -883,7 +762,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">A new kind of music platform</p>
+  <p class="hero-eyebrow">A new kind of social music venue platform</p>
   <h1 class="hero-headline">Music That<br/><span>Builds</span><br/>Community.</h1>
   <p class="hero-sub">Discover artists, experience albums together, and build real connections — through music, the way it always worked.</p>
   <div class="hero-actions">
@@ -900,14 +779,7 @@
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker grain">
-  <div class="ticker-inner">
-    Occasions &nbsp;<span class="ticker-dot">·</span>&nbsp; Band Pages &nbsp;<span class="ticker-dot">·</span>&nbsp; The Albrary &nbsp;<span class="ticker-dot">·</span>&nbsp; W-LPX Radio &nbsp;<span class="ticker-dot">·</span>&nbsp; Campfires &nbsp;<span class="ticker-dot">·</span>&nbsp; The Conduit Path &nbsp;<span class="ticker-dot">·</span>&nbsp; Echo Threads &nbsp;<span class="ticker-dot">·</span>&nbsp; The Green Room &nbsp;<span class="ticker-dot">·</span>&nbsp; Familiar Faces &nbsp;<span class="ticker-dot">·</span>&nbsp; Occasions &nbsp;<span class="ticker-dot">·</span>&nbsp; Band Pages &nbsp;<span class="ticker-dot">·</span>&nbsp; The Albrary &nbsp;<span class="ticker-dot">·</span>&nbsp; W-LPX Radio &nbsp;<span class="ticker-dot">·</span>&nbsp; Campfires &nbsp;<span class="ticker-dot">·</span>&nbsp; The Conduit Path &nbsp;<span class="ticker-dot">·</span>&nbsp; Echo Threads &nbsp;<span class="ticker-dot">·</span>&nbsp; The Green Room &nbsp;<span class="ticker-dot">·</span>&nbsp; Familiar Faces &nbsp;<span class="ticker-dot">·</span>&nbsp;
-  </div>
-</div>
 
-<!-- SECTION 1: THE MUSICIAN -->
 <div class="section-dark grain">
   <div class="section">
     <div class="musician-grid">
@@ -1038,89 +910,6 @@
   </div>
 </div>
 
-<!-- SECTION 4: THE CONDUIT -->
-<div class="conduit-wrap grain">
-  <div class="conduit-inner">
-    <div>
-      <span class="eyebrow reveal">The Conduit Path</span>
-      <div class="rule rule-amber reveal reveal-delay-1"></div>
-      <h2 class="display-xl reveal reveal-delay-1">The Most<br/>Dedicated<br/>Fans Earn<br/>The Right<br/>To Broadcast.</h2>
-      <p class="body-text reveal reveal-delay-2">Conduits are trusted voices in the community — not influencers, but real fans who've shown up consistently and earned the right to help others discover great music. This status can't be bought. It's earned through real participation over time.</p>
-      <div class="conduit-path reveal reveal-delay-3" id="conduitPath">
-        <div class="conduit-path-line"><div class="conduit-path-line-fill" id="conduitFill"></div></div>
-        <div class="conduit-step">
-          <div class="conduit-step-num">1</div>
-          <div>
-            <p class="conduit-step-label">Explorer</p>
-            <p class="conduit-step-body">Everyone starts here. Free. Attend Occasions, browse the Albrary, get a feel for the platform.</p>
-          </div>
-        </div>
-        <div class="conduit-step">
-          <div class="conduit-step-num">2</div>
-          <div>
-            <p class="conduit-step-label">Dweller</p>
-            <p class="conduit-step-body">You keep coming back, and start sharing your own thoughts and reactions.</p>
-          </div>
-        </div>
-        <div class="conduit-step">
-          <div class="conduit-step-num">3</div>
-          <div>
-            <p class="conduit-step-label">Steward</p>
-            <p class="conduit-step-body">A real, recognized presence — supporting others, showing up consistently.</p>
-          </div>
-        </div>
-        <div class="conduit-step conduit-step-active">
-          <div class="conduit-step-num">→</div>
-          <div>
-            <p class="conduit-step-label">Conduit</p>
-            <p class="conduit-step-body">Sustained, genuine participation over time. The platform recognizes it — you don't apply for it.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <p class="eyebrow reveal" style="color: var(--amber);">What Conduits Get</p>
-      <div class="conduit-tools reveal reveal-delay-1">
-        <div class="conduit-tool">
-          <span class="conduit-tool-icon">📡</span>
-          <div>
-            <p class="conduit-tool-name">Concast Studio</p>
-            <p class="conduit-tool-desc">Host your own live listening sessions and broadcasts.</p>
-          </div>
-        </div>
-        <div class="conduit-tool">
-          <span class="conduit-tool-icon">📰</span>
-          <div>
-            <p class="conduit-tool-name">The Press Room</p>
-            <p class="conduit-tool-desc">Write reviews and spotlights under your own byline.</p>
-          </div>
-        </div>
-        <div class="conduit-tool">
-          <span class="conduit-tool-icon">🚪</span>
-          <div>
-            <p class="conduit-tool-name">The Green Room</p>
-            <p class="conduit-tool-desc">Direct line to artists for collaboration and coordination.</p>
-          </div>
-        </div>
-        <div class="conduit-tool">
-          <span class="conduit-tool-icon">🔥</span>
-          <div>
-            <p class="conduit-tool-name">Campfires</p>
-            <p class="conduit-tool-desc">Host small group conversations after a show or broadcast ends.</p>
-          </div>
-        </div>
-      </div>
-      <div class="conduit-revenue reveal reveal-delay-2">
-        <p class="conduit-revenue-label">Revenue Share</p>
-        <div class="conduit-revenue-row">
-          <span>Concasts you host</span>
-          <span class="conduit-revenue-pct"><span class="num" data-count="85">0</span>% Yours</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- SECTION 5: THE INVITATION -->
 <div class="invite-wrap grain">
   <div class="invite-inner">
@@ -1148,13 +937,6 @@
   </div>
 </div>
 
-<!-- FOOTER TICKER — bookends the page -->
-<div class="ticker footer-ticker grain ticker-reverse">
-  <div class="ticker-inner">
-    The Human Quest &nbsp;<span class="ticker-dot">·</span>&nbsp; Interalbum #001 &nbsp;<span class="ticker-dot">·</span>&nbsp; 3rd Borough &nbsp;<span class="ticker-dot">·</span>&nbsp; San Diego, CA &nbsp;<span class="ticker-dot">·</span>&nbsp; Founding Fan Code &nbsp;<span class="ticker-dot">·</span>&nbsp; W-LPX Radio &nbsp;<span class="ticker-dot">·</span>&nbsp; The Conduit Path &nbsp;<span class="ticker-dot">·</span>&nbsp; The Human Quest &nbsp;<span class="ticker-dot">·</span>&nbsp; Interalbum #001 &nbsp;<span class="ticker-dot">·</span>&nbsp; 3rd Borough &nbsp;<span class="ticker-dot">·</span>&nbsp; San Diego, CA &nbsp;<span class="ticker-dot">·</span>&nbsp; Founding Fan Code &nbsp;<span class="ticker-dot">·</span>&nbsp; W-LPX Radio &nbsp;<span class="ticker-dot">·</span>&nbsp; The Conduit Path &nbsp;<span class="ticker-dot">·</span>&nbsp;
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -1164,7 +946,7 @@
       <li><a href="https://app.interalbums.com/bands" target="_blank">Band Pages</a></li>
       <li><a href="https://app.interalbums.com/albrary" target="_blank">The Albrary</a></li>
       <li><a href="https://app.interalbums.com/wlpx" target="_blank">W-LPX</a></li>
-      <li><a href="https://app.interalbums.com/login" target="_blank">Sign In</a></li>
+      <li><a href="https://app.interalbums.com/signin" target="_blank">Sign In</a></li>
     </ul>
     <p class="footer-copy">© 2026 Interalbums · All rights reserved</p>
   </div>
@@ -1183,19 +965,7 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
 
-  // Conduit path line draws progressively as it enters view
-  const conduitFill = document.getElementById('conduitFill');
-  if (conduitFill) {
-    const fillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          conduitFill.classList.add('visible');
-          fillObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    fillObserver.observe(document.getElementById('conduitPath'));
-  }
+  // (Conduit path animation removed along with the Conduit section)
 
   // Revenue split numbers count up on reveal
   const counters = document.querySelectorAll('.num[data-count]');
