@@ -5,7 +5,7 @@ export default async function handler(req) {
   const slug = searchParams.get('slug') || req.url.split('/').pop();
 
   const SUPABASE_URL = 'https://ffibgowmvmtgnogcenso.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmaWJnb3dtdm10Z25vZ2Nlbn NvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTczNjA4MDAsImV4cCI6MjAzMjkzNjgwMH0.your-actual-key';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmaWJnb3dtdm10Z25vZ2NlbnNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNTYyNjgsImV4cCI6MjA5NjczMjI2OH0.Ag46jjF-jNJDfSrzbJao3hb3rmZnop2oP22ilSP-2_E';
 
   const albumRes = await fetch(
     `${SUPABASE_URL}/rest/v1/albums?slug=eq.${slug}&is_active=eq.true&select=id,title,cover_image_url,booth_art_url,artist_id&limit=1`,
