@@ -6,31 +6,19 @@ export default async function handler(req) {
   const slug = parts[parts.length - 1].replace(/[?#].*$/, '');
 
   const SUPABASE_URL = 'https://ffibgowmvmtgnogcenso.supabase.co';
-  const SUPABASE_ANON_KEY = 'PASTE_YOUR_ANON_KEY_HERE';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmaWJnb3dtdm10Z25vZ2NlbnNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNTYyNjgsImV4cCI6MjA5NjczMjI2OH0.Ag46jjF-jNJDfSrzbJao3hb3rmZnop2oP22ilSP-2_E';
 
   const albumRes = await fetch(
     `${SUPABASE_URL}/rest/v1/albums?slug=eq.${slug}&is_active=eq.true&select=id,title,cover_image_url,booth_art_url,artist_id&limit=1`,
-    {
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-      }
-    }
+    { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
   );
   const albums = await albumRes.json();
-  if (!albums?.length) {
-    return new Response('Not found', { status: 404 });
-  }
+  if (!albums?.length) return new Response('Not found', { status: 404 });
   const album = albums[0];
 
   const artistRes = await fetch(
     `${SUPABASE_URL}/rest/v1/artists?id=eq.${album.artist_id}&select=band_name&limit=1`,
-    {
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-      }
-    }
+    { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
   );
   const artists = await artistRes.json();
   const bandName = artists?.[0]?.band_name ?? 'An artist on Interalbums';
