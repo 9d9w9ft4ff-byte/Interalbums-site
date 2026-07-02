@@ -2,8 +2,11 @@
   "rewrites": [
     {
       "source": "/share/album/:slug",
-      "destination": "https://ffibgowmvmtgnogcenso.supabase.co/functions/v1/album-og?slug=:slug"
+      "destination": "/api/share/album/:slug"
     },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
