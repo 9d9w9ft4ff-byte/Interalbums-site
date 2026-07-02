@@ -1,15 +1,20 @@
-export default async function handler(req, res) {
-  const { slug } = req.query;
+export const config = { runtime: 'edge' };
+
+export default async function handler(req) {
+  const { searchParams } = new URL(req.url);
+  const slug = searchParams.get('slug') || req.url.split('/').pop();
 
   const SUPABASE_URL = 'https://ffibgowmvmtgnogcenso.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmaWJnb3dtdm10Z25vZ2Nlbn NvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTczNjA4MDAsImV4cCI6MjAzMjkzNjgwMH0.your-anon-key';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmaWJnb3dtdm10Z25vZ2Nlbn NvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTczNjA4MDAsImV4cCI6MjAzMjkzNjgwMH0.your-actual-key';
 
   const albumRes = await fetch(
     `${SUPABASE_URL}/rest/v1/albums?slug=eq.${slug}&is_active=eq.true&select=id,title,cover_image_url,booth_art_url,artist_id&limit=1`,
     { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
   );
   const albums = await albumRes.json();
-  if (!albums?.length) return res.status(404).send('Not found');
+  if (!albums?.length) {
+    return new Response('Not found', { status: 404 });
+  }
   const album = albums[0];
 
   const artistRes = await fetch(
@@ -54,7 +59,10 @@ export default async function handler(req, res) {
 </body>
 </html>`;
 
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 'public, max-age=3600');
-  res.status(200).send(html);
+  return new Response(html, {
+    headers: {
+      'Content-Type': 'text/html;charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
+    },
+  });
 }
