@@ -1,5 +1,9 @@
 {
   "rewrites": [
+    {
+      "source": "/share/album/:slug",
+      "destination": "https://ffibgowmvmtgnogcenso.supabase.co/functions/v1/album-og?slug=:slug"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
