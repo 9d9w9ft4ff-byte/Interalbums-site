@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/share/album/[slug].js": {
-      "runtime": "edge"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
