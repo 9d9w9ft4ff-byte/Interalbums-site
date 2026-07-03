@@ -62,7 +62,7 @@ export default async function handler(req) {
 );
   const artist   = artists?.[0];
   const bandName = artist?.band_name ?? "Interalbums Artist";
-  const imageUrl = artist?.booth_art_url ?? "https://interalbums.com/og-default.jpg";
+  const imageUrl = artist?.avatar_url ?? "https://interalbums.com/og-default.jpg";
 
   // 3. Fetch cheapest active pass
   const passes = await sbFetch(
