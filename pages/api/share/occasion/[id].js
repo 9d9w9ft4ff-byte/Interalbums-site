@@ -57,9 +57,9 @@ export default async function handler(req) {
   }
 
   // 2. Fetch artist
-  const artists = await sbFetch(
-    `artists?id=eq.${occasion.artist_id}&select=band_name,booth_art_url&limit=1`
-  );
+ const artists = await sbFetch(
+  `artists?id=eq.${occasion.artist_id}&select=band_name,avatar_url&limit=1`
+);
   const artist   = artists?.[0];
   const bandName = artist?.band_name ?? "Interalbums Artist";
   const imageUrl = artist?.booth_art_url ?? "https://interalbums.com/og-default.jpg";
